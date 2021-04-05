@@ -1,33 +1,30 @@
 import logo from "./logo.svg";
 import "./App.css";
-import Mapillary from "mapillary-js";
+import Map from "./Map";
+
+//
+// import "mapillary-js/dist/mapillary.min.css";
+// const Mapillary = require("../mapillary-js");
 
 function App() {
-  // <script>
-  let mlyCombined = new Mapillary.Viewer(
-    "mapillaryjs", // div node ID
+  // const map = (
+  //   <div className="App">
+  //     <div id="mapillaryjs" style="width: 100%; height: 500px;"></div>
+  //     {/* <script>{mlyCombined}</script> */}
+  //   </div>
+  // );
 
-    // Replace this with your own client ID
-    // To start using MapillaryJS, you need a create a Mapillary account
-    // and register your application to obtain a Client ID.
-    "QjI1NnU0aG5FZFZISE56U3R5aWN4Zzo3NTM1MjI5MmRjODZlMzc0",
+  // const mlyCombined = new Mapillary.Viewer({
+  //   apiClient: "MHZvSFJXZjRWR0p0YWZpODRTMDhDbjoxOTUzYjNlMjVlMWM0NTcw",
+  //   container: "mapillaryjs",
+  //   imageId: "TUmg28hw3TfXy9D_ZINqNA",
+  // });
 
-    "TUmg28hw3TfXy9D_ZINqNA", // Mapillary image key
+  // map.script = mlyCombined;
 
-    // No loading cover, and disable sequence stepper
-    {
-      component: {
-        cover: false,
-        sequence: {
-          visible: false,
-        },
-      },
-    }
-  );
-  // </script>
   return (
-    <div className="App">
-      <div id="mapillaryjs" style="width: 100%; height: 500px;"></div>
+    <div>
+      <Map />
     </div>
   );
 }
