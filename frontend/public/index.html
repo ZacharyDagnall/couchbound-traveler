@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <script src="https://unpkg.com/mapillary-js@2.18.0/dist/mapillary.min.js"></script>
-	<link href="https://unpkg.com/mapillary-js@2.18.0/dist/mapillary.min.css" rel="stylesheet" />
+    <link href='https://unpkg.com/mapillary-js@2.18.1/dist/mapillary.min.css' rel='stylesheet' />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
@@ -11,7 +11,6 @@
       name="description"
       content="Web site created using create-react-app"
     />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -32,39 +31,6 @@
     <noscript>You need to enable JavaScript to run this app.</noscript>
     
     <div id="root"></div>
-    <div id="mapillaryjs" style="width: 100%; height: 500px;">
-    </div>
-    <script>
-      var mlyCombined = new Mapillary.Viewer(
-      'mapillaryjs', // div node ID
-  
-      // Replace this with your own client ID
-      // To start using MapillaryJS, you need a create a Mapillary account
-      // and register your application to obtain a Client ID.
-      'MHZvSFJXZjRWR0p0YWZpODRTMDhDbjoxOTUzYjNlMjVlMWM0NTcw',
-      
-      '6ZcXjb82YuNEtPNA3fqBzA', // Mapillary image key
-      
-      // No loading cover, and disable sequence stepper
-      {
-        component: {
-          cover: false,
-          sequence: {
-            visible: false
-          },
-        }}
-      );
-      window.addEventListener("resize", function() { mly.resize(); });
-    </script>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+    
   </body>
 </html>

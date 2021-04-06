@@ -68,3 +68,26 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+#
+
+#
+
+#
+
+#### notes for myself:
+
+- eurasia can count for europe or asia
+- oceania or australia should count too
+- maybe make a method like:
+
+```continentEqual(guess, correct){
+    if (correct==="asia" || correct==="europe"){
+        return (guess === correct || guess === "eurasia")
+    } else if (correct === "australia" || correct === "oceania"){
+        return (guess === "australia" || guess === "oceania")
+    } else {
+        return guess === correct
+    }
+}
+```
