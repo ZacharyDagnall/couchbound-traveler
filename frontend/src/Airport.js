@@ -1,9 +1,15 @@
 import React, { useState } from "react";
-import { Switch, Route, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import airportpic from "./airport.jpg";
 
 function Airport({ setTravelMode }) {
   const [modalShowing, setModalShowing] = useState(false);
+
+  function handleModeSelect(e) {
+    setTravelMode(e.target.innerText);
+    history.push("/travelling");
+  }
+
   const history = useHistory();
 
   function letsgo() {
@@ -18,11 +24,6 @@ function Airport({ setTravelMode }) {
     history.push("/profile");
   }
 
-  function handleModeSelect(e) {
-    setTravelMode(e.target.innerText);
-    history.push("/travelling");
-  }
-
   return (
     <div
       style={{
@@ -35,15 +36,15 @@ function Airport({ setTravelMode }) {
     >
       <div className="content">Welcome {"Bingo Bongo"} !</div>
       <br></br>
-      <div className="content" onClick={letsgo}>
+      <div className="content content-button" onClick={letsgo}>
         Take a new trip
       </div>
       <br></br>
-      <div className="content" onClick={viewPassport}>
+      <div className="content content-button" onClick={viewPassport}>
         View Passport
       </div>
       <br></br>
-      <div className="content" onClick={editProfile}>
+      <div className="content content-button" onClick={editProfile}>
         Edit Profile
       </div>
 
@@ -51,13 +52,13 @@ function Airport({ setTravelMode }) {
         <div className="modal">
           Choose your mode!
           <div className="mode-button" onClick={handleModeSelect}>
-            Mode 1
+            Find Yourself
           </div>
           <div className="mode-button" onClick={handleModeSelect}>
-            Mode 2
+            Mission Mode
           </div>
           <div className="mode-button" onClick={handleModeSelect}>
-            Mode 3
+            Tourism
           </div>
           <span
             className="close-mode-box"

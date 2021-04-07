@@ -27,9 +27,14 @@ code {
   z-index: 100;
   padding: 3px;
   border-radius: 10px;
-  background-color: green;
+  background-color: red;
   display: inline-block;
   margin: 5px 5px 5px 5px;
+}
+
+.content-button {
+  background-color: green;
+  margin: 7px;
 }
 
 .background {
@@ -103,4 +108,16 @@ code {
   padding: 3px;
   background-color: pink;
   cursor: pointer;
+}
+
+#chatbox {
+  position: relative;
+  background-color: white;
+  border-radius: 10px;
+  margin: 12px;
+  padding: 8px;
+}
+
+#chat-header {
+  background-color: aqua;
 }

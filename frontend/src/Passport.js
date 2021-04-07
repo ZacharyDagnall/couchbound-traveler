@@ -1,10 +1,12 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import Trip from "./Trip";
 import world from "./world.png";
 import peru from "./peru.png";
 import cuba from "./cuba.jpeg";
 
 function Passport() {
+  const history = useHistory();
   const temptripsbeforefetch = [
     {
       id: 0,
@@ -19,6 +21,7 @@ function Passport() {
       dateTravelled: "Saturday April 9th 2021",
     },
   ];
+
   return (
     <div
       style={{
@@ -40,6 +43,10 @@ function Passport() {
           />
         );
       })}
+      <br></br>
+      <div className="content content-button" onClick={() => history.push("/")}>
+        Exit Passport
+      </div>
     </div>
   );
 }
