@@ -1,16 +1,37 @@
 import "./App.css";
-import Map from "./Map";
+import { useState } from "react";
+import { Switch, Route, Redirect } from "react-router-dom";
+import Airport from "./Airport";
+import Passport from "./Passport";
+import Profile from "./Profile";
+import Travelling from "./Travelling";
 
 function App() {
+  const [travelMode, setTravelMode] = useState("");
   return (
-    <div id="wrapper">
-      <div className="content">
-        <p>hey there!</p>
-      </div>
-      <div className="background">
-        <Map />
-      </div>
-    </div>
+    <>
+      <Switch>
+        <Route exact path="/">
+          <Airport setTravelMode={setTravelMode} />
+        </Route>
+        <Route exact path="/passport">
+          <Passport />
+        </Route>
+        <Route exact path="/profile">
+          <Profile />
+        </Route>
+        <Route exact path="/travelling">
+          <Travelling travelMode={travelMode} />
+        </Route>
+        <Route exact path="/*">
+          <Redirect
+            to={{
+              pathname: "/",
+            }}
+          />
+        </Route>
+      </Switch>
+    </>
   );
 }
 
