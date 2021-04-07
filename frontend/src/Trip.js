@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
 
-function Trip({ country, flag, dateTravelled }) {
+function Trip({ trip }) {
   return (
     <>
       <Card
@@ -9,15 +9,16 @@ function Trip({ country, flag, dateTravelled }) {
           margin: "15px 15px 15px 15px",
         }}
       >
-        <Card.Header>{country}</Card.Header>
+        <Card.Header>{trip.city}</Card.Header>
         <Card.Body style={{ justifyContent: "center", alignItems: "center" }}>
-          <Card.Title>City, {country}</Card.Title>
-          <Card.Text>{dateTravelled}</Card.Text>
-          <img
+          {/* have to change the way that these trips come in from the backend because right now we can't see the city name or flag etc etc, no info about city... change in models  */}
+          {/* <Card.Title>trip.nameCity, {country}</Card.Title> */}
+          <Card.Text>{trip.date_travelled}</Card.Text>
+          {/* <img
             src={flag}
             alt={country + "'s Flag"}
             style={{ maxWidth: "70px" }}
-          ></img>
+          ></img> */}
           {/* <div
             style={{
               background: `url(${flag})`,

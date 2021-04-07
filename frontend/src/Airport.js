@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import airportpic from "./airport.jpg";
 
-function Airport({ setTravelMode }) {
+function Airport({ setTravelMode, setUser, user }) {
   const [modalShowing, setModalShowing] = useState(false);
 
   function handleModeSelect(e) {
@@ -10,19 +10,13 @@ function Airport({ setTravelMode }) {
     history.push("/travelling");
   }
 
+  function logout() {
+    setUser(null);
+    localStorage.removeItem("token");
+    history.push("/login");
+  }
+
   const history = useHistory();
-
-  function letsgo() {
-    setModalShowing(true);
-  }
-
-  function viewPassport() {
-    history.push("/passport");
-  }
-
-  function editProfile() {
-    history.push("/profile");
-  }
 
   return (
     <div
@@ -34,18 +28,31 @@ function Airport({ setTravelMode }) {
         backgroundSize: "cover",
       }}
     >
-      <div className="content">Welcome {"Bingo Bongo"} !</div>
+      <div className="content">Nice to see ya again, {user.username} !</div>
       <br></br>
-      <div className="content content-button" onClick={letsgo}>
+      <div
+        className="content content-button"
+        onClick={() => setModalShowing(true)}
+      >
         Take a new trip
       </div>
       <br></br>
-      <div className="content content-button" onClick={viewPassport}>
+      <div
+        className="content content-button"
+        onClick={() => history.push("/passport")}
+      >
         View Passport
       </div>
       <br></br>
-      <div className="content content-button" onClick={editProfile}>
+      <div
+        className="content content-button"
+        onClick={() => history.push("/profile")}
+      >
         Edit Profile
+      </div>
+      <br></br>
+      <div className="content content-button" onClick={logout}>
+        Logout
       </div>
 
       <div className={modalShowing ? "modal-bg bg-active" : "modal-bg"}>
