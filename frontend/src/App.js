@@ -49,7 +49,7 @@ function App() {
             <Profile />
           </Route>
           <Route exact path="/travelling">
-            <Travelling travelMode={travelMode} />
+            <Travelling travelMode={travelMode} api={API} />
           </Route>
           <Route exact path="/*">
             <Redirect

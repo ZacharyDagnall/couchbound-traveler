@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import Chat from "./Chat";
 import Map from "./Map";
 
-function Travelling({ travelMode }) {
+function Travelling({ travelMode, api }) {
   const [modalShowing, setModalShowing] = useState(false);
   const [chatShowing, setChatShowing] = useState(false);
   const [messages, setMessages] = useState([
@@ -55,7 +55,7 @@ function Travelling({ travelMode }) {
         ) : null}
       </div>
       <div className="background">
-        <Map />
+        <Map api={api} />
       </div>
 
       {travelMode === "Find Yourself" ? (
@@ -63,8 +63,8 @@ function Travelling({ travelMode }) {
           <div className="modal">
             <input id="Continent" type="text" placeholder="Continent"></input>
             <input id="Country" type="text" placeholder="Country"></input>
-            <input id="State" type="text" placeholder="State"></input>
-            <input id="City" type="text" placeholder="City"></input>
+            <input id="State" type="text" placeholder="State/Locality"></input>
+            <input id="City" type="text" placeholder="City/Sublocality"></input>
             <button>Check!</button>
             <span
               className="close-mode-box"

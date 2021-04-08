@@ -11,4 +11,8 @@ Rails.application.routes.draw do
 
   get "/trips/:id", to: "users#trips"
 
+  # get "/clientID", to: "application#clientID"
+
+  post "/city_info", to: "cities#info"
+
 end
