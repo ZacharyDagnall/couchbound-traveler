@@ -7292,7 +7292,7 @@
   dependencies:
     "object-visit" "^1.0.0"
 
-"mapillary-js@^2.18.1":
+"mapillary-js@^2.18.1", "mapillary-js@^2.21.0":
   "integrity" "sha512-vk7V9lIABYki4Q+jyh/og9PrcN5U6xkzPxkL+Zu1a8C/zPxELaSiGukpLBZPprsEDBUUvih9KwJcTPo8Rl40Rw=="
   "resolved" "https://registry.npmjs.org/mapillary-js/-/mapillary-js-2.21.0.tgz"
   "version" "2.21.0"

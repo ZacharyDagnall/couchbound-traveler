@@ -2,26 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import Trip from "./Trip";
 import world from "./world.png";
-import peru from "./peru.png";
-import cuba from "./cuba.jpeg";
 
 function Passport({ user, api }) {
   const history = useHistory();
   const [trips, setTrips] = useState([]);
-  // const temptripsbeforefetch = [
-  //   {
-  //     id: 0,
-  //     country: "peru",
-  //     flag: peru,
-  //     dateTravelled: "Tuesday March 8th 2021",
-  //   },
-  //   {
-  //     id: 1,
-  //     country: "cuba",
-  //     flag: cuba,
-  //     dateTravelled: "Saturday April 9th 2021",
-  //   },
-  // ];
 
   useEffect(() => {
     fetch(`${api}/trips/${user.id}`)

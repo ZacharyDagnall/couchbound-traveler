@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import React from "react";
+// import * as Mapillary from "mapillary-js";
 import { MapillaryViewer } from "react-mapillary";
 
 function Map() {
@@ -12,8 +13,17 @@ function Map() {
   //       .then((j) => setImgKey(j.features[10].properties.key));
   //   }, []);
 
+  // const mly = new Mapillary.Viewer();
+  //   {
+  //   apiClient: "MHZvSFJXZjRWR0p0YWZpODRTMDhDbjoxOTUzYjNlMjVlMWM0NTcw",
+  //   container: "map-container",
+  //   imageKey: { imgKey },
+  // }
+  // console.log("import working???", mly);
+
   return (
     <div
+      id="map-container"
       //   role="button"
       //   tabIndex="-1"
       style={{
@@ -21,6 +31,7 @@ function Map() {
         height: "100vh",
       }}
     >
+      {/* <div>{mly}</div> */}
       <MapillaryViewer
         clientId="MHZvSFJXZjRWR0p0YWZpODRTMDhDbjoxOTUzYjNlMjVlMWM0NTcw"
         imageKey={imgKey}
@@ -33,5 +44,7 @@ function Map() {
     </div>
   );
 }
+
+// "Lat:", node.latLon.lat, "Long:", node.latLon.lon
 
 export default Map;

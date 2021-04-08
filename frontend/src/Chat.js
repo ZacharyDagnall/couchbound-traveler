@@ -21,9 +21,12 @@ function Chat({ setChatShowing, messages, setMessages }) {
   return (
     <div id="chatbox">
       <h3 id="chat-header">Chat</h3>
-      {messages.map((m) => {
+      {messages.map((m, i) => {
         return (
-          <div> {m.who === "bot" ? "🤖  " + m.text : m.text + "  🙂"} </div>
+          <div key={i}>
+            {" "}
+            {m.who === "bot" ? "🤖  " + m.text : m.text + "  🙂"}{" "}
+          </div>
         );
       })}
 
