@@ -917,3 +917,310 @@ No serializer found for resource: #<Trip id: 1, date_travelled: "Tuesday March 9
 Completed 200 OK in 8ms (Views: 3.9ms | ActiveRecord: 0.6ms | Allocations: 2090)
 
 
+Started POST "/login" for ::1 at 2021-04-08 09:07:49 -0400
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#login as JSON
+  Parameters: {"username"=>"BingoBongo", "password"=>"[FILTERED]", "user"=>{"username"=>"BingoBongo"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "BingoBongo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (12.48ms)
+Completed 200 OK in 291ms (Views: 15.8ms | ActiveRecord: 1.4ms | Allocations: 9681)
+
+
+Started GET "/trips/1" for ::1 at 2021-04-08 09:11:34 -0400
+Processing by UsersController#trips as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `trips'
+  [1m[36mPassport Load (1.2ms)[0m  [1m[34mSELECT "passports".* FROM "passports" WHERE "passports"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `trips'
+  [1m[36mTrip Load (0.8ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."passport_id" = ?[0m  [["passport_id", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `trips'
+No serializer found for resource: #<Trip id: 1, date_travelled: "Tuesday March 9th 2021", passport_id: 1, city_id: 1, created_at: "2021-04-07 20:48:13.942384000 +0000", updated_at: "2021-04-07 20:48:13.942384000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Trip::ActiveRecord_Associations_CollectionProxy (0.36ms)
+Completed 200 OK in 35ms (Views: 6.9ms | ActiveRecord: 3.5ms | Allocations: 12902)
+
+
+Started GET "/trips/1" for ::1 at 2021-04-08 09:18:03 -0400
+Processing by UsersController#trips as */*
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/users_controller.rb:30:in `trips'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `trips'
+  [1m[36mPassport Load (1.4ms)[0m  [1m[34mSELECT "passports".* FROM "passports" WHERE "passports"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `trips'
+  [1m[36mTrip Load (1.0ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."passport_id" = ?[0m  [["passport_id", 1]]
+  ↳ app/models/user.rb:12:in `map'
+  [1m[36mCity Load (0.7ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+No serializer found for resource: {:city=>"Lima", :flag=>"../peru.png", :continent=>nil, :country=>"Peru", :state=>"Lima", :date=>"Tuesday March 9th 2021"}
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Array (0.13ms)
+Completed 200 OK in 40ms (Views: 0.6ms | ActiveRecord: 5.1ms | Allocations: 20507)
+
+
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "cities"[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "cities" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "flag_url" varchar, "continent" varchar, "country" varchar, "state" varchar, "food" varchar, "language" varchar, "religion" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "passports"[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "passports" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "photo_url" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE INDEX "index_passports_on_user_id" ON "passports" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "trips"[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "trips" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "date_travelled" varchar, "passport_id" integer NOT NULL, "city_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE INDEX "index_trips_on_city_id" ON "trips" ("city_id")[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE INDEX "index_trips_on_passport_id" ON "trips" ("passport_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "apassports" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "photo_url" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_apassports_on_user_id" ON "apassports" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "apassports" ("id","user_id","photo_url","created_at","updated_at")
+                     SELECT "id","user_id","photo_url","created_at","updated_at" FROM "passports"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "passports"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "passports" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "photo_url" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_7510b214d9"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_passports_on_user_id" ON "passports" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "passports" ("id","user_id","photo_url","created_at","updated_at")
+                     SELECT "id","user_id","photo_url","created_at","updated_at" FROM "apassports"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "apassports"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "atrips" ("id" integer NOT NULL PRIMARY KEY, "date_travelled" varchar DEFAULT NULL, "passport_id" integer NOT NULL, "city_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_atrips_on_passport_id" ON "atrips" ("passport_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_atrips_on_city_id" ON "atrips" ("city_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "atrips" ("id","date_travelled","passport_id","city_id","created_at","updated_at")
+                     SELECT "id","date_travelled","passport_id","city_id","created_at","updated_at" FROM "trips"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "trips"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "trips" ("id" integer NOT NULL PRIMARY KEY, "date_travelled" varchar DEFAULT NULL, "passport_id" integer NOT NULL, "city_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_d3cace47f4"
+FOREIGN KEY ("city_id")
+  REFERENCES "cities" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_trips_on_city_id" ON "trips" ("city_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_trips_on_passport_id" ON "trips" ("passport_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "trips" ("id","date_travelled","passport_id","city_id","created_at","updated_at")
+                     SELECT "id","date_travelled","passport_id","city_id","created_at","updated_at" FROM "atrips"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "atrips"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "atrips" ("id" integer NOT NULL PRIMARY KEY, "date_travelled" varchar DEFAULT NULL, "passport_id" integer NOT NULL, "city_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_atrips_on_passport_id" ON "atrips" ("passport_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_atrips_on_city_id" ON "atrips" ("city_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "atrips" ("id","date_travelled","passport_id","city_id","created_at","updated_at")
+                     SELECT "id","date_travelled","passport_id","city_id","created_at","updated_at" FROM "trips"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "trips"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "trips" ("id" integer NOT NULL PRIMARY KEY, "date_travelled" varchar DEFAULT NULL, "passport_id" integer NOT NULL, "city_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_d3cace47f4"
+FOREIGN KEY ("city_id")
+  REFERENCES "cities" ("id")
+, CONSTRAINT "fk_rails_3d48eaa74d"
+FOREIGN KEY ("passport_id")
+  REFERENCES "passports" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_trips_on_city_id" ON "trips" ("city_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_trips_on_passport_id" ON "trips" ("passport_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "trips" ("id","date_travelled","passport_id","city_id","created_at","updated_at")
+                     SELECT "id","date_travelled","passport_id","city_id","created_at","updated_at" FROM "atrips"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "atrips"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20210407190055)[0m
+  [1m[35m (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20210407184939),
+(20210407185534),
+(20210407185711);
+
+[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-04-08 13:20:15.440204"], ["updated_at", "2021-04-08 13:20:15.440204"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "2ef896a61806bb509ea99b0b0bbd023f11268739"], ["created_at", "2021-04-08 13:20:15.447105"], ["updated_at", "2021-04-08 13:20:15.447105"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "cities"[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "cities" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "flag_url" varchar, "continent" varchar, "country" varchar, "state" varchar, "food" varchar, "language" varchar, "religion" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "passports"[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "passports" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "photo_url" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE INDEX "index_passports_on_user_id" ON "passports" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "trips"[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "trips" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "date_travelled" varchar, "passport_id" integer NOT NULL, "city_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE INDEX "index_trips_on_city_id" ON "trips" ("city_id")[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE INDEX "index_trips_on_passport_id" ON "trips" ("passport_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "apassports" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "photo_url" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_apassports_on_user_id" ON "apassports" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "apassports" ("id","user_id","photo_url","created_at","updated_at")
+                     SELECT "id","user_id","photo_url","created_at","updated_at" FROM "passports"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "passports"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "passports" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "photo_url" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_7510b214d9"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_passports_on_user_id" ON "passports" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "passports" ("id","user_id","photo_url","created_at","updated_at")
+                     SELECT "id","user_id","photo_url","created_at","updated_at" FROM "apassports"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "apassports"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "atrips" ("id" integer NOT NULL PRIMARY KEY, "date_travelled" varchar DEFAULT NULL, "passport_id" integer NOT NULL, "city_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_atrips_on_passport_id" ON "atrips" ("passport_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_atrips_on_city_id" ON "atrips" ("city_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "atrips" ("id","date_travelled","passport_id","city_id","created_at","updated_at")
+                     SELECT "id","date_travelled","passport_id","city_id","created_at","updated_at" FROM "trips"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "trips"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "trips" ("id" integer NOT NULL PRIMARY KEY, "date_travelled" varchar DEFAULT NULL, "passport_id" integer NOT NULL, "city_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_d3cace47f4"
+FOREIGN KEY ("city_id")
+  REFERENCES "cities" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_trips_on_city_id" ON "trips" ("city_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_trips_on_passport_id" ON "trips" ("passport_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "trips" ("id","date_travelled","passport_id","city_id","created_at","updated_at")
+                     SELECT "id","date_travelled","passport_id","city_id","created_at","updated_at" FROM "atrips"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "atrips"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "atrips" ("id" integer NOT NULL PRIMARY KEY, "date_travelled" varchar DEFAULT NULL, "passport_id" integer NOT NULL, "city_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_atrips_on_passport_id" ON "atrips" ("passport_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_atrips_on_city_id" ON "atrips" ("city_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "atrips" ("id","date_travelled","passport_id","city_id","created_at","updated_at")
+                     SELECT "id","date_travelled","passport_id","city_id","created_at","updated_at" FROM "trips"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "trips"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "trips" ("id" integer NOT NULL PRIMARY KEY, "date_travelled" varchar DEFAULT NULL, "passport_id" integer NOT NULL, "city_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_d3cace47f4"
+FOREIGN KEY ("city_id")
+  REFERENCES "cities" ("id")
+, CONSTRAINT "fk_rails_3d48eaa74d"
+FOREIGN KEY ("passport_id")
+  REFERENCES "passports" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_trips_on_city_id" ON "trips" ("city_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_trips_on_passport_id" ON "trips" ("passport_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "trips" ("id","date_travelled","passport_id","city_id","created_at","updated_at")
+                     SELECT "id","date_travelled","passport_id","city_id","created_at","updated_at" FROM "atrips"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "atrips"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20210407190055)[0m
+  [1m[35m (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20210407184939),
+(20210407185534),
+(20210407185711);
+
+[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-04-08 13:20:15.534532"], ["updated_at", "2021-04-08 13:20:15.534532"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.2ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2021-04-08 13:20:15.538980"], ["key", "environment"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "2ef896a61806bb509ea99b0b0bbd023f11268739"], ["created_at", "2021-04-08 13:20:15.542959"], ["updated_at", "2021-04-08 13:20:15.542959"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["username", "BingoBongo"], ["password_digest", "$2a$12$IMUOTWUZYLhWDM4G.3DNF.fosq8IbyQGDY6Y8QaCgtuMLiIbAHnj6"], ["created_at", "2021-04-08 13:20:15.809343"], ["updated_at", "2021-04-08 13:20:15.809343"]]
+  [1m[36mPassport Create (0.2ms)[0m  [1m[32mINSERT INTO "passports" ("user_id", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["user_id", 1], ["created_at", "2021-04-08 13:20:15.829177"], ["updated_at", "2021-04-08 13:20:15.829177"]]
+  ↳ app/models/user.rb:8:in `create_passport'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCity Create (0.3ms)[0m  [1m[32mINSERT INTO "cities" ("name", "flag_url", "country", "state", "food", "language", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Lima"], ["flag_url", "https://upload.wikimedia.org/wikipedia/commons/d/df/Flag_of_Peru_%28state%29.svg"], ["country", "Peru"], ["state", "Lima"], ["food", "chicha morada"], ["language", "Spanish"], ["created_at", "2021-04-08 13:20:15.838104"], ["updated_at", "2021-04-08 13:20:15.838104"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCity Create (0.3ms)[0m  [1m[32mINSERT INTO "cities" ("name", "flag_url", "country", "state", "food", "language", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Cienfuegos"], ["flag_url", "https://cdn.britannica.com/10/5110-004-38075E57/Flag-Cuba.jpg"], ["country", "Cuba"], ["state", "Cienfuegos"], ["food", "maduros"], ["language", "Spanish"], ["created_at", "2021-04-08 13:20:15.841845"], ["updated_at", "2021-04-08 13:20:15.841845"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrip Create (0.3ms)[0m  [1m[32mINSERT INTO "trips" ("date_travelled", "passport_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date_travelled", "Tuesday March 9th 2021"], ["passport_id", 1], ["city_id", 1], ["created_at", "2021-04-08 13:20:15.856194"], ["updated_at", "2021-04-08 13:20:15.856194"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrip Create (0.3ms)[0m  [1m[32mINSERT INTO "trips" ("date_travelled", "passport_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date_travelled", "Monday November 7th 2018"], ["passport_id", 1], ["city_id", 2], ["created_at", "2021-04-08 13:20:15.860461"], ["updated_at", "2021-04-08 13:20:15.860461"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/me" for ::1 at 2021-04-08 09:20:24 -0400
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#me as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `authenticate'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.5ms)
+Completed 200 OK in 23ms (Views: 8.4ms | ActiveRecord: 1.0ms | Allocations: 9001)
+
+
+Started GET "/trips/1" for ::1 at 2021-04-08 09:20:24 -0400
+Processing by UsersController#trips as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `trips'
+  [1m[36mPassport Load (0.3ms)[0m  [1m[34mSELECT "passports".* FROM "passports" WHERE "passports"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `trips'
+  [1m[36mTrip Load (0.1ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."passport_id" = ?[0m  [["passport_id", 1]]
+  ↳ app/models/user.rb:12:in `map'
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+No serializer found for resource: {:city=>"Lima", :flag=>"https://upload.wikimedia.org/wikipedia/commons/d/df/Flag_of_Peru_%28state%29.svg", :continent=>nil, :country=>"Peru", :state=>"Lima", :date=>"Tuesday March 9th 2021"}
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Array (0.14ms)
+Completed 200 OK in 30ms (Views: 0.8ms | ActiveRecord: 2.2ms | Allocations: 20388)
+
+

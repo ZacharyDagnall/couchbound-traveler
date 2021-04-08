@@ -28,7 +28,7 @@ class UsersController < ApplicationController
 
     def trips
         @user = User.find(params[:id])
-        render json: @user.passport.trips
+        render json: @user.trips
     end
 
     private

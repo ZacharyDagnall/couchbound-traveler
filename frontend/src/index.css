@@ -139,3 +139,7 @@ code {
   box-shadow: -9px 12px grey;
   background-color: aqua;
 }
+
+.flag {
+  max-height: 30px;
+}

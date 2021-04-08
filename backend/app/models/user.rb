@@ -8,4 +8,8 @@ class User < ApplicationRecord
         Passport.create(user: self)
     end
 
+    def trips
+        self.passport.trips.map{|trip| {city: trip.city.name, flag: trip.city.flag_url, continent: trip.city.continent, country: trip.city.country, state: trip.city.state, date: trip.date_travelled}}
+    end
+
 end

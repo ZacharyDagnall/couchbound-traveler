@@ -9,16 +9,17 @@ function Trip({ trip }) {
           margin: "15px 15px 15px 15px",
         }}
       >
-        <Card.Header>{trip.city}</Card.Header>
+        <Card.Header>Country: {trip.country}</Card.Header>
         <Card.Body style={{ justifyContent: "center", alignItems: "center" }}>
           {/* have to change the way that these trips come in from the backend because right now we can't see the city name or flag etc etc, no info about city... change in models  */}
           {/* <Card.Title>trip.nameCity, {country}</Card.Title> */}
-          <Card.Text>{trip.date_travelled}</Card.Text>
-          {/* <img
-            src={flag}
-            alt={country + "'s Flag"}
+          <Card.Text>City: {trip.city}</Card.Text>
+          <img
+            src={trip.flag}
+            alt={trip.country + "'s Flag"}
             style={{ maxWidth: "70px" }}
-          ></img> */}
+            className="flag"
+          ></img>
           {/* <div
             style={{
               background: `url(${flag})`,
@@ -42,7 +43,7 @@ function Trip({ trip }) {
           /> */}
         </Card.Body>
 
-        <Card.Footer></Card.Footer>
+        <Card.Footer>Date: {trip.date}</Card.Footer>
       </Card>
     </>
   );
