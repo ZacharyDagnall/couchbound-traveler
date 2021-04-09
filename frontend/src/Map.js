@@ -270,16 +270,82 @@ const oceania = [
   "Wallis and Futuna (France)",
 ];
 
-function Map({ api }) {
+function Map({ api, address, setAddress }) {
+  // 085Gpl_xNxW1Lw2eeEG28w   works on my site
+  // g8fuAu61idtDdrwdn_k      scroll (on mapillary but not on CT) but no arrows
+  // oregG3_m2QYvKMd4xpTayw   scroll AND arrows on mapillary but not showing arrows on CT
+  // bNtU6RIz3n6C9Hkvmr8EJL   type="feature" - no scrolling at all. comes from /images
+  // ypJtyhRJ5goXQpRlxc2uiQ   same as 276
+  // FmP3BHhYKJVcoKYSIUkUFA   should work but no arrows....
   const [imgKey, setImgKey] = useState("085Gpl_xNxW1Lw2eeEG28w");
   const [latlong, setLatlong] = useState({ lat: 0, long: 0 });
+  const [trigger, setTrigger] = useState(false);
 
-  const [address, setAddress] = useState({
-    city: "",
-    state: "",
-    country: "",
-    continent: "",
-  });
+  function randCoord() {
+    // LATITUDE -90 to +90
+    let lat = (Math.random() * 90).toFixed(3);
+    if (Math.random() < 0.5) {
+      lat = lat * -1;
+    }
+    // LONGITUDE -180 to + 180
+    let long = (Math.random() * 180).toFixed(3);
+    if (Math.random() < 0.5) {
+      long = long * -1;
+    }
+    return { lat: parseFloat(lat), long: parseFloat(long) }; //why the heck would i need to do this??? long was a string and lat wasnt
+  }
+  function makebbox() {
+    const coord = randCoord();
+    return {
+      minlong: coord.long - 4,
+      minlat: coord.lat - 2,
+      maxlong: coord.long + 4,
+      maxlat: coord.lat + 2,
+    };
+  }
+
+  useEffect(() => {
+    const bbox = makebbox();
+    fetch(
+      `https://a.mapillary.com/v3/sequences?bbox=${bbox.minlong},${
+        bbox.minlat
+      },${bbox.maxlong},${
+        bbox.maxlat
+      }&client_id=${"MHZvSFJXZjRWR0p0YWZpODRTMDhDbjoxOTUzYjNlMjVlMWM0NTcw"}`
+    )
+      .then((r) => r.json())
+      .then((data) => {
+        console.log("justfetchedsomestuff", data);
+        // if (data.features) {
+        if (data.features.length < 5) {
+          setTrigger(true);
+        } else {
+          let pic = getApic(data.features);
+          console.log(pic);
+          setImgKey(pic);
+        }
+        // }
+      });
+  }, [trigger]);
+
+  function getApic(features) {
+    let feature = features.sample;
+    let count = 0;
+    while (
+      feature.properties.coordinateProperties.image_keys.length < 4 &&
+      count < features.length
+    ) {
+      feature = features.sample;
+      count++;
+    }
+    if (count == features.length) {
+      setTrigger(true);
+      return "";
+    } else {
+      return feature.properties.coordinateProperties.image_keys[0];
+    }
+  }
+
   console.log(address);
   useEffect(() => {
     fetch(`${api}/city_info`, {
@@ -292,45 +358,60 @@ function Map({ api }) {
     })
       .then((r) => r.json())
       .then((body) => handleLocationData(body));
-  }, [latlong]);
+  }, []); // [latlong]
 
-  function handleLocationData(body) {
-    const data = body["results"][0]["address_components"];
+  function handleLocationData(data) {
     console.log(data, typeof data);
-    data.forEach((d) => {
-      if (d.types.includes("country")) {
-        const countryName = d.long_name;
-        setAddress((address) => ({ ...address, country: countryName }));
-        if (europe.includes(countryName)) {
-          setAddress((address) => ({ ...address, continent: "Europe" }));
-        } else if (asia.includes(countryName)) {
-          setAddress((address) => ({ ...address, continent: "Asia" }));
-        } else if (africa.includes(countryName)) {
-          setAddress((address) => ({ ...address, continent: "Africa" }));
-        } else if (northAmerica.includes(countryName)) {
-          setAddress((address) => ({
-            ...address,
-            continent: "North America",
-          }));
-        } else if (southAmerica.includes(countryName)) {
-          setAddress((address) => ({
-            ...address,
-            continent: "South America",
-          }));
-        } else if (oceania.includes(countryName)) {
-          setAddress((address) => ({
-            ...address,
-            continent: "Oceania/Australia",
-          }));
+    if (!data.error) {
+      data.forEach((d) => {
+        if (d.types.includes("country")) {
+          const countryName = d.long_name;
+          if (europe.includes(countryName)) {
+            setAddress((address) => ({
+              ...address,
+              country: countryName,
+              continent: "Europe",
+            }));
+          } else if (asia.includes(countryName)) {
+            setAddress((address) => ({
+              ...address,
+              country: countryName,
+              continent: "Asia",
+            }));
+          } else if (africa.includes(countryName)) {
+            setAddress((address) => ({
+              ...address,
+              country: countryName,
+              continent: "Africa",
+            }));
+          } else if (northAmerica.includes(countryName)) {
+            setAddress((address) => ({
+              ...address,
+              country: countryName,
+              continent: "North America",
+            }));
+          } else if (southAmerica.includes(countryName)) {
+            setAddress((address) => ({
+              ...address,
+              country: countryName,
+              continent: "South America",
+            }));
+          } else if (oceania.includes(countryName)) {
+            setAddress((address) => ({
+              ...address,
+              country: countryName,
+              continent: "Oceania/Australia",
+            }));
+          }
+        } else if (d.types.includes("locality")) {
+          const stateName = d.long_name;
+          setAddress((address) => ({ ...address, state: stateName }));
+        } else if (d.types.includes("sublocality")) {
+          const cityName = d.long_name;
+          setAddress((address) => ({ ...address, city: cityName }));
         }
-      } else if (d.types.includes("locality")) {
-        const stateName = d.long_name;
-        setAddress((address) => ({ ...address, state: stateName }));
-      } else if (d.types.includes("sublocality")) {
-        const cityName = d.long_name;
-        setAddress((address) => ({ ...address, city: cityName }));
-      }
-    });
+      });
+    }
   }
 
   // const [clientID, setClientID] = useState("");
@@ -371,13 +452,13 @@ function Map({ api }) {
         clientId="MHZvSFJXZjRWR0p0YWZpODRTMDhDbjoxOTUzYjNlMjVlMWM0NTcw"
         imageKey={imgKey}
         filter={["==", "userKey", "2PiRXqdqbY47WzG6CRzEIA"]}
-        onTiltChanged={(tilt) => console.log(`Tilt: ${tilt}`)}
-        onFovChanged={(fov) => console.log(`FoV: ${fov}`)}
+        // onTiltChanged={(tilt) => console.log(`Tilt: ${tilt}`)} //vertical angle
+        // onFovChanged={(fov) => console.log(`FoV: ${fov}`)}  //zoom
         onNodeChanged={(node) => {
           console.log("Lat:", node.latLon.lat, "Long:", node.latLon.lon);
           setLatlong({ lat: node.latLon.lat, long: node.latLon.lon });
         }}
-        onBearingChanged={(bearing) => console.log(`Bearing: ${bearing}`)}
+        // onBearingChanged={(bearing) => console.log(`Bearing: ${bearing}`)} //horiz angle
       />
     </div>
   );
