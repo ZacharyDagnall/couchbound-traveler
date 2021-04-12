@@ -271,7 +271,8 @@ const oceania = [
 ];
 
 function Map({ api, address, setAddress }) {
-  // 085Gpl_xNxW1Lw2eeEG28w   works on my site
+  // 085Gpl_xNxW1Lw2eeEG28w   fully works on my site
+  //okay so actually most of these kind of work by pressing space bar but only the one above seems to bring up arrows. And no way to go back.
   // g8fuAu61idtDdrwdn_k      scroll (on mapillary but not on CT) but no arrows
   // oregG3_m2QYvKMd4xpTayw   scroll AND arrows on mapillary but not showing arrows on CT
   // bNtU6RIz3n6C9Hkvmr8EJL   type="feature" - no scrolling at all. comes from /images
@@ -305,6 +306,10 @@ function Map({ api, address, setAddress }) {
   }
 
   useEffect(() => {
+    fetchSequences();
+  }, []); //[trigger]
+
+  function fetchSequences() {
     const bbox = makebbox();
     fetch(
       `https://a.mapillary.com/v3/sequences?bbox=${bbox.minlong},${
@@ -314,36 +319,38 @@ function Map({ api, address, setAddress }) {
       }&client_id=${"MHZvSFJXZjRWR0p0YWZpODRTMDhDbjoxOTUzYjNlMjVlMWM0NTcw"}`
     )
       .then((r) => r.json())
-      .then((data) => {
-        console.log("justfetchedsomestuff", data);
-        // if (data.features) {
-        if (data.features.length < 5) {
-          setTrigger(true);
-        } else {
-          let pic = getApic(data.features);
-          console.log(pic);
-          setImgKey(pic);
-        }
-        // }
-      });
-  }, [trigger]);
+      .then((data) => getApic(data));
+  }
 
-  function getApic(features) {
-    let feature = features.sample;
-    let count = 0;
-    while (
-      feature.properties.coordinateProperties.image_keys.length < 4 &&
-      count < features.length
-    ) {
-      feature = features.sample;
-      count++;
-    }
-    if (count == features.length) {
-      setTrigger(true);
-      return "";
+  function getApic(data) {
+    console.log("justfetchedsomestuff", data);
+    // if (data.features) {
+    if (data.features.length < 5) {
+      fetchSequences(); //setTrigger(true);
     } else {
-      return feature.properties.coordinateProperties.image_keys[0];
+      let feature =
+        data.features[Math.floor(Math.random() * data.features.length)];
+      console.log("did this work? grabbing a random sample", feature);
+      let count = 0;
+      while (
+        feature.properties.coordinateProperties.image_keys.length < 4 &&
+        count < 3 * data.features.length
+      ) {
+        feature = data.features.sample;
+        count++;
+      }
+      if (count === 3 * data.features.length) {
+        fetchSequences(); // setTrigger(true);
+      } else {
+        console.log(feature.properties.coordinateProperties.image_keys[0]);
+        setLatlong({
+          lat: feature.geometry.coordinates[0],
+          long: feature.geometry.coordinates[1],
+        });
+        setImgKey(feature.properties.coordinateProperties.image_keys[0]);
+      }
     }
+    //  }
   }
 
   console.log(address);
@@ -358,10 +365,16 @@ function Map({ api, address, setAddress }) {
     })
       .then((r) => r.json())
       .then((body) => handleLocationData(body));
-  }, []); // [latlong]
+  }, [latlong]); // [latlong]
 
   function handleLocationData(data) {
-    console.log(data, typeof data);
+    setAddress({
+      city: "",
+      state: "",
+      country: "",
+      continent: "",
+    });
+    console.log("does this look right to you?", data, typeof data);
     if (!data.error) {
       data.forEach((d) => {
         if (d.types.includes("country")) {

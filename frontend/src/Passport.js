@@ -28,7 +28,11 @@ function Passport({ user, api }) {
         return <Trip key={trip.id} trip={trip} />;
       })}
       <br></br>
-      <div className="content content-button" onClick={() => history.push("/")}>
+      <div
+        className="content content-button"
+        key={-1}
+        onClick={() => history.push("/")}
+      >
         Exit Passport
       </div>
     </div>

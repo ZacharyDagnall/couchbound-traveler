@@ -4,6 +4,7 @@ import airportpic from "./airport.jpg";
 
 function Airport({ setTravelMode, setUser, user }) {
   const [modalShowing, setModalShowing] = useState(false);
+  const history = useHistory();
 
   function handleModeSelect(e) {
     setTravelMode(e.target.innerText);
@@ -15,8 +16,6 @@ function Airport({ setTravelMode, setUser, user }) {
     localStorage.removeItem("token");
     history.push("/login");
   }
-
-  const history = useHistory();
 
   return (
     <div
