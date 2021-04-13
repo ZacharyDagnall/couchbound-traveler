@@ -9,6 +9,7 @@ class CreateCities < ActiveRecord::Migration[6.1]
       t.string :food
       t.string :language
       t.string :religion
+      t.string :image_key
 
       t.timestamps
     end

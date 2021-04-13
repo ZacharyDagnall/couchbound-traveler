@@ -8,7 +8,7 @@ function Passport({ user, api }) {
   const [trips, setTrips] = useState([]);
 
   useEffect(() => {
-    fetch(`${api}/trips/${user.id}`)
+    fetch(`${api}/usertrips/${user.id}`)
       .then((r) => r.json())
       .then((tList) => setTrips(tList));
   }, []);
@@ -24,16 +24,16 @@ function Passport({ user, api }) {
       }}
     >
       <h1>Here is your passport!</h1>
-      {trips.map((trip) => {
-        return <Trip key={trip.id} trip={trip} />;
+      {trips.map((trip, i) => {
+        return <Trip key={i} trip={trip} api={api} setTrips={setTrips} />;
       })}
       <br></br>
       <div
         className="content content-button"
-        key={-1}
+        key={trips.length + 1}
         onClick={() => history.push("/")}
       >
-        Exit Passport
+        Back to Terminal
       </div>
     </div>
   );

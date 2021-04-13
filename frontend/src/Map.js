@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import React from "react";
-// import * as Mapillary from "mapillary-js";
 import { MapillaryViewer } from "react-mapillary";
 const europe = [
   "Albania",
@@ -84,6 +83,8 @@ const asia = [
   "Kyrgyzstan",
   "Laos",
   "Lebanon",
+  "Macao",
+  "Macau",
   "Malaysia",
   "Maldives",
   "Mongolia",
@@ -200,29 +201,32 @@ const northAmerica = [
   "Saint Lucia",
   "Saint Vincent and the Grenadines",
   "Trinidad and Tobago",
-  "United States of America (USA)",
-  "Anguilla (UK)",
-  "Aruba (Netherlands)",
-  "Bermuda (UK)",
-  "Bonaire (Netherlands)",
-  "British Virgin Islands (UK)",
-  "Cayman Islands (UK)",
-  "Clipperton Island (France)",
-  "Curacao (Netherlands)",
-  "Greenland (Denmark)",
-  "Guadeloupe (France)",
-  "Martinique (France)",
-  "Montserrat (UK)",
-  "Navassa Island (USA)",
-  "Puerto Rico (USA)",
-  "Saba (Netherlands)",
-  "Saint Barthelemy (France)",
-  "Saint Martin (France)",
-  "Saint Pierre and Miquelon (France)",
-  "Sint Eustatius (Netherlands)",
-  "Sint Maarten (Netherlands)",
-  "Turks and Caicos Islands (UK)",
-  "US Virgin Islands (USA)",
+  "United States of America",
+  "United States",
+  "US",
+  "USA",
+  "Anguilla",
+  "Aruba",
+  "Bermuda",
+  "Bonaire",
+  "British Virgin Islands",
+  "Cayman Islands",
+  "Clipperton Island",
+  "Curacao",
+  "Greenland",
+  "Guadeloupe",
+  "Martinique",
+  "Montserrat",
+  "Navassa Island",
+  "Puerto Rico",
+  "Saba",
+  "Saint Barthelemy",
+  "Saint Martin",
+  "Saint Pierre and Miquelon",
+  "Sint Eustatius",
+  "Sint Maarten",
+  "Turks and Caicos Islands",
+  "US Virgin Islands",
 ];
 const southAmerica = [
   "Argentina",
@@ -237,9 +241,11 @@ const southAmerica = [
   "Suriname",
   "Uruguay",
   "Venezuela",
-  "Falkland Islands (UK)",
-  "French Guiana (France)",
-  "South Georgia and the South Sandwich Islands (UK)",
+  "Falkland Islands",
+  "Falkland Islands (Islas Malvinas)",
+  "Islas Malvinas",
+  "French Guiana",
+  "South Georgia and the South Sandwich Islands",
 ];
 const oceania = [
   "Australia",
@@ -256,31 +262,45 @@ const oceania = [
   "Tonga",
   "Tuvalu",
   "Vanuatu",
-  "American Samoa (USA)",
-  "Cook Islands (New Zealand)",
-  "French Polynesia (France)",
-  "Guam (USA)",
-  "New Caledonia (France)",
-  "Niue (New Zealand)",
-  "Norfolk Island (Australia)",
-  "Northern Mariana Islands (USA)",
-  "Pitcairn Islands (UK)",
-  "Tokelau (New Zealand)",
-  "Wake Island (USA)",
-  "Wallis and Futuna (France)",
+  "American Samoa",
+  "Cook Islands",
+  "French Polynesia",
+  "Guam",
+  "New Caledonia",
+  "Niue",
+  "Norfolk Island",
+  "Northern Mariana Islands",
+  "Pitcairn Islands",
+  "Tokelau",
+  "Wake Island",
+  "Wallis and Futuna",
 ];
 
-function Map({ api, address, setAddress }) {
-  // 085Gpl_xNxW1Lw2eeEG28w   fully works on my site
+function Map({ api, address, setAddress, user }) {
+  // 085Gpl_xNxW1Lw2eeEG28w   fully works on my site (Berlin)
   //okay so actually most of these kind of work by pressing space bar but only the one above seems to bring up arrows. And no way to go back.
   // g8fuAu61idtDdrwdn_k      scroll (on mapillary but not on CT) but no arrows
   // oregG3_m2QYvKMd4xpTayw   scroll AND arrows on mapillary but not showing arrows on CT
   // bNtU6RIz3n6C9Hkvmr8EJL   type="feature" - no scrolling at all. comes from /images
   // ypJtyhRJ5goXQpRlxc2uiQ   same as 276
   // FmP3BHhYKJVcoKYSIUkUFA   should work but no arrows....
-  const [imgKey, setImgKey] = useState("085Gpl_xNxW1Lw2eeEG28w");
+  // // //
+  // IlFyfyTOvBxFrskJKyOZ6Q   tokyo
+  // KGHbNmfZQ8z9BcWb1a_3lg   macau
+  // rwyMGYLiJIeHA1vQVdbzIg   india
+  // XPJZd38HsQTpdHPIFD0CHg   zurich
+  // S42Qzdt2b6Zw0iSs6imTXw   rome
+  // pVbOKwcGeh0hc3mYR7cQvg   paris
+  // yoqbCIEHbWB16feLHU0saA   bleecker street / manhattan
+  // Ml86dTM9LPynllM9pDl7ty   pueblo mexico
+  // rY7guF8KWnRuQ-GDKxuPTw   toronto
+  // 9VTHnaNzib-1zgdzaoLO7Q   lima peru
+  // vVtXCecu0MWJV5tC7qyJYQ   buenos aires argentina
+  // 5xpLICrGF5E0T9628G5xul   são paulo, brazil
+  const [imgKey, setImgKey] = useState("");
   const [latlong, setLatlong] = useState({ lat: 0, long: 0 });
-  const [trigger, setTrigger] = useState(false);
+  // const [trigger, setTrigger] = useState(false);
+  const [stamp, setStamp] = useState(false);
 
   function randCoord() {
     // LATITUDE -90 to +90
@@ -293,7 +313,7 @@ function Map({ api, address, setAddress }) {
     if (Math.random() < 0.5) {
       long = long * -1;
     }
-    return { lat: parseFloat(lat), long: parseFloat(long) }; //why the heck would i need to do this??? long was a string and lat wasnt
+    return { lat: parseFloat(lat), long: parseFloat(long) }; //why the heck would i need to do this??? long was a string and lat wasnt...
   }
   function makebbox() {
     const coord = randCoord();
@@ -306,8 +326,12 @@ function Map({ api, address, setAddress }) {
   }
 
   useEffect(() => {
-    fetchSequences();
-  }, []); //[trigger]
+    setImgKey("KGHbNmfQ8z9BcWb1a_3lg");
+  }, []);
+
+  // useEffect(() => {
+  //   fetchSequences();
+  // }, []); //[trigger]
 
   function fetchSequences() {
     const bbox = makebbox();
@@ -325,7 +349,7 @@ function Map({ api, address, setAddress }) {
   function getApic(data) {
     console.log("justfetchedsomestuff", data);
     // if (data.features) {
-    if (data.features.length < 5) {
+    if (data.features.length < 30) {
       fetchSequences(); //setTrigger(true);
     } else {
       let feature =
@@ -333,7 +357,7 @@ function Map({ api, address, setAddress }) {
       console.log("did this work? grabbing a random sample", feature);
       let count = 0;
       while (
-        feature.properties.coordinateProperties.image_keys.length < 4 &&
+        feature.properties.coordinateProperties.image_keys.length < 30 &&
         count < 3 * data.features.length
       ) {
         feature = data.features.sample;
@@ -365,7 +389,7 @@ function Map({ api, address, setAddress }) {
     })
       .then((r) => r.json())
       .then((body) => handleLocationData(body));
-  }, [latlong]); // [latlong]
+  }, [imgKey]); // [latlong]
 
   function handleLocationData(data) {
     setAddress({
@@ -416,16 +440,37 @@ function Map({ api, address, setAddress }) {
               continent: "Oceania/Australia",
             }));
           }
-        } else if (d.types.includes("locality")) {
+        } else if (
+          d.types.includes("locality") ||
+          d.types.includes("administrative_area_level_1")
+        ) {
           const stateName = d.long_name;
           setAddress((address) => ({ ...address, state: stateName }));
-        } else if (d.types.includes("sublocality")) {
+        } else if (
+          d.types.includes("sublocality") ||
+          d.types.includes("administrative_area_level_2")
+        ) {
           const cityName = d.long_name;
           setAddress((address) => ({ ...address, city: cityName }));
         }
       });
+      console.log("finished finding geography info");
+      setStamp(!stamp);
     }
   }
+
+  useEffect(() => {
+    fetch(`${api}/stamp/${user.id}`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        accept: "application/json",
+      },
+      body: JSON.stringify(address),
+    })
+      .then((r) => r.json())
+      .then(console.log);
+  }, [stamp]);
 
   // const [clientID, setClientID] = useState("");
   // useEffect(() => {

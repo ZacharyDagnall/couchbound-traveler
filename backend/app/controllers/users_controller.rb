@@ -26,6 +26,26 @@ class UsersController < ApplicationController
         end
     end
 
+    def update_username
+        @user = User.find(params[:id])
+        @user.update(username: params[:username])
+        render json: @user
+    end
+    
+    def update_password
+        @user = User.find(params[:id])
+        if @user.authenticate(params[:oldPassword])
+            @user.update(password: params[:newPassword])
+            if @user.valid?
+                render json: @user
+            else
+                render json: {errors: @user.errors.full_messages}, status: :precondition_failed
+            end
+        else
+            render json: {errors: ["Incorrect current password."]}, status: :unauthorized
+        end
+    end
+
     def trips
         @user = User.find(params[:id])
         render json: @user.trips

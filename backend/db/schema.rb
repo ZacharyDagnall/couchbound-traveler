@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2021_04_07_190055) do
     t.string "food"
     t.string "language"
     t.string "religion"
+    t.string "image_key"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

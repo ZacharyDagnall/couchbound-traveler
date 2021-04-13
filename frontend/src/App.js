@@ -46,10 +46,10 @@ function App() {
             <Passport user={user} api={API} />
           </Route>
           <Route exact path="/profile">
-            <Profile />
+            <Profile user={user} api={API} setUser={setUser} />
           </Route>
           <Route exact path="/travelling">
-            <Travelling travelMode={travelMode} api={API} />
+            <Travelling travelMode={travelMode} api={API} user={user} />
           </Route>
           <Route exact path="/*">
             <Redirect

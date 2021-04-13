@@ -4,7 +4,7 @@ import Chat from "./Chat";
 import GuessForm from "./GuessForm";
 import Map from "./Map";
 
-function Travelling({ travelMode, api }) {
+function Travelling({ travelMode, api, user }) {
   const [modalShowing, setModalShowing] = useState(false);
   const [chatShowing, setChatShowing] = useState(false);
   const [address, setAddress] = useState({
@@ -64,7 +64,7 @@ function Travelling({ travelMode, api }) {
         ) : null}
       </div>
       <div className="background">
-        <Map api={api} address={address} setAddress={setAddress} />
+        <Map api={api} address={address} setAddress={setAddress} user={user} />
       </div>
 
       {travelMode === "Find Yourself" ? (

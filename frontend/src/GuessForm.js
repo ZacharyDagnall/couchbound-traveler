@@ -101,7 +101,7 @@ function GuessForm({ address, modalShowing, setModalShowing }) {
               value={guessAddress.continent.name}
               onChange={handleFormChange}
             ></input>
-            {guessAddress.continent.status ? (
+            {guessAddress.continent.status && guessAddress.continent.name ? (
               <small
                 style={
                   guessAddress.continent.status === "You guessed it!"
@@ -118,8 +118,9 @@ function GuessForm({ address, modalShowing, setModalShowing }) {
             id="continent"
             type="text"
             placeholder="No Continent information available"
+            readOnly
             value={guessAddress.continent.name}
-            style={{ color: "white", backgroundColor: "grey" }}
+            style={{ color: "white", backgroundColor: "lightgrey" }}
           ></input>
         )}
 
@@ -132,7 +133,7 @@ function GuessForm({ address, modalShowing, setModalShowing }) {
               value={guessAddress.country.name}
               onChange={handleFormChange}
             ></input>
-            {guessAddress.country.status ? (
+            {guessAddress.country.status && guessAddress.country.name ? (
               <small
                 style={
                   guessAddress.country.status === "You guessed it!"
@@ -149,8 +150,9 @@ function GuessForm({ address, modalShowing, setModalShowing }) {
             id="country"
             type="text"
             placeholder="No Country information available"
+            readOnly
             value={guessAddress.country.name}
-            style={{ color: "white", backgroundColor: "grey" }}
+            style={{ color: "white", backgroundColor: "lightgrey" }}
           ></input>
         )}
 
@@ -163,7 +165,7 @@ function GuessForm({ address, modalShowing, setModalShowing }) {
               value={guessAddress.state.name}
               onChange={handleFormChange}
             ></input>
-            {guessAddress.state.status ? (
+            {guessAddress.state.status && guessAddress.state.name ? (
               <small
                 style={
                   guessAddress.state.status === "You guessed it!"
@@ -180,8 +182,9 @@ function GuessForm({ address, modalShowing, setModalShowing }) {
             id="state"
             type="text"
             placeholder="No State/Locality information available"
+            readOnly
             value={guessAddress.state.name}
-            style={{ color: "white", backgroundColor: "grey" }}
+            style={{ color: "white", backgroundColor: "lightgrey" }}
           ></input>
         )}
 
@@ -194,7 +197,7 @@ function GuessForm({ address, modalShowing, setModalShowing }) {
               value={guessAddress.city.name}
               onChange={handleFormChange}
             ></input>
-            {guessAddress.city.status ? (
+            {guessAddress.city.status && guessAddress.city.name ? (
               <small
                 style={
                   guessAddress.city.status === "You guessed it!"
@@ -211,6 +214,7 @@ function GuessForm({ address, modalShowing, setModalShowing }) {
             id="city"
             type="text"
             placeholder="No City information available"
+            readOnly
             value={guessAddress.city.name}
             style={{ color: "white", backgroundColor: "lightgrey" }}
           ></input>

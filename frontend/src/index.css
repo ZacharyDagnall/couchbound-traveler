@@ -61,6 +61,7 @@ code {
   border: 4px solid #002d62;
   box-shadow: 2px 2px #778899;
   line-height: 2.5;
+  position: relative;
 }
 
 .modal-bg {
@@ -101,6 +102,17 @@ code {
   font-weight: bold;
   padding: 1px;
   background-color: white;
+  cursor: pointer;
+}
+
+.delete-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-weight: bold;
+  border-radius: 5px;
+  background-color: black;
+  color: red;
   cursor: pointer;
 }
 
