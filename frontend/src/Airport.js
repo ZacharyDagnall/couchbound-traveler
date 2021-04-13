@@ -31,7 +31,7 @@ function Airport({ setTravelMode, setUser, user }) {
       <br></br>
       <div
         className="content content-button"
-        onClick={() => setModalShowing(true)}
+        onClick={() => history.push("/travelling")} //setModalShowing(true)
       >
         Take a new trip
       </div>

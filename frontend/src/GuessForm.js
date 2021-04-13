@@ -21,7 +21,7 @@ function GuessForm({ address, modalShowing, setModalShowing }) {
   function handleLocationGuess(e) {
     e.preventDefault();
 
-    if (guessAddress.city.name === address.city) {
+    if (guessAddress.city.name === address.name) {
       setGuessAddress((guessAddress) => ({
         ...guessAddress,
         city: { name: guessAddress.city.name, status: "You guessed it!" },
@@ -188,7 +188,7 @@ function GuessForm({ address, modalShowing, setModalShowing }) {
           ></input>
         )}
 
-        {address.city ? (
+        {address.name ? (
           <>
             <input
               id="city"

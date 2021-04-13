@@ -1,21 +1,75 @@
 import React, { useState } from "react";
 
-function Chat({ setChatShowing, messages, setMessages }) {
+function Chat({ setChatShowing, messages, setMessages, address }) {
   const [newMessage, setNewMessage] = useState("");
 
   function handleSend(e) {
     e.preventDefault();
     setMessages((messages) => [...messages, { who: "user", text: newMessage }]);
     setNewMessage("");
-    botReply();
+    setTimeout(botReply(newMessage.toLocaleLowerCase()), 1200); //newMessage shouldn't be "" because of the way state works; should be last message (yo creo)
   }
 
-  function botReply() {
-    //maybe add a small delay
-    setMessages((messages) => [
-      ...messages,
-      { who: "bot", text: "well aren't you just the sweetest" },
-    ]);
+  function botReply(msg) {
+    if (messages.length <= 1) {
+      setMessages((messages) => [
+        ...messages,
+        {
+          who: "bot",
+          text:
+            "Hello! Nice to meet you. If there's something specific you're looking for, I might be able to help.",
+        },
+      ]);
+    } else if (
+      msg.includes("food") ||
+      msg.includes("dinner") ||
+      msg.includes("lunch") ||
+      msg.includes("breakfast") ||
+      msg.includes("hungry") ||
+      msg.includes("snack") ||
+      msg.includes("eat") ||
+      msg.includes("grub") ||
+      msg.includes("meal")
+    ) {
+      setMessages((messages) => [
+        ...messages,
+        { who: "bot", text: address.food },
+      ]);
+    } else if (
+      msg.includes("language") ||
+      msg.includes("tongue") ||
+      msg.includes("speak") ||
+      msg.includes("english") ||
+      msg.includes("idioma")
+    ) {
+      setMessages((messages) => [
+        ...messages,
+        { who: "bot", text: address.language },
+      ]);
+    } else if (
+      (msg.includes("religion") ||
+        msg.includes("prayer") ||
+        msg.includes("God") ||
+        msg.includes("worship") ||
+        msg.includes("temple") ||
+        msg.includes("synagogue") ||
+        msg.includes("church")) &&
+      address.religion
+    ) {
+      setMessages((messages) => [
+        ...messages,
+        { who: "bot", text: address.religion },
+      ]);
+    } else {
+      setMessages((messages) => [
+        ...messages,
+        {
+          who: "bot",
+          text:
+            "I'm sorry.. I don't quite understand. Try asking another question, or being more specific.",
+        },
+      ]);
+    }
   }
 
   return (

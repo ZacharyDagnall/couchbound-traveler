@@ -15,8 +15,8 @@ function Travelling({ travelMode, api, user }) {
   });
 
   const [messages, setMessages] = useState([
-    { who: "user", text: "hey.." },
-    { who: "bot", text: "welcome to the world" },
+    // { who: "user", text: "hey.." },
+    // { who: "bot", text: "welcome to the world" },
   ]);
   const history = useHistory();
   console.log(travelMode);
@@ -60,6 +60,7 @@ function Travelling({ travelMode, api, user }) {
             setChatShowing={setChatShowing}
             messages={messages}
             setMessages={setMessages}
+            address={address}
           />
         ) : null}
       </div>

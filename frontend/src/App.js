@@ -49,7 +49,7 @@ function App() {
             <Profile user={user} api={API} setUser={setUser} />
           </Route>
           <Route exact path="/travelling">
-            <Travelling travelMode={travelMode} api={API} user={user} />
+            <Travelling travelMode={"Find Yourself"} api={API} user={user} />
           </Route>
           <Route exact path="/*">
             <Redirect
