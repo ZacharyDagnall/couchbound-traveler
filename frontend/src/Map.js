@@ -276,7 +276,7 @@ import { MapillaryViewer } from "react-mapillary";
 //   "Wallis and Futuna",
 // ];
 
-function Map({ api, address, setAddress, user }) {
+function Map({ api, address, setAddress, user, triggerA, triggerB }) {
   // 085Gpl_xNxW1Lw2eeEG28w   fully works on my site (Berlin)
   //okay so actually most of these kind of work by pressing space bar but only the one above seems to bring up arrows. And no way to go back.
   // g8fuAu61idtDdrwdn_k      scroll (on mapillary but not on CT) but no arrows
@@ -486,27 +486,6 @@ function Map({ api, address, setAddress, user }) {
   //     .then((reply) => console.log("saved this place, or tried to", reply));
   // }, [stamp]);
 
-  // const [clientID, setClientID] = useState("");
-  // useEffect(() => {
-  //   fetch(`${api}/clientID`)
-  //     .then((r) => {
-  //       console.log("response before json()", r);
-  //       r.json();
-  //     })
-  //     .then((r) => {
-  //       console.log("client id call response", r);
-  //       setClientID(r);
-  //     });
-  // }, []);
-
-  //   useEffect(() => {
-  //     fetch(
-  //       "https://a.mapillary.com/v3/images?client_id=MHZvSFJXZjRWR0p0YWZpODRTMDhDbjoxOTUzYjNlMjVlMWM0NTcw"
-  //     )
-  //       .then((r) => r.json())
-  //       .then((j) => setImgKey(j.features[10].properties.key));
-  //   }, []);
-
   return (
     <div
       id="map-container"
@@ -517,21 +496,20 @@ function Map({ api, address, setAddress, user }) {
         height: "100vh",
       }}
     >
-      {/* <h2>
-        Coords: {latlong.lat}ºN, {latlong.long}ºE
-      </h2> */}
-      <MapillaryViewer
-        clientId="MHZvSFJXZjRWR0p0YWZpODRTMDhDbjoxOTUzYjNlMjVlMWM0NTcw"
-        imageKey={imgKey}
-        filter={["==", "userKey", "2PiRXqdqbY47WzG6CRzEIA"]}
-        // onTiltChanged={(tilt) => console.log(`Tilt: ${tilt}`)} //vertical angle
-        // onFovChanged={(fov) => console.log(`FoV: ${fov}`)}  //zoom
-        onNodeChanged={(node) => {
-          console.log("Lat:", node.latLon.lat, "Long:", node.latLon.lon);
-          setLatlong({ lat: node.latLon.lat, long: node.latLon.lon });
-        }}
-        // onBearingChanged={(bearing) => console.log(`Bearing: ${bearing}`)} //horiz angle
-      />
+      {triggerA || triggerB ? (
+        <MapillaryViewer
+          clientId="MHZvSFJXZjRWR0p0YWZpODRTMDhDbjoxOTUzYjNlMjVlMWM0NTcw"
+          imageKey={imgKey}
+          filter={["==", "userKey", "2PiRXqdqbY47WzG6CRzEIA"]}
+          // onTiltChanged={(tilt) => console.log(`Tilt: ${tilt}`)} //vertical angle
+          // onFovChanged={(fov) => console.log(`FoV: ${fov}`)}  //zoom
+          onNodeChanged={(node) => {
+            console.log("Lat:", node.latLon.lat, "Long:", node.latLon.lon);
+            setLatlong({ lat: node.latLon.lat, long: node.latLon.lon });
+          }}
+          // onBearingChanged={(bearing) => console.log(`Bearing: ${bearing}`)} //horiz angle
+        />
+      ) : null}
     </div>
   );
 }

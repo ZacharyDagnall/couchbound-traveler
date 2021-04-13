@@ -16065,3 +16065,1724 @@ Processing by CitiesController#info as JSON
 Completed 200 OK in 14ms (Views: 1.1ms | ActiveRecord: 3.2ms | Allocations: 4210)
 
 
+Started GET "/me" for ::1 at 2021-04-13 13:54:36 -0400
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#me as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `authenticate'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.41ms)
+Completed 200 OK in 44ms (Views: 11.1ms | ActiveRecord: 1.5ms | Allocations: 8962)
+
+
+Started POST "/city_info/1" for ::1 at 2021-04-13 13:54:36 -0400
+Processing by CitiesController#info as JSON
+  Parameters: {"lat"=>0, "long"=>0, "id"=>"1", "city"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:11:in `info'
+  [1m[36mCity Load (1.5ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  ↳ app/controllers/cities_controller.rb:12:in `info'
+  [1m[36mPassport Load (0.9ms)[0m  [1m[34mSELECT "passports".* FROM "passports" WHERE "passports"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTrip Create (1.1ms)[0m  [1m[32mINSERT INTO "trips" ("date_travelled", "passport_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date_travelled", "Tuesday April 13, 2021"], ["passport_id", 1], ["city_id", 4], ["created_at", "2021-04-13 17:54:36.921798"], ["updated_at", "2021-04-13 17:54:36.921798"]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with City (0.49ms)
+Completed 200 OK in 75ms (Views: 3.2ms | ActiveRecord: 7.1ms | Allocations: 20364)
+
+
+Started POST "/city_info/1" for ::1 at 2021-04-13 13:55:40 -0400
+Processing by CitiesController#info as JSON
+  Parameters: {"lat"=>22.19093676426434, "long"=>113.54405552492719, "id"=>"1", "city"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:11:in `info'
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  ↳ app/controllers/cities_controller.rb:12:in `info'
+  [1m[36mPassport Load (0.1ms)[0m  [1m[34mSELECT "passports".* FROM "passports" WHERE "passports"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTrip Create (0.5ms)[0m  [1m[32mINSERT INTO "trips" ("date_travelled", "passport_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date_travelled", "Tuesday April 13, 2021"], ["passport_id", 1], ["city_id", 6], ["created_at", "2021-04-13 17:55:40.159134"], ["updated_at", "2021-04-13 17:55:40.159134"]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with City (0.41ms)
+Completed 200 OK in 11ms (Views: 1.1ms | ActiveRecord: 2.1ms | Allocations: 3729)
+
+
+Started POST "/city_info/1" for ::1 at 2021-04-13 13:56:17 -0400
+Processing by CitiesController#info as JSON
+  Parameters: {"lat"=>40.72791880183387, "long"=>-73.99918712924766, "id"=>"1", "city"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:11:in `info'
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  ↳ app/controllers/cities_controller.rb:12:in `info'
+  [1m[36mPassport Load (0.1ms)[0m  [1m[34mSELECT "passports".* FROM "passports" WHERE "passports"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTrip Create (0.9ms)[0m  [1m[32mINSERT INTO "trips" ("date_travelled", "passport_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date_travelled", "Tuesday April 13, 2021"], ["passport_id", 1], ["city_id", 5], ["created_at", "2021-04-13 17:56:17.113522"], ["updated_at", "2021-04-13 17:56:17.113522"]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with City (0.27ms)
+Completed 200 OK in 18ms (Views: 0.7ms | ActiveRecord: 3.0ms | Allocations: 3728)
+
+
+Started POST "/login" for ::1 at 2021-04-13 14:04:50 -0400
+Processing by UsersController#login as JSON
+  Parameters: {"username"=>"BingoBongo", "password"=>"[FILTERED]", "user"=>{"username"=>"BingoBongo"}}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/users_controller.rb:9:in `login'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "BingoBongo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Completed 200 OK in 262ms (Views: 0.5ms | ActiveRecord: 1.5ms | Allocations: 1359)
+
+
+Started GET "/usertrips/1" for ::1 at 2021-04-13 14:04:54 -0400
+Processing by UsersController#trips as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:50:in `trips'
+  [1m[36mPassport Load (0.9ms)[0m  [1m[34mSELECT "passports".* FROM "passports" WHERE "passports"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `trips'
+  [1m[36mTrip Load (1.9ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."passport_id" = ?[0m  [["passport_id", 1]]
+  ↳ app/models/user.rb:12:in `map'
+  [1m[36mCity Load (1.8ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCity Load (1.1ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+No serializer found for resource: {:id=>1, :city=>"Lima", :flag=>"https://upload.wikimedia.org/wikipedia/commons/d/df/Flag_of_Peru_%28state%29.svg", :continent=>"South America", :country=>"Peru", :state=>"Lima", :date=>"Tuesday March 9th 2021"}
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Array (3.03ms)
+Completed 200 OK in 55ms (Views: 3.6ms | ActiveRecord: 7.0ms | Allocations: 10137)
+
+
+Started POST "/city_info/1" for ::1 at 2021-04-13 14:05:21 -0400
+Processing by CitiesController#info as JSON
+  Parameters: {"lat"=>0, "long"=>0, "id"=>"1", "city"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:11:in `info'
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  ↳ app/controllers/cities_controller.rb:12:in `info'
+  [1m[36mPassport Load (0.2ms)[0m  [1m[34mSELECT "passports".* FROM "passports" WHERE "passports"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTrip Create (0.9ms)[0m  [1m[32mINSERT INTO "trips" ("date_travelled", "passport_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date_travelled", "Tuesday April 13, 2021"], ["passport_id", 1], ["city_id", 2], ["created_at", "2021-04-13 18:05:21.033161"], ["updated_at", "2021-04-13 18:05:21.033161"]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with City (0.36ms)
+Completed 200 OK in 13ms (Views: 1.2ms | ActiveRecord: 2.5ms | Allocations: 3739)
+
+
+Started POST "/city_info/1" for ::1 at 2021-04-13 14:05:26 -0400
+Processing by CitiesController#info as JSON
+  Parameters: {"lat"=>0, "long"=>0, "id"=>"1", "city"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:11:in `info'
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  ↳ app/controllers/cities_controller.rb:12:in `info'
+  [1m[36mPassport Load (0.1ms)[0m  [1m[34mSELECT "passports".* FROM "passports" WHERE "passports"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTrip Create (0.5ms)[0m  [1m[32mINSERT INTO "trips" ("date_travelled", "passport_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date_travelled", "Tuesday April 13, 2021"], ["passport_id", 1], ["city_id", 4], ["created_at", "2021-04-13 18:05:26.329126"], ["updated_at", "2021-04-13 18:05:26.329126"]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with City (0.4ms)
+Completed 200 OK in 11ms (Views: 1.2ms | ActiveRecord: 2.0ms | Allocations: 3736)
+
+
+Started GET "/usertrips/1" for ::1 at 2021-04-13 14:05:41 -0400
+Processing by UsersController#trips as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:50:in `trips'
+  [1m[36mPassport Load (0.3ms)[0m  [1m[34mSELECT "passports".* FROM "passports" WHERE "passports"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `trips'
+  [1m[36mTrip Load (0.4ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."passport_id" = ?[0m  [["passport_id", 1]]
+  ↳ app/models/user.rb:12:in `map'
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCACHE City Load (0.1ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+No serializer found for resource: {:id=>1, :city=>"Lima", :flag=>"https://upload.wikimedia.org/wikipedia/commons/d/df/Flag_of_Peru_%28state%29.svg", :continent=>"South America", :country=>"Peru", :state=>"Lima", :date=>"Tuesday March 9th 2021"}
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Array (0.79ms)
+Completed 200 OK in 45ms (Views: 1.4ms | ActiveRecord: 2.4ms | Allocations: 10934)
+
+
+Started POST "/login" for ::1 at 2021-04-13 14:28:12 -0400
+Processing by UsersController#login as JSON
+  Parameters: {"username"=>"BingoBongo", "password"=>"[FILTERED]", "user"=>{"username"=>"BingoBongo"}}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/users_controller.rb:9:in `login'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "BingoBongo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Completed 200 OK in 265ms (Views: 0.4ms | ActiveRecord: 0.9ms | Allocations: 1197)
+
+
+Started POST "/city_info/1" for ::1 at 2021-04-13 14:28:14 -0400
+Processing by CitiesController#info as JSON
+  Parameters: {"lat"=>0, "long"=>0, "id"=>"1", "city"=>{}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:11:in `info'
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  ↳ app/controllers/cities_controller.rb:12:in `info'
+  [1m[36mPassport Load (0.2ms)[0m  [1m[34mSELECT "passports".* FROM "passports" WHERE "passports"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTrip Create (0.7ms)[0m  [1m[32mINSERT INTO "trips" ("date_travelled", "passport_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date_travelled", "Tuesday April 13, 2021"], ["passport_id", 1], ["city_id", 6], ["created_at", "2021-04-13 18:28:14.186196"], ["updated_at", "2021-04-13 18:28:14.186196"]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with City (0.48ms)
+Completed 200 OK in 13ms (Views: 1.1ms | ActiveRecord: 3.3ms | Allocations: 3763)
+
+
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "cities"[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "cities" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "flag_url" varchar, "continent" varchar, "country" varchar, "state" varchar, "food" varchar, "language" varchar, "religion" varchar, "image_key" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "passports"[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "passports" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "photo_url" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE INDEX "index_passports_on_user_id" ON "passports" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "trips"[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "trips" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "date_travelled" varchar, "passport_id" integer NOT NULL, "city_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE INDEX "index_trips_on_city_id" ON "trips" ("city_id")[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE INDEX "index_trips_on_passport_id" ON "trips" ("passport_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "apassports" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "photo_url" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_apassports_on_user_id" ON "apassports" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "apassports" ("id","user_id","photo_url","created_at","updated_at")
+                     SELECT "id","user_id","photo_url","created_at","updated_at" FROM "passports"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "passports"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "passports" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "photo_url" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_7510b214d9"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_passports_on_user_id" ON "passports" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "passports" ("id","user_id","photo_url","created_at","updated_at")
+                     SELECT "id","user_id","photo_url","created_at","updated_at" FROM "apassports"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "apassports"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "atrips" ("id" integer NOT NULL PRIMARY KEY, "date_travelled" varchar DEFAULT NULL, "passport_id" integer NOT NULL, "city_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_atrips_on_passport_id" ON "atrips" ("passport_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_atrips_on_city_id" ON "atrips" ("city_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "atrips" ("id","date_travelled","passport_id","city_id","created_at","updated_at")
+                     SELECT "id","date_travelled","passport_id","city_id","created_at","updated_at" FROM "trips"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "trips"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "trips" ("id" integer NOT NULL PRIMARY KEY, "date_travelled" varchar DEFAULT NULL, "passport_id" integer NOT NULL, "city_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_d3cace47f4"
+FOREIGN KEY ("city_id")
+  REFERENCES "cities" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_trips_on_city_id" ON "trips" ("city_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_trips_on_passport_id" ON "trips" ("passport_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "trips" ("id","date_travelled","passport_id","city_id","created_at","updated_at")
+                     SELECT "id","date_travelled","passport_id","city_id","created_at","updated_at" FROM "atrips"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "atrips"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "atrips" ("id" integer NOT NULL PRIMARY KEY, "date_travelled" varchar DEFAULT NULL, "passport_id" integer NOT NULL, "city_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_atrips_on_passport_id" ON "atrips" ("passport_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_atrips_on_city_id" ON "atrips" ("city_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "atrips" ("id","date_travelled","passport_id","city_id","created_at","updated_at")
+                     SELECT "id","date_travelled","passport_id","city_id","created_at","updated_at" FROM "trips"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "trips"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "trips" ("id" integer NOT NULL PRIMARY KEY, "date_travelled" varchar DEFAULT NULL, "passport_id" integer NOT NULL, "city_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_d3cace47f4"
+FOREIGN KEY ("city_id")
+  REFERENCES "cities" ("id")
+, CONSTRAINT "fk_rails_3d48eaa74d"
+FOREIGN KEY ("passport_id")
+  REFERENCES "passports" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_trips_on_city_id" ON "trips" ("city_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_trips_on_passport_id" ON "trips" ("passport_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "trips" ("id","date_travelled","passport_id","city_id","created_at","updated_at")
+                     SELECT "id","date_travelled","passport_id","city_id","created_at","updated_at" FROM "atrips"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "atrips"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20210407190055)[0m
+  [1m[35m (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20210407184939),
+(20210407185534),
+(20210407185711);
+
+[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-04-13 18:37:56.090239"], ["updated_at", "2021-04-13 18:37:56.090239"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "71c1e8106fbdad3023992d5a09d09a32e83814b2"], ["created_at", "2021-04-13 18:37:56.096695"], ["updated_at", "2021-04-13 18:37:56.096695"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "cities"[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "cities" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "flag_url" varchar, "continent" varchar, "country" varchar, "state" varchar, "food" varchar, "language" varchar, "religion" varchar, "image_key" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "passports"[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "passports" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "photo_url" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE INDEX "index_passports_on_user_id" ON "passports" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "trips"[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "trips" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "date_travelled" varchar, "passport_id" integer NOT NULL, "city_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE INDEX "index_trips_on_city_id" ON "trips" ("city_id")[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE INDEX "index_trips_on_passport_id" ON "trips" ("passport_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "apassports" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "photo_url" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_apassports_on_user_id" ON "apassports" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "apassports" ("id","user_id","photo_url","created_at","updated_at")
+                     SELECT "id","user_id","photo_url","created_at","updated_at" FROM "passports"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "passports"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "passports" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "photo_url" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_7510b214d9"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_passports_on_user_id" ON "passports" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "passports" ("id","user_id","photo_url","created_at","updated_at")
+                     SELECT "id","user_id","photo_url","created_at","updated_at" FROM "apassports"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "apassports"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "atrips" ("id" integer NOT NULL PRIMARY KEY, "date_travelled" varchar DEFAULT NULL, "passport_id" integer NOT NULL, "city_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_atrips_on_passport_id" ON "atrips" ("passport_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_atrips_on_city_id" ON "atrips" ("city_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "atrips" ("id","date_travelled","passport_id","city_id","created_at","updated_at")
+                     SELECT "id","date_travelled","passport_id","city_id","created_at","updated_at" FROM "trips"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "trips"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "trips" ("id" integer NOT NULL PRIMARY KEY, "date_travelled" varchar DEFAULT NULL, "passport_id" integer NOT NULL, "city_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_d3cace47f4"
+FOREIGN KEY ("city_id")
+  REFERENCES "cities" ("id")
+)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_trips_on_city_id" ON "trips" ("city_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_trips_on_passport_id" ON "trips" ("passport_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "trips" ("id","date_travelled","passport_id","city_id","created_at","updated_at")
+                     SELECT "id","date_travelled","passport_id","city_id","created_at","updated_at" FROM "atrips"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "atrips"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "atrips" ("id" integer NOT NULL PRIMARY KEY, "date_travelled" varchar DEFAULT NULL, "passport_id" integer NOT NULL, "city_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_atrips_on_passport_id" ON "atrips" ("passport_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_atrips_on_city_id" ON "atrips" ("city_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "atrips" ("id","date_travelled","passport_id","city_id","created_at","updated_at")
+                     SELECT "id","date_travelled","passport_id","city_id","created_at","updated_at" FROM "trips"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "trips"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "trips" ("id" integer NOT NULL PRIMARY KEY, "date_travelled" varchar DEFAULT NULL, "passport_id" integer NOT NULL, "city_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_d3cace47f4"
+FOREIGN KEY ("city_id")
+  REFERENCES "cities" ("id")
+, CONSTRAINT "fk_rails_3d48eaa74d"
+FOREIGN KEY ("passport_id")
+  REFERENCES "passports" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_trips_on_city_id" ON "trips" ("city_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_trips_on_passport_id" ON "trips" ("passport_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "trips" ("id","date_travelled","passport_id","city_id","created_at","updated_at")
+                     SELECT "id","date_travelled","passport_id","city_id","created_at","updated_at" FROM "atrips"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "atrips"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20210407190055)[0m
+  [1m[35m (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20210407184939),
+(20210407185534),
+(20210407185711);
+
+[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-04-13 18:37:56.181741"], ["updated_at", "2021-04-13 18:37:56.181741"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.2ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2021-04-13 18:37:56.186524"], ["key", "environment"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "71c1e8106fbdad3023992d5a09d09a32e83814b2"], ["created_at", "2021-04-13 18:37:56.191682"], ["updated_at", "2021-04-13 18:37:56.191682"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["username", "BingoBongo"], ["password_digest", "$2a$12$UDOHCdPFi0Hm.43o12TLb.hdVntulE4fpGTvuOOIQz7f3uaud2tD2"], ["created_at", "2021-04-13 18:37:56.494413"], ["updated_at", "2021-04-13 18:37:56.494413"]]
+  [1m[36mPassport Create (0.2ms)[0m  [1m[32mINSERT INTO "passports" ("user_id", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["user_id", 1], ["created_at", "2021-04-13 18:37:56.513292"], ["updated_at", "2021-04-13 18:37:56.513292"]]
+  ↳ app/models/user.rb:8:in `create_passport'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCity Create (0.3ms)[0m  [1m[32mINSERT INTO "cities" ("name", "flag_url", "continent", "country", "state", "food", "language", "religion", "image_key", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Lima"], ["flag_url", "https://upload.wikimedia.org/wikipedia/commons/d/df/Flag_of_Peru_%28state%29.svg"], ["continent", "South America"], ["country", "Peru"], ["state", "Lima"], ["food", "My favorite meal is Ceviche. Goes so well with a glass of Chicha Morada!"], ["language", "My friends and I all speak Spanish! ¡Bienvenidos a nuestro país!"], ["religion", "I go with my family to Catholic mass on Sundays!"], ["image_key", "9VTHnaNzib-1zgdzaoLO7Q"], ["created_at", "2021-04-13 18:37:56.524160"], ["updated_at", "2021-04-13 18:37:56.524160"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCity Create (0.3ms)[0m  [1m[32mINSERT INTO "cities" ("name", "flag_url", "continent", "country", "state", "food", "language", "religion", "image_key", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Toronto"], ["flag_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Flag_of_Canada_%28Pantone%29.svg/1200px-Flag_of_Canada_%28Pantone%29.svg.png"], ["continent", "North America"], ["country", "Canada"], ["state", "Ontario"], ["food", "You should try a peameal bacon sandwich. I think you can get one down at the St. Lawrence Market, eh?"], ["language", "Many people in other parts of the country speak French, and a few here do as well. But we primarily speak English here."], ["religion", "People here practice all kinds of religions, but most seem to be Catholics, Protestants, or not very religious."], ["image_key", "rY7guF8KWnRuQ-GDKxuPTw"], ["created_at", "2021-04-13 18:37:56.528443"], ["updated_at", "2021-04-13 18:37:56.528443"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCity Create (0.3ms)[0m  [1m[32mINSERT INTO "cities" ("name", "flag_url", "continent", "country", "state", "food", "language", "image_key", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Tokyo"], ["flag_url", "https://cdn11.bigcommerce.com/s-ey7tq/images/stencil/1280x1280/products/3342/18816/japan-flag__36690.1575327806.jpg?c=2"], ["continent", "Asia"], ["country", "Japan"], ["state", ""], ["food", "You've never had sushi like we have here!"], ["language", "We speak Japanese here. おはようございます！"], ["image_key", "IlFyfyTOvBxFrskJKyOZ6Q"], ["created_at", "2021-04-13 18:37:56.534288"], ["updated_at", "2021-04-13 18:37:56.534288"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCity Create (0.3ms)[0m  [1m[32mINSERT INTO "cities" ("name", "flag_url", "continent", "country", "state", "food", "language", "religion", "image_key", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Macao"], ["flag_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Flag_of_Macau.svg/1200px-Flag_of_Macau.svg.png"], ["continent", "Asia"], ["country", "People's Republic of China"], ["state", "Macao"], ["food", "Oh man, I love a good Portguese Egg Tart! 吃飯囉！"], ["language", "Though many people here speak Portuguese, my family and I speak in Chinese!"], ["religion", "Many people here are Buddhists, and there are a few Catholics, but I don't practice any religion."], ["image_key", "KGHbNmfZQ8z9BcWb1a_3lg"], ["created_at", "2021-04-13 18:37:56.538003"], ["updated_at", "2021-04-13 18:37:56.538003"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCity Create (0.3ms)[0m  [1m[32mINSERT INTO "cities" ("name", "flag_url", "continent", "country", "state", "food", "language", "religion", "image_key", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Bengaluru"], ["flag_url", "https://cdn.britannica.com/97/1597-004-05816F4E/Flag-India.jpg"], ["continent", "Asia"], ["country", "India"], ["state", "Karnataka"], ["food", "Oh Ji, you have got to try some idli & dosa, na? Made from rice flour and urad dal, so yummy!"], ["language", "People in this country speak so many languages depending on where they are from. Here in this region, we speak Kannada. (Nope, not like the Maple Leaf Country, though it looks similar.)"], ["religion", "There are some Muslims here and a few Christians, but almost everybody I know is Hindu!"], ["image_key", "rwyMGYLiJIeHA1vQVdbzIg"], ["created_at", "2021-04-13 18:37:56.541796"], ["updated_at", "2021-04-13 18:37:56.541796"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCity Create (0.4ms)[0m  [1m[32mINSERT INTO "cities" ("name", "flag_url", "continent", "country", "state", "food", "language", "image_key", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Rome"], ["flag_url", "https://upload.wikimedia.org/wikipedia/en/thumb/0/03/Flag_of_Italy.svg/1200px-Flag_of_Italy.svg.png"], ["continent", "Europe"], ["country", "Italy"], ["state", "Lazio"], ["food", "My grandmother's gnocchi is just so good, you have to try!! Mangia!"], ["language", "We speak Italian here."], ["image_key", "S42Qzdt2b6Zw0iSs6imTXw"], ["created_at", "2021-04-13 18:37:56.545649"], ["updated_at", "2021-04-13 18:37:56.545649"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCity Create (0.3ms)[0m  [1m[32mINSERT INTO "cities" ("name", "flag_url", "continent", "country", "state", "food", "language", "image_key", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "New York City"], ["flag_url", "https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1200px-Flag_of_the_United_States.svg.png"], ["continent", "North America"], ["country", "United States"], ["state", "New York"], ["food", "You thought you knew what good pizza was until you had some of this! Grab a bagel while you're at it."], ["language", "People in this city speak all kinds of languages! But the most common, in the city and the country, is definitely English."], ["image_key", "yoqbCIEHbWB16feLHU0saA"], ["created_at", "2021-04-13 18:37:56.549960"], ["updated_at", "2021-04-13 18:37:56.549960"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCity Create (0.3ms)[0m  [1m[32mINSERT INTO "cities" ("name", "flag_url", "continent", "country", "state", "food", "language", "image_key", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "São Paulo"], ["flag_url", "https://upload.wikimedia.org/wikipedia/en/thumb/0/05/Flag_of_Brazil.svg/1200px-Flag_of_Brazil.svg.png"], ["continent", "South America"], ["country", "Brazil"], ["state", "São Paulo"], ["food", "You've got to try a Pao de Queijo, maybe with a cafe con leche. Delicioso!"], ["language", "We speak Portuguese here."], ["image_key", "5xpLICrGF5E0T9628G5xul"], ["created_at", "2021-04-13 18:37:56.553759"], ["updated_at", "2021-04-13 18:37:56.553759"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrip Create (0.4ms)[0m  [1m[32mINSERT INTO "trips" ("date_travelled", "passport_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date_travelled", "Tuesday March 9th 2021"], ["passport_id", 1], ["city_id", 1], ["created_at", "2021-04-13 18:37:56.568143"], ["updated_at", "2021-04-13 18:37:56.568143"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrip Create (0.4ms)[0m  [1m[32mINSERT INTO "trips" ("date_travelled", "passport_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date_travelled", "Monday November 7th 2018"], ["passport_id", 1], ["city_id", 8], ["created_at", "2021-04-13 18:37:56.572821"], ["updated_at", "2021-04-13 18:37:56.572821"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/usertrips/1" for ::1 at 2021-04-13 14:38:07 -0400
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#trips as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:50:in `trips'
+  [1m[36mPassport Load (0.1ms)[0m  [1m[34mSELECT "passports".* FROM "passports" WHERE "passports"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `trips'
+  [1m[36mTrip Load (0.1ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."passport_id" = ?[0m  [["passport_id", 1]]
+  ↳ app/models/user.rb:12:in `map'
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+No serializer found for resource: {:id=>1, :city=>"Lima", :flag=>"https://upload.wikimedia.org/wikipedia/commons/d/df/Flag_of_Peru_%28state%29.svg", :continent=>"South America", :country=>"Peru", :state=>"Lima", :date=>"Tuesday March 9th 2021"}
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Array (0.17ms)
+Completed 200 OK in 90ms (Views: 3.3ms | ActiveRecord: 2.9ms | Allocations: 28167)
+
+
+Started POST "/city_info/1" for ::1 at 2021-04-13 14:38:13 -0400
+Processing by CitiesController#info as JSON
+  Parameters: {"lat"=>0, "long"=>0, "id"=>"1", "city"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:11:in `info'
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  ↳ app/controllers/cities_controller.rb:12:in `info'
+  [1m[36mPassport Load (0.2ms)[0m  [1m[34mSELECT "passports".* FROM "passports" WHERE "passports"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTrip Create (0.6ms)[0m  [1m[32mINSERT INTO "trips" ("date_travelled", "passport_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date_travelled", "Tuesday April 13, 2021"], ["passport_id", 1], ["city_id", 7], ["created_at", "2021-04-13 18:38:13.475322"], ["updated_at", "2021-04-13 18:38:13.475322"]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with City (0.37ms)
+Completed 200 OK in 12ms (Views: 2.2ms | ActiveRecord: 2.1ms | Allocations: 4431)
+
+
+Started POST "/city_info/1" for ::1 at 2021-04-13 14:38:16 -0400
+Processing by CitiesController#info as JSON
+  Parameters: {"lat"=>0, "long"=>0, "id"=>"1", "city"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:11:in `info'
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  ↳ app/controllers/cities_controller.rb:12:in `info'
+  [1m[36mPassport Load (0.1ms)[0m  [1m[34mSELECT "passports".* FROM "passports" WHERE "passports"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTrip Create (0.5ms)[0m  [1m[32mINSERT INTO "trips" ("date_travelled", "passport_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date_travelled", "Tuesday April 13, 2021"], ["passport_id", 1], ["city_id", 8], ["created_at", "2021-04-13 18:38:16.987495"], ["updated_at", "2021-04-13 18:38:16.987495"]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with City (0.35ms)
+Completed 200 OK in 11ms (Views: 1.0ms | ActiveRecord: 1.9ms | Allocations: 3747)
+
+
+Started POST "/login" for ::1 at 2021-04-13 14:38:49 -0400
+Processing by UsersController#login as JSON
+  Parameters: {"username"=>"BingoBongo", "password"=>"[FILTERED]", "user"=>{"username"=>"BingoBongo"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "BingoBongo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (3.55ms)
+Completed 200 OK in 286ms (Views: 4.0ms | ActiveRecord: 0.4ms | Allocations: 3265)
+
+
+Started GET "/usertrips/1" for ::1 at 2021-04-13 14:38:57 -0400
+Processing by UsersController#trips as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:50:in `trips'
+  [1m[36mPassport Load (0.3ms)[0m  [1m[34mSELECT "passports".* FROM "passports" WHERE "passports"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `trips'
+  [1m[36mTrip Load (0.2ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."passport_id" = ?[0m  [["passport_id", 1]]
+  ↳ app/models/user.rb:12:in `map'
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+No serializer found for resource: {:id=>1, :city=>"Lima", :flag=>"https://upload.wikimedia.org/wikipedia/commons/d/df/Flag_of_Peru_%28state%29.svg", :continent=>"South America", :country=>"Peru", :state=>"Lima", :date=>"Tuesday March 9th 2021"}
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Array (0.51ms)
+Completed 200 OK in 29ms (Views: 1.3ms | ActiveRecord: 1.6ms | Allocations: 4221)
+
+
+Started DELETE "/trips/3" for ::1 at 2021-04-13 14:39:04 -0400
+Processing by TripsController#delete as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mTrip Load (0.2ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:4:in `delete'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trips_controller.rb:4:in `delete'
+  [1m[36mTrip Destroy (0.5ms)[0m  [1m[31mDELETE FROM "trips" WHERE "trips"."id" = ?[0m  [["id", 3]]
+  ↳ app/controllers/trips_controller.rb:4:in `delete'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/trips_controller.rb:4:in `delete'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.04ms)
+Completed 200 OK in 11ms (Views: 0.5ms | ActiveRecord: 1.7ms | Allocations: 1988)
+
+
+Started PATCH "/username/1" for ::1 at 2021-04-13 14:39:26 -0400
+Processing by UsersController#update_username as JSON
+  Parameters: {"username"=>"BingoBo", "id"=>"1", "user"=>{"username"=>"BingoBo"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `update_username'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `update_username'
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "username" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["username", "BingoBo"], ["updated_at", "2021-04-13 18:39:26.316791"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `update_username'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `update_username'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.35ms)
+Completed 200 OK in 13ms (Views: 0.9ms | ActiveRecord: 2.1ms | Allocations: 2445)
+
+
+Started PATCH "/password/1" for ::1 at 2021-04-13 14:40:00 -0400
+Processing by UsersController#update_password as JSON
+  Parameters: {"user"=>{"id"=>1, "username"=>"BingoBo"}, "oldPassword"=>"[FILTERED]", "newPassword"=>"[FILTERED]", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:36:in `update_password'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 401 Unauthorized in 281ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 609)
+
+
+Started POST "/city_info/1" for ::1 at 2021-04-13 14:40:05 -0400
+Processing by CitiesController#info as JSON
+  Parameters: {"lat"=>0, "long"=>0, "id"=>"1", "city"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:11:in `info'
+  [1m[36mCity Load (0.4ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  ↳ app/controllers/cities_controller.rb:12:in `info'
+  [1m[36mPassport Load (0.3ms)[0m  [1m[34mSELECT "passports".* FROM "passports" WHERE "passports"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTrip Create (1.6ms)[0m  [1m[32mINSERT INTO "trips" ("date_travelled", "passport_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date_travelled", "Tuesday April 13, 2021"], ["passport_id", 1], ["city_id", 7], ["created_at", "2021-04-13 18:40:05.308723"], ["updated_at", "2021-04-13 18:40:05.308723"]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with City (0.86ms)
+Completed 200 OK in 26ms (Views: 4.3ms | ActiveRecord: 3.8ms | Allocations: 3727)
+
+
+Started GET "/usertrips/1" for ::1 at 2021-04-13 14:42:37 -0400
+Processing by UsersController#trips as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:50:in `trips'
+  [1m[36mPassport Load (0.3ms)[0m  [1m[34mSELECT "passports".* FROM "passports" WHERE "passports"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `trips'
+  [1m[36mTrip Load (0.2ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."passport_id" = ?[0m  [["passport_id", 1]]
+  ↳ app/models/user.rb:12:in `map'
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+No serializer found for resource: {:id=>1, :city=>"Lima", :flag=>"https://upload.wikimedia.org/wikipedia/commons/d/df/Flag_of_Peru_%28state%29.svg", :continent=>"South America", :country=>"Peru", :state=>"Lima", :date=>"Tuesday March 9th 2021"}
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Array (0.5ms)
+Completed 200 OK in 26ms (Views: 1.7ms | ActiveRecord: 2.0ms | Allocations: 4199)
+
+
+Started DELETE "/trips/4" for ::1 at 2021-04-13 14:42:48 -0400
+Processing by TripsController#delete as */*
+  Parameters: {"id"=>"4"}
+  [1m[36mTrip Load (0.1ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:4:in `delete'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trips_controller.rb:4:in `delete'
+  [1m[36mTrip Destroy (0.5ms)[0m  [1m[31mDELETE FROM "trips" WHERE "trips"."id" = ?[0m  [["id", 4]]
+  ↳ app/controllers/trips_controller.rb:4:in `delete'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/trips_controller.rb:4:in `delete'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.04ms)
+Completed 200 OK in 8ms (Views: 0.7ms | ActiveRecord: 2.6ms | Allocations: 1847)
+
+
+Started GET "/usertrips/1" for ::1 at 2021-04-13 14:43:13 -0400
+Processing by UsersController#trips as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:50:in `trips'
+  [1m[36mPassport Load (0.4ms)[0m  [1m[34mSELECT "passports".* FROM "passports" WHERE "passports"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `trips'
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."passport_id" = ?[0m  [["passport_id", 1]]
+  ↳ app/models/user.rb:12:in `map'
+  [1m[36mCity Load (0.4ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+No serializer found for resource: {:id=>1, :city=>"Lima", :flag=>"https://upload.wikimedia.org/wikipedia/commons/d/df/Flag_of_Peru_%28state%29.svg", :continent=>"South America", :country=>"Peru", :state=>"Lima", :date=>"Tuesday March 9th 2021"}
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Array (0.52ms)
+Completed 200 OK in 28ms (Views: 1.4ms | ActiveRecord: 1.7ms | Allocations: 3600)
+
+
+Started PATCH "/username/1" for ::1 at 2021-04-13 14:45:39 -0400
+Processing by UsersController#update_username as JSON
+  Parameters: {"username"=>"BingoBongo", "id"=>"1", "user"=>{"username"=>"BingoBongo"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `update_username'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `update_username'
+  [1m[36mUser Update (0.8ms)[0m  [1m[33mUPDATE "users" SET "username" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["username", "BingoBongo"], ["updated_at", "2021-04-13 18:45:39.475926"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:31:in `update_username'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `update_username'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.37ms)
+Completed 200 OK in 11ms (Views: 1.0ms | ActiveRecord: 2.6ms | Allocations: 2247)
+
+
+Started GET "/me" for ::1 at 2021-04-13 15:11:49 -0400
+Processing by UsersController#me as */*
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/application_controller.rb:7:in `authenticate'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `authenticate'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.57ms)
+Completed 200 OK in 7ms (Views: 1.5ms | ActiveRecord: 1.4ms | Allocations: 1301)
+
+
+Started POST "/city_info/1" for ::1 at 2021-04-13 15:14:56 -0400
+Processing by CitiesController#info as JSON
+  Parameters: {"lat"=>0, "long"=>0, "id"=>"1", "city"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:11:in `info'
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  ↳ app/controllers/cities_controller.rb:12:in `info'
+  [1m[36mPassport Load (0.2ms)[0m  [1m[34mSELECT "passports".* FROM "passports" WHERE "passports"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTrip Create (0.6ms)[0m  [1m[32mINSERT INTO "trips" ("date_travelled", "passport_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date_travelled", "Tuesday April 13, 2021"], ["passport_id", 1], ["city_id", 3], ["created_at", "2021-04-13 19:14:56.076897"], ["updated_at", "2021-04-13 19:14:56.076897"]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with City (0.35ms)
+Completed 200 OK in 11ms (Views: 1.0ms | ActiveRecord: 2.1ms | Allocations: 3766)
+
+
+Started GET "/me" for ::1 at 2021-04-13 15:15:13 -0400
+Processing by UsersController#me as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `authenticate'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.21ms)
+Completed 200 OK in 3ms (Views: 0.8ms | ActiveRecord: 0.2ms | Allocations: 744)
+
+
+Started POST "/city_info/1" for ::1 at 2021-04-13 15:15:36 -0400
+Processing by CitiesController#info as JSON
+  Parameters: {"lat"=>0, "long"=>0, "id"=>"1", "city"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:11:in `info'
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  ↳ app/controllers/cities_controller.rb:12:in `info'
+  [1m[36mPassport Load (0.1ms)[0m  [1m[34mSELECT "passports".* FROM "passports" WHERE "passports"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTrip Create (0.8ms)[0m  [1m[32mINSERT INTO "trips" ("date_travelled", "passport_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date_travelled", "Tuesday April 13, 2021"], ["passport_id", 1], ["city_id", 7], ["created_at", "2021-04-13 19:15:36.981892"], ["updated_at", "2021-04-13 19:15:36.981892"]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with City (0.41ms)
+Completed 200 OK in 12ms (Views: 1.0ms | ActiveRecord: 2.5ms | Allocations: 3722)
+
+
+Started GET "/me" for ::1 at 2021-04-13 15:16:01 -0400
+Processing by UsersController#me as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `authenticate'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.21ms)
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.2ms | Allocations: 743)
+
+
+Started POST "/city_info/1" for ::1 at 2021-04-13 15:16:01 -0400
+Processing by CitiesController#info as JSON
+  Parameters: {"lat"=>0, "long"=>0, "id"=>"1", "city"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:11:in `info'
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  ↳ app/controllers/cities_controller.rb:12:in `info'
+  [1m[36mPassport Load (0.2ms)[0m  [1m[34mSELECT "passports".* FROM "passports" WHERE "passports"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTrip Create (0.6ms)[0m  [1m[32mINSERT INTO "trips" ("date_travelled", "passport_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date_travelled", "Tuesday April 13, 2021"], ["passport_id", 1], ["city_id", 2], ["created_at", "2021-04-13 19:16:01.599019"], ["updated_at", "2021-04-13 19:16:01.599019"]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with City (0.83ms)
+Completed 200 OK in 13ms (Views: 1.8ms | ActiveRecord: 2.5ms | Allocations: 3730)
+
+
+Started GET "/me" for ::1 at 2021-04-13 15:17:36 -0400
+Processing by UsersController#me as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `authenticate'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.31ms)
+Completed 200 OK in 3ms (Views: 1.2ms | ActiveRecord: 0.3ms | Allocations: 743)
+
+
+Started POST "/city_info/1" for ::1 at 2021-04-13 15:19:46 -0400
+Processing by CitiesController#info as JSON
+  Parameters: {"lat"=>0, "long"=>0, "id"=>"1", "city"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:11:in `info'
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  ↳ app/controllers/cities_controller.rb:12:in `info'
+  [1m[36mPassport Load (0.1ms)[0m  [1m[34mSELECT "passports".* FROM "passports" WHERE "passports"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTrip Create (0.6ms)[0m  [1m[32mINSERT INTO "trips" ("date_travelled", "passport_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date_travelled", "Tuesday April 13, 2021"], ["passport_id", 1], ["city_id", 8], ["created_at", "2021-04-13 19:19:46.902435"], ["updated_at", "2021-04-13 19:19:46.902435"]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with City (0.42ms)
+Completed 200 OK in 11ms (Views: 1.1ms | ActiveRecord: 2.4ms | Allocations: 3722)
+
+
+Started GET "/me" for ::1 at 2021-04-13 15:21:19 -0400
+Processing by UsersController#me as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `authenticate'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.25ms)
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 0.2ms | Allocations: 743)
+
+
+Started POST "/city_info/1" for ::1 at 2021-04-13 15:21:19 -0400
+Processing by CitiesController#info as JSON
+  Parameters: {"lat"=>0, "long"=>0, "id"=>"1", "city"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:11:in `info'
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  ↳ app/controllers/cities_controller.rb:12:in `info'
+  [1m[36mPassport Load (0.2ms)[0m  [1m[34mSELECT "passports".* FROM "passports" WHERE "passports"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTrip Create (0.9ms)[0m  [1m[32mINSERT INTO "trips" ("date_travelled", "passport_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date_travelled", "Tuesday April 13, 2021"], ["passport_id", 1], ["city_id", 4], ["created_at", "2021-04-13 19:21:19.670437"], ["updated_at", "2021-04-13 19:21:19.670437"]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with City (0.29ms)
+Completed 200 OK in 12ms (Views: 0.8ms | ActiveRecord: 2.5ms | Allocations: 3729)
+
+
+Started GET "/me" for ::1 at 2021-04-13 15:22:54 -0400
+Processing by UsersController#me as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `authenticate'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.27ms)
+Completed 200 OK in 3ms (Views: 0.9ms | ActiveRecord: 0.2ms | Allocations: 743)
+
+
+Started POST "/city_info/1" for ::1 at 2021-04-13 15:22:54 -0400
+Processing by CitiesController#info as JSON
+  Parameters: {"lat"=>0, "long"=>0, "id"=>"1", "city"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:11:in `info'
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  ↳ app/controllers/cities_controller.rb:12:in `info'
+  [1m[36mPassport Load (0.2ms)[0m  [1m[34mSELECT "passports".* FROM "passports" WHERE "passports"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTrip Create (0.7ms)[0m  [1m[32mINSERT INTO "trips" ("date_travelled", "passport_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date_travelled", "Tuesday April 13, 2021"], ["passport_id", 1], ["city_id", 7], ["created_at", "2021-04-13 19:22:54.294657"], ["updated_at", "2021-04-13 19:22:54.294657"]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with City (0.33ms)
+Completed 200 OK in 9ms (Views: 0.8ms | ActiveRecord: 2.0ms | Allocations: 3722)
+
+
+Started GET "/me" for ::1 at 2021-04-13 15:25:41 -0400
+Processing by UsersController#me as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `authenticate'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.56ms)
+Completed 200 OK in 3ms (Views: 1.5ms | ActiveRecord: 0.2ms | Allocations: 743)
+
+
+Started POST "/city_info/1" for ::1 at 2021-04-13 15:25:41 -0400
+Processing by CitiesController#info as JSON
+  Parameters: {"lat"=>0, "long"=>0, "id"=>"1", "city"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:11:in `info'
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  ↳ app/controllers/cities_controller.rb:12:in `info'
+  [1m[36mPassport Load (0.1ms)[0m  [1m[34mSELECT "passports".* FROM "passports" WHERE "passports"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTrip Create (0.7ms)[0m  [1m[32mINSERT INTO "trips" ("date_travelled", "passport_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date_travelled", "Tuesday April 13, 2021"], ["passport_id", 1], ["city_id", 1], ["created_at", "2021-04-13 19:25:41.390795"], ["updated_at", "2021-04-13 19:25:41.390795"]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with City (0.29ms)
+Completed 200 OK in 13ms (Views: 0.9ms | ActiveRecord: 2.4ms | Allocations: 3728)
+
+
+Started GET "/me" for ::1 at 2021-04-13 15:26:02 -0400
+Processing by UsersController#me as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `authenticate'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.38ms)
+Completed 200 OK in 4ms (Views: 1.4ms | ActiveRecord: 0.5ms | Allocations: 743)
+
+
+Started POST "/city_info/1" for ::1 at 2021-04-13 15:26:03 -0400
+Processing by CitiesController#info as JSON
+  Parameters: {"lat"=>0, "long"=>0, "id"=>"1", "city"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:11:in `info'
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  ↳ app/controllers/cities_controller.rb:12:in `info'
+  [1m[36mPassport Load (0.3ms)[0m  [1m[34mSELECT "passports".* FROM "passports" WHERE "passports"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTrip Create (0.8ms)[0m  [1m[32mINSERT INTO "trips" ("date_travelled", "passport_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date_travelled", "Tuesday April 13, 2021"], ["passport_id", 1], ["city_id", 4], ["created_at", "2021-04-13 19:26:03.097356"], ["updated_at", "2021-04-13 19:26:03.097356"]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with City (0.4ms)
+Completed 200 OK in 19ms (Views: 1.1ms | ActiveRecord: 4.0ms | Allocations: 3729)
+
+
+Started POST "/city_info/1" for ::1 at 2021-04-13 15:30:15 -0400
+Processing by CitiesController#info as JSON
+  Parameters: {"lat"=>0, "long"=>0, "id"=>"1", "city"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:11:in `info'
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  ↳ app/controllers/cities_controller.rb:12:in `info'
+  [1m[36mPassport Load (0.3ms)[0m  [1m[34mSELECT "passports".* FROM "passports" WHERE "passports"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTrip Create (0.7ms)[0m  [1m[32mINSERT INTO "trips" ("date_travelled", "passport_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date_travelled", "Tuesday April 13, 2021"], ["passport_id", 1], ["city_id", 4], ["created_at", "2021-04-13 19:30:15.065615"], ["updated_at", "2021-04-13 19:30:15.065615"]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with City (0.71ms)
+Completed 200 OK in 14ms (Views: 1.5ms | ActiveRecord: 2.6ms | Allocations: 3729)
+
+
+Started GET "/me" for ::1 at 2021-04-13 15:33:18 -0400
+Processing by UsersController#me as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `authenticate'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.25ms)
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.2ms | Allocations: 743)
+
+
+Started POST "/city_info/1" for ::1 at 2021-04-13 15:33:18 -0400
+Processing by CitiesController#info as JSON
+  Parameters: {"lat"=>0, "long"=>0, "id"=>"1", "city"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:11:in `info'
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  ↳ app/controllers/cities_controller.rb:12:in `info'
+  [1m[36mPassport Load (0.2ms)[0m  [1m[34mSELECT "passports".* FROM "passports" WHERE "passports"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTrip Create (0.5ms)[0m  [1m[32mINSERT INTO "trips" ("date_travelled", "passport_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date_travelled", "Tuesday April 13, 2021"], ["passport_id", 1], ["city_id", 6], ["created_at", "2021-04-13 19:33:18.251326"], ["updated_at", "2021-04-13 19:33:18.251326"]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with City (0.38ms)
+Completed 200 OK in 11ms (Views: 0.8ms | ActiveRecord: 2.0ms | Allocations: 3721)
+
+
+Started GET "/me" for ::1 at 2021-04-13 15:36:04 -0400
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#me as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `authenticate'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.42ms)
+Completed 200 OK in 44ms (Views: 14.8ms | ActiveRecord: 0.8ms | Allocations: 9044)
+
+
+Started POST "/city_info/1" for ::1 at 2021-04-13 15:40:28 -0400
+Processing by CitiesController#info as JSON
+  Parameters: {"lat"=>0, "long"=>0, "id"=>"1", "city"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:11:in `info'
+  [1m[36mCity Load (1.1ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  ↳ app/controllers/cities_controller.rb:12:in `info'
+  [1m[36mPassport Load (0.1ms)[0m  [1m[34mSELECT "passports".* FROM "passports" WHERE "passports"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTrip Create (0.5ms)[0m  [1m[32mINSERT INTO "trips" ("date_travelled", "passport_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date_travelled", "Tuesday April 13, 2021"], ["passport_id", 1], ["city_id", 1], ["created_at", "2021-04-13 19:40:28.843939"], ["updated_at", "2021-04-13 19:40:28.843939"]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with City (0.35ms)
+Completed 200 OK in 56ms (Views: 2.3ms | ActiveRecord: 4.4ms | Allocations: 20397)
+
+
+Started GET "/" for ::1 at 2021-04-13 15:43:31 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/zd/.rvm/gems/ruby-2.6.1/gems/railties-6.1.3.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/zd/.rvm/gems/ruby-2.6.1/gems/railties-6.1.3.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 10.1ms | Allocations: 482)
+Completed 200 OK in 43ms (Views: 19.0ms | ActiveRecord: 0.0ms | Allocations: 4150)
+
+
+Started GET "/me" for ::1 at 2021-04-13 15:43:38 -0400
+Processing by UsersController#me as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `authenticate'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.32ms)
+Completed 200 OK in 6ms (Views: 1.3ms | ActiveRecord: 0.2ms | Allocations: 809)
+
+
+Started POST "/city_info/1" for ::1 at 2021-04-13 15:43:40 -0400
+Processing by CitiesController#info as JSON
+  Parameters: {"lat"=>0, "long"=>0, "id"=>"1", "city"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:11:in `info'
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  ↳ app/controllers/cities_controller.rb:12:in `info'
+  [1m[36mPassport Load (0.2ms)[0m  [1m[34mSELECT "passports".* FROM "passports" WHERE "passports"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTrip Create (1.5ms)[0m  [1m[32mINSERT INTO "trips" ("date_travelled", "passport_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date_travelled", "Tuesday April 13, 2021"], ["passport_id", 1], ["city_id", 6], ["created_at", "2021-04-13 19:43:40.409129"], ["updated_at", "2021-04-13 19:43:40.409129"]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with City (1.65ms)
+Completed 200 OK in 21ms (Views: 2.4ms | ActiveRecord: 3.5ms | Allocations: 3725)
+
+
+Started GET "/me" for ::1 at 2021-04-13 16:11:10 -0400
+Processing by UsersController#me as */*
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/application_controller.rb:7:in `authenticate'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `authenticate'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.33ms)
+Completed 200 OK in 11ms (Views: 1.0ms | ActiveRecord: 3.2ms | Allocations: 1209)
+
+
+Started POST "/city_info/1" for ::1 at 2021-04-13 16:11:12 -0400
+Processing by CitiesController#info as JSON
+  Parameters: {"lat"=>0, "long"=>0, "id"=>"1", "city"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:11:in `info'
+  [1m[36mCity Load (0.9ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  ↳ app/controllers/cities_controller.rb:12:in `info'
+  [1m[36mPassport Load (1.0ms)[0m  [1m[34mSELECT "passports".* FROM "passports" WHERE "passports"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTrip Create (1.9ms)[0m  [1m[32mINSERT INTO "trips" ("date_travelled", "passport_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date_travelled", "Tuesday April 13, 2021"], ["passport_id", 1], ["city_id", 1], ["created_at", "2021-04-13 20:11:12.522699"], ["updated_at", "2021-04-13 20:11:12.522699"]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with City (0.37ms)
+Completed 200 OK in 22ms (Views: 1.7ms | ActiveRecord: 5.3ms | Allocations: 3797)
+
+
+Started GET "/me" for ::1 at 2021-04-13 16:11:17 -0400
+Processing by UsersController#me as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `authenticate'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.53ms)
+Completed 200 OK in 4ms (Views: 1.6ms | ActiveRecord: 0.2ms | Allocations: 757)
+
+
+Started POST "/city_info/1" for ::1 at 2021-04-13 16:11:17 -0400
+Processing by CitiesController#info as JSON
+  Parameters: {"lat"=>0, "long"=>0, "id"=>"1", "city"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:11:in `info'
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  ↳ app/controllers/cities_controller.rb:12:in `info'
+  [1m[36mPassport Load (0.2ms)[0m  [1m[34mSELECT "passports".* FROM "passports" WHERE "passports"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTrip Create (0.6ms)[0m  [1m[32mINSERT INTO "trips" ("date_travelled", "passport_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date_travelled", "Tuesday April 13, 2021"], ["passport_id", 1], ["city_id", 3], ["created_at", "2021-04-13 20:11:17.097861"], ["updated_at", "2021-04-13 20:11:17.097861"]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with City (0.33ms)
+Completed 200 OK in 12ms (Views: 0.9ms | ActiveRecord: 2.5ms | Allocations: 3729)
+
+
+Started GET "/me" for ::1 at 2021-04-13 16:12:26 -0400
+Processing by UsersController#me as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `authenticate'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.38ms)
+Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 0.2ms | Allocations: 743)
+
+
+Started POST "/city_info/1" for ::1 at 2021-04-13 16:12:26 -0400
+Processing by CitiesController#info as JSON
+  Parameters: {"lat"=>0, "long"=>0, "id"=>"1", "city"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:11:in `info'
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  ↳ app/controllers/cities_controller.rb:12:in `info'
+  [1m[36mPassport Load (0.1ms)[0m  [1m[34mSELECT "passports".* FROM "passports" WHERE "passports"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTrip Create (0.5ms)[0m  [1m[32mINSERT INTO "trips" ("date_travelled", "passport_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date_travelled", "Tuesday April 13, 2021"], ["passport_id", 1], ["city_id", 1], ["created_at", "2021-04-13 20:12:26.816501"], ["updated_at", "2021-04-13 20:12:26.816501"]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with City (0.39ms)
+Completed 200 OK in 13ms (Views: 0.9ms | ActiveRecord: 3.9ms | Allocations: 3735)
+
+
+Started GET "/me" for ::1 at 2021-04-13 16:38:47 -0400
+Processing by UsersController#me as */*
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/application_controller.rb:7:in `authenticate'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `authenticate'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.19ms)
+Completed 200 OK in 3ms (Views: 0.6ms | ActiveRecord: 0.6ms | Allocations: 1209)
+
+
+Started POST "/city_info/1" for ::1 at 2021-04-13 16:38:47 -0400
+Processing by CitiesController#info as JSON
+  Parameters: {"lat"=>0, "long"=>0, "id"=>"1", "city"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:11:in `info'
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  ↳ app/controllers/cities_controller.rb:12:in `info'
+  [1m[36mPassport Load (0.2ms)[0m  [1m[34mSELECT "passports".* FROM "passports" WHERE "passports"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTrip Create (0.4ms)[0m  [1m[32mINSERT INTO "trips" ("date_travelled", "passport_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date_travelled", "Tuesday April 13, 2021"], ["passport_id", 1], ["city_id", 4], ["created_at", "2021-04-13 20:38:47.666393"], ["updated_at", "2021-04-13 20:38:47.666393"]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with City (0.3ms)
+Completed 200 OK in 9ms (Views: 0.7ms | ActiveRecord: 2.0ms | Allocations: 3773)
+
+
+Started POST "/city_info/1" for ::1 at 2021-04-13 16:39:26 -0400
+Processing by CitiesController#info as JSON
+  Parameters: {"lat"=>0, "long"=>0, "id"=>"1", "city"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:11:in `info'
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  ↳ app/controllers/cities_controller.rb:12:in `info'
+  [1m[36mPassport Load (0.2ms)[0m  [1m[34mSELECT "passports".* FROM "passports" WHERE "passports"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTrip Create (0.6ms)[0m  [1m[32mINSERT INTO "trips" ("date_travelled", "passport_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date_travelled", "Tuesday April 13, 2021"], ["passport_id", 1], ["city_id", 3], ["created_at", "2021-04-13 20:39:26.147078"], ["updated_at", "2021-04-13 20:39:26.147078"]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with City (0.56ms)
+Completed 200 OK in 13ms (Views: 1.2ms | ActiveRecord: 2.4ms | Allocations: 3722)
+
+
+Started GET "/me" for ::1 at 2021-04-13 17:00:39 -0400
+Processing by UsersController#me as */*
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/application_controller.rb:7:in `authenticate'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `authenticate'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.48ms)
+Completed 200 OK in 11ms (Views: 1.6ms | ActiveRecord: 1.3ms | Allocations: 1209)
+
+
+Started POST "/city_info/1" for ::1 at 2021-04-13 17:00:39 -0400
+Processing by CitiesController#info as JSON
+  Parameters: {"lat"=>0, "long"=>0, "id"=>"1", "city"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:11:in `info'
+  [1m[36mCity Load (1.6ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  ↳ app/controllers/cities_controller.rb:12:in `info'
+  [1m[36mPassport Load (2.1ms)[0m  [1m[34mSELECT "passports".* FROM "passports" WHERE "passports"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTrip Create (3.2ms)[0m  [1m[32mINSERT INTO "trips" ("date_travelled", "passport_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date_travelled", "Tuesday April 13, 2021"], ["passport_id", 1], ["city_id", 2], ["created_at", "2021-04-13 21:00:39.635438"], ["updated_at", "2021-04-13 21:00:39.635438"]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with City (0.77ms)
+Completed 200 OK in 23ms (Views: 1.7ms | ActiveRecord: 8.5ms | Allocations: 3772)
+
+
+Started POST "/city_info/1" for ::1 at 2021-04-13 17:04:13 -0400
+Processing by CitiesController#info as JSON
+  Parameters: {"lat"=>0, "long"=>0, "id"=>"1", "city"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:11:in `info'
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  ↳ app/controllers/cities_controller.rb:12:in `info'
+  [1m[36mPassport Load (0.1ms)[0m  [1m[34mSELECT "passports".* FROM "passports" WHERE "passports"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTrip Create (0.8ms)[0m  [1m[32mINSERT INTO "trips" ("date_travelled", "passport_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date_travelled", "Tuesday April 13, 2021"], ["passport_id", 1], ["city_id", 5], ["created_at", "2021-04-13 21:04:13.175537"], ["updated_at", "2021-04-13 21:04:13.175537"]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with City (0.42ms)
+Completed 200 OK in 12ms (Views: 1.1ms | ActiveRecord: 2.5ms | Allocations: 3733)
+
+
+Started GET "/me" for ::1 at 2021-04-13 17:49:48 -0400
+Processing by UsersController#me as */*
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/application_controller.rb:7:in `authenticate'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `authenticate'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.34ms)
+Completed 200 OK in 6ms (Views: 1.1ms | ActiveRecord: 1.6ms | Allocations: 1209)
+
+
+Started POST "/city_info/1" for ::1 at 2021-04-13 17:49:48 -0400
+Processing by CitiesController#info as JSON
+  Parameters: {"lat"=>0, "long"=>0, "id"=>"1", "city"=>{}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:11:in `info'
+  [1m[36mCity Load (0.5ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  ↳ app/controllers/cities_controller.rb:12:in `info'
+  [1m[36mPassport Load (0.4ms)[0m  [1m[34mSELECT "passports".* FROM "passports" WHERE "passports"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTrip Create (0.9ms)[0m  [1m[32mINSERT INTO "trips" ("date_travelled", "passport_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date_travelled", "Tuesday April 13, 2021"], ["passport_id", 1], ["city_id", 6], ["created_at", "2021-04-13 21:49:48.899516"], ["updated_at", "2021-04-13 21:49:48.899516"]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with City (0.68ms)
+Completed 200 OK in 18ms (Views: 1.6ms | ActiveRecord: 3.6ms | Allocations: 3765)
+
+
+Started GET "/me" for ::1 at 2021-04-13 17:50:02 -0400
+Processing by UsersController#me as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `authenticate'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.52ms)
+Completed 200 OK in 4ms (Views: 1.4ms | ActiveRecord: 0.3ms | Allocations: 744)
+
+
+Started POST "/city_info/1" for ::1 at 2021-04-13 17:50:02 -0400
+Processing by CitiesController#info as JSON
+  Parameters: {"lat"=>0, "long"=>0, "id"=>"1", "city"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:11:in `info'
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  ↳ app/controllers/cities_controller.rb:12:in `info'
+  [1m[36mPassport Load (0.3ms)[0m  [1m[34mSELECT "passports".* FROM "passports" WHERE "passports"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTrip Create (0.7ms)[0m  [1m[32mINSERT INTO "trips" ("date_travelled", "passport_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date_travelled", "Tuesday April 13, 2021"], ["passport_id", 1], ["city_id", 4], ["created_at", "2021-04-13 21:50:02.165067"], ["updated_at", "2021-04-13 21:50:02.165067"]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with City (0.46ms)
+Completed 200 OK in 18ms (Views: 1.3ms | ActiveRecord: 2.7ms | Allocations: 3729)
+
+
+Started POST "/city_info/1" for ::1 at 2021-04-13 17:55:33 -0400
+Processing by CitiesController#info as JSON
+  Parameters: {"lat"=>0, "long"=>0, "id"=>"1", "city"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:11:in `info'
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  ↳ app/controllers/cities_controller.rb:12:in `info'
+  [1m[36mPassport Load (0.1ms)[0m  [1m[34mSELECT "passports".* FROM "passports" WHERE "passports"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTrip Create (0.7ms)[0m  [1m[32mINSERT INTO "trips" ("date_travelled", "passport_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date_travelled", "Tuesday April 13, 2021"], ["passport_id", 1], ["city_id", 6], ["created_at", "2021-04-13 21:55:33.813762"], ["updated_at", "2021-04-13 21:55:33.813762"]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with City (0.32ms)
+Completed 200 OK in 10ms (Views: 0.9ms | ActiveRecord: 2.1ms | Allocations: 3721)
+
+
+Started POST "/city_info/1" for ::1 at 2021-04-13 17:55:44 -0400
+Processing by CitiesController#info as JSON
+  Parameters: {"lat"=>0, "long"=>0, "id"=>"1", "city"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:11:in `info'
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  ↳ app/controllers/cities_controller.rb:12:in `info'
+  [1m[36mPassport Load (0.2ms)[0m  [1m[34mSELECT "passports".* FROM "passports" WHERE "passports"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTrip Create (0.7ms)[0m  [1m[32mINSERT INTO "trips" ("date_travelled", "passport_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date_travelled", "Tuesday April 13, 2021"], ["passport_id", 1], ["city_id", 6], ["created_at", "2021-04-13 21:55:44.602850"], ["updated_at", "2021-04-13 21:55:44.602850"]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with City (0.42ms)
+Completed 200 OK in 14ms (Views: 1.1ms | ActiveRecord: 2.8ms | Allocations: 3721)
+
+
+Started POST "/city_info/1" for ::1 at 2021-04-13 18:00:30 -0400
+Processing by CitiesController#info as JSON
+  Parameters: {"lat"=>0, "long"=>0, "id"=>"1", "city"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:11:in `info'
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  ↳ app/controllers/cities_controller.rb:12:in `info'
+  [1m[36mPassport Load (0.1ms)[0m  [1m[34mSELECT "passports".* FROM "passports" WHERE "passports"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTrip Create (0.5ms)[0m  [1m[32mINSERT INTO "trips" ("date_travelled", "passport_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date_travelled", "Tuesday April 13, 2021"], ["passport_id", 1], ["city_id", 4], ["created_at", "2021-04-13 22:00:30.989658"], ["updated_at", "2021-04-13 22:00:30.989658"]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with City (0.52ms)
+Completed 200 OK in 10ms (Views: 1.2ms | ActiveRecord: 2.2ms | Allocations: 3729)
+
+
+Started POST "/city_info/1" for ::1 at 2021-04-13 18:01:27 -0400
+Processing by CitiesController#info as JSON
+  Parameters: {"lat"=>0, "long"=>0, "id"=>"1", "city"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:11:in `info'
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  ↳ app/controllers/cities_controller.rb:12:in `info'
+  [1m[36mPassport Load (0.1ms)[0m  [1m[34mSELECT "passports".* FROM "passports" WHERE "passports"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTrip Create (0.7ms)[0m  [1m[32mINSERT INTO "trips" ("date_travelled", "passport_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date_travelled", "Tuesday April 13, 2021"], ["passport_id", 1], ["city_id", 8], ["created_at", "2021-04-13 22:01:27.039183"], ["updated_at", "2021-04-13 22:01:27.039183"]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with City (0.32ms)
+Completed 200 OK in 11ms (Views: 0.8ms | ActiveRecord: 2.4ms | Allocations: 3722)
+
+
+Started POST "/city_info/1" for ::1 at 2021-04-13 18:01:40 -0400
+Processing by CitiesController#info as JSON
+  Parameters: {"lat"=>0, "long"=>0, "id"=>"1", "city"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:11:in `info'
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  ↳ app/controllers/cities_controller.rb:12:in `info'
+  [1m[36mPassport Load (0.1ms)[0m  [1m[34mSELECT "passports".* FROM "passports" WHERE "passports"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTrip Create (0.5ms)[0m  [1m[32mINSERT INTO "trips" ("date_travelled", "passport_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date_travelled", "Tuesday April 13, 2021"], ["passport_id", 1], ["city_id", 7], ["created_at", "2021-04-13 22:01:40.197383"], ["updated_at", "2021-04-13 22:01:40.197383"]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with City (0.53ms)
+Completed 200 OK in 12ms (Views: 1.2ms | ActiveRecord: 2.0ms | Allocations: 3723)
+
+
+Started GET "/usertrips/1" for ::1 at 2021-04-13 18:02:19 -0400
+Processing by UsersController#trips as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:50:in `trips'
+  [1m[36mPassport Load (0.2ms)[0m  [1m[34mSELECT "passports".* FROM "passports" WHERE "passports"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `trips'
+  [1m[36mTrip Load (0.5ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."passport_id" = ?[0m  [["passport_id", 1]]
+  ↳ app/models/user.rb:12:in `map'
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCACHE City Load (0.0ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+No serializer found for resource: {:id=>1, :city=>"Lima", :flag=>"https://upload.wikimedia.org/wikipedia/commons/d/df/Flag_of_Peru_%28state%29.svg", :continent=>"South America", :country=>"Peru", :state=>"Lima", :date=>"Tuesday March 9th 2021"}
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Array (1.94ms)
+Completed 200 OK in 73ms (Views: 3.1ms | ActiveRecord: 3.5ms | Allocations: 19833)
+
+
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "cities"[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "cities" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "flag_url" varchar, "continent" varchar, "country" varchar, "state" varchar, "food" varchar, "language" varchar, "religion" varchar, "image_key" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "passports"[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "passports" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "photo_url" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE INDEX "index_passports_on_user_id" ON "passports" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "trips"[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "trips" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "date_travelled" varchar, "passport_id" integer NOT NULL, "city_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE INDEX "index_trips_on_city_id" ON "trips" ("city_id")[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE INDEX "index_trips_on_passport_id" ON "trips" ("passport_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (6.6ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "apassports" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "photo_url" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_apassports_on_user_id" ON "apassports" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "apassports" ("id","user_id","photo_url","created_at","updated_at")
+                     SELECT "id","user_id","photo_url","created_at","updated_at" FROM "passports"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "passports"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "passports" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "photo_url" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_7510b214d9"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_passports_on_user_id" ON "passports" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "passports" ("id","user_id","photo_url","created_at","updated_at")
+                     SELECT "id","user_id","photo_url","created_at","updated_at" FROM "apassports"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "apassports"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "atrips" ("id" integer NOT NULL PRIMARY KEY, "date_travelled" varchar DEFAULT NULL, "passport_id" integer NOT NULL, "city_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_atrips_on_passport_id" ON "atrips" ("passport_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_atrips_on_city_id" ON "atrips" ("city_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "atrips" ("id","date_travelled","passport_id","city_id","created_at","updated_at")
+                     SELECT "id","date_travelled","passport_id","city_id","created_at","updated_at" FROM "trips"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "trips"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "trips" ("id" integer NOT NULL PRIMARY KEY, "date_travelled" varchar DEFAULT NULL, "passport_id" integer NOT NULL, "city_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_d3cace47f4"
+FOREIGN KEY ("city_id")
+  REFERENCES "cities" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_trips_on_city_id" ON "trips" ("city_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_trips_on_passport_id" ON "trips" ("passport_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "trips" ("id","date_travelled","passport_id","city_id","created_at","updated_at")
+                     SELECT "id","date_travelled","passport_id","city_id","created_at","updated_at" FROM "atrips"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "atrips"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "atrips" ("id" integer NOT NULL PRIMARY KEY, "date_travelled" varchar DEFAULT NULL, "passport_id" integer NOT NULL, "city_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_atrips_on_passport_id" ON "atrips" ("passport_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_atrips_on_city_id" ON "atrips" ("city_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "atrips" ("id","date_travelled","passport_id","city_id","created_at","updated_at")
+                     SELECT "id","date_travelled","passport_id","city_id","created_at","updated_at" FROM "trips"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "trips"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "trips" ("id" integer NOT NULL PRIMARY KEY, "date_travelled" varchar DEFAULT NULL, "passport_id" integer NOT NULL, "city_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_d3cace47f4"
+FOREIGN KEY ("city_id")
+  REFERENCES "cities" ("id")
+, CONSTRAINT "fk_rails_3d48eaa74d"
+FOREIGN KEY ("passport_id")
+  REFERENCES "passports" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_trips_on_city_id" ON "trips" ("city_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_trips_on_passport_id" ON "trips" ("passport_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "trips" ("id","date_travelled","passport_id","city_id","created_at","updated_at")
+                     SELECT "id","date_travelled","passport_id","city_id","created_at","updated_at" FROM "atrips"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "atrips"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20210407190055)[0m
+  [1m[35m (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20210407184939),
+(20210407185534),
+(20210407185711);
+
+[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-04-13 22:02:32.806716"], ["updated_at", "2021-04-13 22:02:32.806716"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "71c1e8106fbdad3023992d5a09d09a32e83814b2"], ["created_at", "2021-04-13 22:02:32.812641"], ["updated_at", "2021-04-13 22:02:32.812641"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "cities"[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "cities" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "flag_url" varchar, "continent" varchar, "country" varchar, "state" varchar, "food" varchar, "language" varchar, "religion" varchar, "image_key" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "passports"[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "passports" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "photo_url" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE INDEX "index_passports_on_user_id" ON "passports" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "trips"[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "trips" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "date_travelled" varchar, "passport_id" integer NOT NULL, "city_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE INDEX "index_trips_on_city_id" ON "trips" ("city_id")[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE INDEX "index_trips_on_passport_id" ON "trips" ("passport_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "apassports" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "photo_url" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_apassports_on_user_id" ON "apassports" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "apassports" ("id","user_id","photo_url","created_at","updated_at")
+                     SELECT "id","user_id","photo_url","created_at","updated_at" FROM "passports"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "passports"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "passports" ("id" integer NOT NULL PRIMARY KEY, "user_id" integer NOT NULL, "photo_url" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_7510b214d9"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_passports_on_user_id" ON "passports" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "passports" ("id","user_id","photo_url","created_at","updated_at")
+                     SELECT "id","user_id","photo_url","created_at","updated_at" FROM "apassports"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "apassports"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "atrips" ("id" integer NOT NULL PRIMARY KEY, "date_travelled" varchar DEFAULT NULL, "passport_id" integer NOT NULL, "city_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_atrips_on_passport_id" ON "atrips" ("passport_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_atrips_on_city_id" ON "atrips" ("city_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "atrips" ("id","date_travelled","passport_id","city_id","created_at","updated_at")
+                     SELECT "id","date_travelled","passport_id","city_id","created_at","updated_at" FROM "trips"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "trips"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "trips" ("id" integer NOT NULL PRIMARY KEY, "date_travelled" varchar DEFAULT NULL, "passport_id" integer NOT NULL, "city_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_d3cace47f4"
+FOREIGN KEY ("city_id")
+  REFERENCES "cities" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_trips_on_city_id" ON "trips" ("city_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_trips_on_passport_id" ON "trips" ("passport_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "trips" ("id","date_travelled","passport_id","city_id","created_at","updated_at")
+                     SELECT "id","date_travelled","passport_id","city_id","created_at","updated_at" FROM "atrips"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "atrips"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "atrips" ("id" integer NOT NULL PRIMARY KEY, "date_travelled" varchar DEFAULT NULL, "passport_id" integer NOT NULL, "city_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_atrips_on_passport_id" ON "atrips" ("passport_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_atrips_on_city_id" ON "atrips" ("city_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "atrips" ("id","date_travelled","passport_id","city_id","created_at","updated_at")
+                     SELECT "id","date_travelled","passport_id","city_id","created_at","updated_at" FROM "trips"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "trips"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "trips" ("id" integer NOT NULL PRIMARY KEY, "date_travelled" varchar DEFAULT NULL, "passport_id" integer NOT NULL, "city_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_d3cace47f4"
+FOREIGN KEY ("city_id")
+  REFERENCES "cities" ("id")
+, CONSTRAINT "fk_rails_3d48eaa74d"
+FOREIGN KEY ("passport_id")
+  REFERENCES "passports" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_trips_on_city_id" ON "trips" ("city_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_trips_on_passport_id" ON "trips" ("passport_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "trips" ("id","date_travelled","passport_id","city_id","created_at","updated_at")
+                     SELECT "id","date_travelled","passport_id","city_id","created_at","updated_at" FROM "atrips"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "atrips"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20210407190055)[0m
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20210407184939),
+(20210407185534),
+(20210407185711);
+
+[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-04-13 22:02:32.880169"], ["updated_at", "2021-04-13 22:02:32.880169"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.3ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2021-04-13 22:02:32.884432"], ["key", "environment"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "71c1e8106fbdad3023992d5a09d09a32e83814b2"], ["created_at", "2021-04-13 22:02:32.889257"], ["updated_at", "2021-04-13 22:02:32.889257"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["username", "BingoBongo"], ["password_digest", "$2a$12$46txRtEMmrgrMHJ97dZakOC9YOHo.8GnzfeJwLWaOU2r7zJ4gchga"], ["created_at", "2021-04-13 22:02:33.172134"], ["updated_at", "2021-04-13 22:02:33.172134"]]
+  [1m[36mPassport Create (0.2ms)[0m  [1m[32mINSERT INTO "passports" ("user_id", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["user_id", 1], ["created_at", "2021-04-13 22:02:33.200538"], ["updated_at", "2021-04-13 22:02:33.200538"]]
+  ↳ app/models/user.rb:8:in `create_passport'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCity Create (0.4ms)[0m  [1m[32mINSERT INTO "cities" ("name", "flag_url", "continent", "country", "state", "food", "language", "religion", "image_key", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Lima"], ["flag_url", "https://upload.wikimedia.org/wikipedia/commons/d/df/Flag_of_Peru_%28state%29.svg"], ["continent", "South America"], ["country", "Peru"], ["state", "Lima"], ["food", "My favorite meal is Ceviche. Goes so well with a glass of Chicha Morada!"], ["language", "My friends and I all speak Spanish! ¡Bienvenidos a nuestro país!"], ["religion", "I go with my family to Catholic mass on Sundays!"], ["image_key", "9VTHnaNzib-1zgdzaoLO7Q"], ["created_at", "2021-04-13 22:02:33.211533"], ["updated_at", "2021-04-13 22:02:33.211533"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCity Create (0.3ms)[0m  [1m[32mINSERT INTO "cities" ("name", "flag_url", "continent", "country", "state", "food", "language", "religion", "image_key", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Toronto"], ["flag_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Flag_of_Canada_%28Pantone%29.svg/1200px-Flag_of_Canada_%28Pantone%29.svg.png"], ["continent", "North America"], ["country", "Canada"], ["state", "Ontario"], ["food", "You should try a peameal bacon sandwich. I think you can get one down at the St. Lawrence Market, eh?"], ["language", "Many people in other parts of the country speak French, and a few here do as well. But we primarily speak English here."], ["religion", "People here practice all kinds of religions, but most seem to be Catholics, Protestants, or not very religious."], ["image_key", "rY7guF8KWnRuQ-GDKxuPTw"], ["created_at", "2021-04-13 22:02:33.215560"], ["updated_at", "2021-04-13 22:02:33.215560"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCity Create (0.3ms)[0m  [1m[32mINSERT INTO "cities" ("name", "flag_url", "continent", "country", "state", "food", "language", "image_key", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Tokyo"], ["flag_url", "https://cdn11.bigcommerce.com/s-ey7tq/images/stencil/1280x1280/products/3342/18816/japan-flag__36690.1575327806.jpg?c=2"], ["continent", "Asia"], ["country", "Japan"], ["state", ""], ["food", "You've never had sushi like we have here!"], ["language", "We speak Japanese here. おはようございます！"], ["image_key", "IlFyfyTOvBxFrskJKyOZ6Q"], ["created_at", "2021-04-13 22:02:33.219659"], ["updated_at", "2021-04-13 22:02:33.219659"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCity Create (0.3ms)[0m  [1m[32mINSERT INTO "cities" ("name", "flag_url", "continent", "country", "state", "food", "language", "religion", "image_key", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Macao"], ["flag_url", "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Flag_of_Macau.svg/1200px-Flag_of_Macau.svg.png"], ["continent", "Asia"], ["country", "People's Republic of China"], ["state", "Macao"], ["food", "Oh man, I love a good Portguese Egg Tart! 吃飯囉！"], ["language", "Though some people here speak Portuguese, my family and I speak in Chinese!"], ["religion", "Many people here are Buddhists, and there are a few Catholics, but I don't practice any religion."], ["image_key", "KGHbNmfZQ8z9BcWb1a_3lg"], ["created_at", "2021-04-13 22:02:33.223084"], ["updated_at", "2021-04-13 22:02:33.223084"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCity Create (0.3ms)[0m  [1m[32mINSERT INTO "cities" ("name", "flag_url", "continent", "country", "state", "food", "language", "religion", "image_key", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Bengaluru"], ["flag_url", "https://cdn.britannica.com/97/1597-004-05816F4E/Flag-India.jpg"], ["continent", "Asia"], ["country", "India"], ["state", "Karnataka"], ["food", "Oh Ji, you have got to try some idli & dosa, na? Made from rice flour and urad dal, so yummy!"], ["language", "People in this country speak so many languages depending on where they are from. Here in this region, we speak Kannada. (Nope, not like the Maple Leaf Country, though the name looks similar.)"], ["religion", "There are some Muslims here and a few Christians, but almost everybody I know is Hindu!"], ["image_key", "rwyMGYLiJIeHA1vQVdbzIg"], ["created_at", "2021-04-13 22:02:33.226410"], ["updated_at", "2021-04-13 22:02:33.226410"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCity Create (0.3ms)[0m  [1m[32mINSERT INTO "cities" ("name", "flag_url", "continent", "country", "state", "food", "language", "image_key", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Rome"], ["flag_url", "https://upload.wikimedia.org/wikipedia/en/thumb/0/03/Flag_of_Italy.svg/1200px-Flag_of_Italy.svg.png"], ["continent", "Europe"], ["country", "Italy"], ["state", "Lazio"], ["food", "My grandmother's gnocchi is just so good, you have to try!! Mangia!"], ["language", "We speak Italian here."], ["image_key", "S42Qzdt2b6Zw0iSs6imTXw"], ["created_at", "2021-04-13 22:02:33.229398"], ["updated_at", "2021-04-13 22:02:33.229398"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCity Create (0.3ms)[0m  [1m[32mINSERT INTO "cities" ("name", "flag_url", "continent", "country", "state", "food", "language", "image_key", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "New York City"], ["flag_url", "https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1200px-Flag_of_the_United_States.svg.png"], ["continent", "North America"], ["country", "United States"], ["state", "New York"], ["food", "You thought you knew what good pizza was until you had some from around here! Grab a bagel while you're at it."], ["language", "People in this city speak all kinds of languages! But the most common, in the city and the country, is definitely English."], ["image_key", "yoqbCIEHbWB16feLHU0saA"], ["created_at", "2021-04-13 22:02:33.232538"], ["updated_at", "2021-04-13 22:02:33.232538"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCity Create (0.3ms)[0m  [1m[32mINSERT INTO "cities" ("name", "flag_url", "continent", "country", "state", "food", "language", "image_key", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "São Paulo"], ["flag_url", "https://upload.wikimedia.org/wikipedia/en/thumb/0/05/Flag_of_Brazil.svg/1200px-Flag_of_Brazil.svg.png"], ["continent", "South America"], ["country", "Brazil"], ["state", "São Paulo"], ["food", "You've got to try a Pao de Queijo, maybe with a cafe con leche. Delicioso!"], ["language", "We speak Portuguese here."], ["image_key", "5xpLICrGF5E0T9628G5xul"], ["created_at", "2021-04-13 22:02:33.235876"], ["updated_at", "2021-04-13 22:02:33.235876"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrip Create (0.3ms)[0m  [1m[32mINSERT INTO "trips" ("date_travelled", "passport_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date_travelled", "Tuesday March 9th 2021"], ["passport_id", 1], ["city_id", 1], ["created_at", "2021-04-13 22:02:33.248282"], ["updated_at", "2021-04-13 22:02:33.248282"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrip Create (0.3ms)[0m  [1m[32mINSERT INTO "trips" ("date_travelled", "passport_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date_travelled", "Monday November 7th 2018"], ["passport_id", 1], ["city_id", 8], ["created_at", "2021-04-13 22:02:33.252172"], ["updated_at", "2021-04-13 22:02:33.252172"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/usertrips/1" for ::1 at 2021-04-13 18:02:39 -0400
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#trips as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:50:in `trips'
+  [1m[36mPassport Load (0.1ms)[0m  [1m[34mSELECT "passports".* FROM "passports" WHERE "passports"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `trips'
+  [1m[36mTrip Load (0.1ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."passport_id" = ?[0m  [["passport_id", 1]]
+  ↳ app/models/user.rb:12:in `map'
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `block in trips'
+No serializer found for resource: {:id=>1, :city=>"Lima", :flag=>"https://upload.wikimedia.org/wikipedia/commons/d/df/Flag_of_Peru_%28state%29.svg", :continent=>"South America", :country=>"Peru", :state=>"Lima", :date=>"Tuesday March 9th 2021"}
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Array (0.18ms)
+Completed 200 OK in 98ms (Views: 2.3ms | ActiveRecord: 3.1ms | Allocations: 28176)
+
+
+Started POST "/city_info/1" for ::1 at 2021-04-13 18:02:42 -0400
+Processing by CitiesController#info as JSON
+  Parameters: {"lat"=>0, "long"=>0, "id"=>"1", "city"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:11:in `info'
+  [1m[36mCity Load (0.4ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  ↳ app/controllers/cities_controller.rb:12:in `info'
+  [1m[36mPassport Load (0.2ms)[0m  [1m[34mSELECT "passports".* FROM "passports" WHERE "passports"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTrip Create (1.2ms)[0m  [1m[32mINSERT INTO "trips" ("date_travelled", "passport_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["date_travelled", "Tuesday April 13, 2021"], ["passport_id", 1], ["city_id", 3], ["created_at", "2021-04-13 22:02:42.219228"], ["updated_at", "2021-04-13 22:02:42.219228"]]
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cities_controller.rb:13:in `info'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with City (0.35ms)
+Completed 200 OK in 14ms (Views: 2.2ms | ActiveRecord: 2.9ms | Allocations: 4429)
+
+

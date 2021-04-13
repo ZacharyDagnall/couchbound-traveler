@@ -6,6 +6,8 @@ import Map from "./Map";
 
 function Travelling({ travelMode, api, user }) {
   const [modalShowing, setModalShowing] = useState(false);
+  const [triggerA, setTriggerA] = useState(true);
+  const [triggerB, setTriggerB] = useState(false);
   const [chatShowing, setChatShowing] = useState(false);
   const [address, setAddress] = useState({
     name: "Tokyo",
@@ -19,10 +21,7 @@ function Travelling({ travelMode, api, user }) {
     language: "We speak Japanese here. おはようございます！",
   });
 
-  const [messages, setMessages] = useState([
-    // { who: "user", text: "hey.." },
-    // { who: "bot", text: "welcome to the world" },
-  ]);
+  const [messages, setMessages] = useState([]);
   const history = useHistory();
   console.log(travelMode);
 
@@ -38,6 +37,17 @@ function Travelling({ travelMode, api, user }) {
             : travelMode === "Find Yourself"
             ? "Guess your location!"
             : "Find your way to a GIVEN-PLACE"}
+        </div>
+        <br></br>
+        <div
+          className="content content-button"
+          onClick={() => {
+            setTriggerA(!triggerA);
+            setTriggerB(!triggerB);
+          }}
+        >
+          {" "}
+          ↻
         </div>
         <br></br>
         <div
@@ -63,14 +73,21 @@ function Travelling({ travelMode, api, user }) {
         {chatShowing ? (
           <Chat
             setChatShowing={setChatShowing}
+            address={address}
             messages={messages}
             setMessages={setMessages}
-            address={address}
           />
         ) : null}
       </div>
       <div className="background">
-        <Map api={api} address={address} setAddress={setAddress} user={user} />
+        <Map
+          api={api}
+          address={address}
+          setAddress={setAddress}
+          user={user}
+          triggerA={triggerA}
+          triggerB={triggerB}
+        />
       </div>
 
       {travelMode === "Find Yourself" ? (

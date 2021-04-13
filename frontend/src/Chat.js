@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import { FixedSizeList, VariableSizeList } from "react-window";
 
 function Chat({ setChatShowing, messages, setMessages, address }) {
   const [newMessage, setNewMessage] = useState("");
@@ -7,21 +8,12 @@ function Chat({ setChatShowing, messages, setMessages, address }) {
     e.preventDefault();
     setMessages((messages) => [...messages, { who: "user", text: newMessage }]);
     setNewMessage("");
-    setTimeout(botReply, 800); //newMessage shouldn't be "" because of the way state works; should be last message (yo creo)
+    setTimeout(botReply, 800);
   }
 
   function botReply() {
-    let msg = newMessage.toLocaleLowerCase();
-    if (messages.length <= 1) {
-      setMessages((messages) => [
-        ...messages,
-        {
-          who: "bot",
-          text:
-            "Hello! Nice to meet you. If there's something specific you're looking for, I might be able to help.",
-        },
-      ]);
-    } else if (
+    let msg = newMessage.toLocaleLowerCase(); //newMessage shouldn't be "" because of the way state works; should be last message (yo creo)
+    if (
       msg.includes("hey") ||
       // msg.includes("yo") ||    //this doesn't work because it catches too many words like you and yogurt
       msg.includes("whatsup") ||
@@ -76,6 +68,15 @@ function Chat({ setChatShowing, messages, setMessages, address }) {
         ...messages,
         { who: "bot", text: address.religion },
       ]);
+    } else if (messages.length <= 1) {
+      setMessages((messages) => [
+        ...messages,
+        {
+          who: "bot",
+          text:
+            "Hello! Nice to meet you. If there's something specific you're looking for, I might be able to help.",
+        },
+      ]);
     } else {
       setMessages((messages) => [
         ...messages,
@@ -88,42 +89,58 @@ function Chat({ setChatShowing, messages, setMessages, address }) {
     }
   }
 
+  const messageEl = useRef(null);
+  useEffect(() => {
+    if (messageEl) {
+      messageEl.current.addEventListener("DOMNodeInserted", (event) => {
+        const { currentTarget: target } = event;
+        target.scroll({ top: target.scrollHeight, behavior: "smooth" });
+      });
+    }
+  }, []);
+
   return (
-    <div id="chatbox">
-      <h3 id="chat-header">Chat</h3>
-      {messages.map((m, i) => {
-        return (
+    <div className="chat">
+      <div className="head">
+        Chat
+        <span
+          className="close-mode-box"
+          style={{ color: "pink", backgroundColor: "#2d3436" }}
+          onClick={(e) => setChatShowing(false)}
+        >
+          x
+        </span>
+      </div>
+      <div className="messages" ref={messageEl}>
+        {messages.map((m, i) => (
           <div
+            className="msg"
             key={i}
             style={
               m.who === "bot"
                 ? { backgroundColor: "lightblue" }
-                : { backgroundColor: "white" }
+                : { backgroundColor: "white", textAlign: "right" }
             }
           >
-            {" "}
-            {m.who === "bot" ? "🤖  " + m.text : m.text + "  🙂"}{" "}
+            {m.who === "bot" ? "🤖  " + m.text : m.text + "  🙂"}
           </div>
-        );
-      })}
-
-      <form onSubmit={handleSend}>
-        {/* how do i get the send button on the same line as the input box ? */}
-        <span>
-          <input
-            type="text"
-            placeholder="reply..."
-            value={newMessage}
-            onChange={(e) => setNewMessage(e.target.value)}
-          ></input>
-          <button style={{ backgroundColor: "green", color: "white" }}>
-            Send
-          </button>
-        </span>
-      </form>
-      <span className="close-mode-box" onClick={(e) => setChatShowing(false)}>
-        x
-      </span>
+        ))}
+      </div>
+      <div className="footer">
+        <form onSubmit={handleSend}>
+          <span>
+            <input
+              type="text"
+              placeholder="reply..."
+              value={newMessage}
+              onChange={(e) => setNewMessage(e.target.value)}
+            ></input>
+            <button style={{ backgroundColor: "green", color: "white" }}>
+              Send
+            </button>
+          </span>
+        </form>
+      </div>
     </div>
   );
 }
