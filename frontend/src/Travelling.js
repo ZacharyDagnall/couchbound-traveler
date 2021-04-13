@@ -8,10 +8,15 @@ function Travelling({ travelMode, api, user }) {
   const [modalShowing, setModalShowing] = useState(false);
   const [chatShowing, setChatShowing] = useState(false);
   const [address, setAddress] = useState({
-    city: "",
+    name: "Tokyo",
     state: "",
-    country: "",
-    continent: "",
+    country: "Japan",
+    continent: "Asia",
+    image_key: "IlFyfyTOvBxFrskJKyOZ6Q",
+    flag_url:
+      "https://cdn11.bigcommerce.com/s-ey7tq/images/stencil/1280x1280/products/3342/18816/japan-flag__36690.1575327806.jpg?c=2",
+    food: "You've never had sushi like we have here!",
+    language: "We speak Japanese here. おはようございます！",
   });
 
   const [messages, setMessages] = useState([

@@ -297,7 +297,7 @@ function Map({ api, address, setAddress, user }) {
   // 9VTHnaNzib-1zgdzaoLO7Q   lima peru
   // vVtXCecu0MWJV5tC7qyJYQ   buenos aires argentina
   // 5xpLICrGF5E0T9628G5xul   são paulo, brazil
-  const [imgKey, setImgKey] = useState("");
+  const [imgKey, setImgKey] = useState("IlFyfyTOvBxFrskJKyOZ6Q");
   const [latlong, setLatlong] = useState({ lat: 0, long: 0 });
   // const [trigger, setTrigger] = useState(false);
   // const [stamp, setStamp] = useState(false);

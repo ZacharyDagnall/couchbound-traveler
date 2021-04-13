@@ -7,6 +7,7 @@ function GuessForm({ address, modalShowing, setModalShowing }) {
     country: { name: "", status: "" },
     continent: { name: "", status: "" },
   });
+  const [revealed, setRevealed] = useState(false);
 
   // function continentEqual(guess, correct) {
   //   if (correct === "asia" || correct === "europe") {
@@ -18,10 +19,35 @@ function GuessForm({ address, modalShowing, setModalShowing }) {
   //   }
   // }
 
+  function countryEqual(guess, correct) {
+    if (correct === "People's Republic of China") {
+      return guess === "China" || guess === correct;
+    } else if (correct === "United States") {
+      return (
+        guess === "United States of America" ||
+        guess === "US" ||
+        guess === "USA" ||
+        guess === "U.S." ||
+        guess === "U.S.A." ||
+        guess === correct
+      );
+    } else {
+      return guess === correct;
+    }
+  }
+
+  function cityEqual(guess, correct) {
+    if (correct === "Macao") {
+      return guess === "Macau" || guess === "Macow" || guess === correct;
+    } else {
+      return guess === correct;
+    }
+  }
+
   function handleLocationGuess(e) {
     e.preventDefault();
 
-    if (guessAddress.city.name === address.name) {
+    if (cityEqual(guessAddress.city.name, address.name)) {
       setGuessAddress((guessAddress) => ({
         ...guessAddress,
         city: { name: guessAddress.city.name, status: "You guessed it!" },
@@ -46,7 +72,7 @@ function GuessForm({ address, modalShowing, setModalShowing }) {
         },
       }));
     }
-    if (guessAddress.country.name === address.country) {
+    if (countryEqual(guessAddress.country.name, address.country)) {
       setGuessAddress((guessAddress) => ({
         ...guessAddress,
         country: { name: guessAddress.country.name, status: "You guessed it!" },
@@ -112,6 +138,7 @@ function GuessForm({ address, modalShowing, setModalShowing }) {
                 {guessAddress.continent.status}
               </small>
             ) : null}
+            {revealed ? <div>{address.continent}</div> : null}
           </>
         ) : (
           <input
@@ -144,6 +171,7 @@ function GuessForm({ address, modalShowing, setModalShowing }) {
                 {guessAddress.country.status}
               </small>
             ) : null}
+            {revealed ? <div>{address.country}</div> : null}
           </>
         ) : (
           <input
@@ -161,7 +189,7 @@ function GuessForm({ address, modalShowing, setModalShowing }) {
             <input
               id="state"
               type="text"
-              placeholder="State/Locality"
+              placeholder="State/Region"
               value={guessAddress.state.name}
               onChange={handleFormChange}
             ></input>
@@ -176,12 +204,13 @@ function GuessForm({ address, modalShowing, setModalShowing }) {
                 {guessAddress.state.status}
               </small>
             ) : null}
+            {revealed ? <div>{address.state}</div> : null}
           </>
         ) : (
           <input
             id="state"
             type="text"
-            placeholder="No State/Locality information available"
+            placeholder="No State/Region information available"
             readOnly
             value={guessAddress.state.name}
             style={{ color: "white", backgroundColor: "lightgrey" }}
@@ -208,6 +237,7 @@ function GuessForm({ address, modalShowing, setModalShowing }) {
                 {guessAddress.city.status}
               </small>
             ) : null}
+            {revealed ? <div>{address.name}</div> : null}
           </>
         ) : (
           <input
@@ -219,11 +249,21 @@ function GuessForm({ address, modalShowing, setModalShowing }) {
             style={{ color: "white", backgroundColor: "lightgrey" }}
           ></input>
         )}
+        <span>
+          <button type="submit">Check!</button>
 
-        <button type="submit">Check!</button>
+          <button onClick={(e) => setRevealed(!revealed)}>
+            <small>
+              <em>{revealed ? "Hide" : "Reveal"}</em>
+            </small>
+          </button>
+        </span>
         <span
           className="close-mode-box"
-          onClick={(e) => setModalShowing(false)}
+          onClick={(e) => {
+            setRevealed(false);
+            setModalShowing(false);
+          }}
           style={{ color: "yellow", backgroundColor: "black" }}
         >
           ―

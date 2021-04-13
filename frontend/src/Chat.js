@@ -7,10 +7,11 @@ function Chat({ setChatShowing, messages, setMessages, address }) {
     e.preventDefault();
     setMessages((messages) => [...messages, { who: "user", text: newMessage }]);
     setNewMessage("");
-    setTimeout(botReply(newMessage.toLocaleLowerCase()), 1200); //newMessage shouldn't be "" because of the way state works; should be last message (yo creo)
+    setTimeout(botReply, 800); //newMessage shouldn't be "" because of the way state works; should be last message (yo creo)
   }
 
-  function botReply(msg) {
+  function botReply() {
+    let msg = newMessage.toLocaleLowerCase();
     if (messages.length <= 1) {
       setMessages((messages) => [
         ...messages,
@@ -21,6 +22,20 @@ function Chat({ setChatShowing, messages, setMessages, address }) {
         },
       ]);
     } else if (
+      msg.includes("hey") ||
+      // msg.includes("yo") ||    //this doesn't work because it catches too many words like you and yogurt
+      msg.includes("whatsup") ||
+      msg.includes("whatsgood") ||
+      msg.includes("what's up") ||
+      msg.includes("what's good") ||
+      msg.includes("hello") ||
+      msg.includes("howdy") ||
+      msg.includes("hola") ||
+      msg.includes("how are you") ||
+      msg.includes("what's the sitch")
+    ) {
+      setMessages((messages) => [...messages, { who: "bot", text: "Hey! :)" }]);
+    } else if (
       msg.includes("food") ||
       msg.includes("dinner") ||
       msg.includes("lunch") ||
@@ -29,7 +44,8 @@ function Chat({ setChatShowing, messages, setMessages, address }) {
       msg.includes("snack") ||
       msg.includes("eat") ||
       msg.includes("grub") ||
-      msg.includes("meal")
+      msg.includes("meal") ||
+      msg.includes("bite")
     ) {
       setMessages((messages) => [
         ...messages,
@@ -77,7 +93,14 @@ function Chat({ setChatShowing, messages, setMessages, address }) {
       <h3 id="chat-header">Chat</h3>
       {messages.map((m, i) => {
         return (
-          <div key={i}>
+          <div
+            key={i}
+            style={
+              m.who === "bot"
+                ? { backgroundColor: "lightblue" }
+                : { backgroundColor: "white" }
+            }
+          >
             {" "}
             {m.who === "bot" ? "🤖  " + m.text : m.text + "  🙂"}{" "}
           </div>
