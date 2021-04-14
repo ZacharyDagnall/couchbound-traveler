@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import Chat from "./Chat";
 import GuessForm from "./GuessForm";
@@ -6,24 +6,40 @@ import Map from "./Map";
 
 function Travelling({ travelMode, api, user }) {
   const [modalShowing, setModalShowing] = useState(false);
-  const [triggerA, setTriggerA] = useState(true);
-  const [triggerB, setTriggerB] = useState(false);
+
+  // 085Gpl_xNxW1Lw2eeEG28w   fully works on my site (Berlin)
+  const [imgKey, setImgKey] = useState("KGHbNmfZQ8z9BcWb1a_3lg"); //defaults to Macao in case any problem with fetch
+  // const [triggerA, setTriggerA] = useState(1);
+  // // const [triggerB, setTriggerB] = useState(false);
+
   const [chatShowing, setChatShowing] = useState(false);
   const [address, setAddress] = useState({
-    name: "Tokyo",
-    state: "",
-    country: "Japan",
+    name: "Macao",
+    state: "Macao",
+    country: "People's Republic of China",
     continent: "Asia",
-    image_key: "IlFyfyTOvBxFrskJKyOZ6Q",
+    image_key: "KGHbNmfZQ8z9BcWb1a_3lg",
     flag_url:
-      "https://cdn11.bigcommerce.com/s-ey7tq/images/stencil/1280x1280/products/3342/18816/japan-flag__36690.1575327806.jpg?c=2",
-    food: "You've never had sushi like we have here!",
-    language: "We speak Japanese here. おはようございます！",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Flag_of_Macau.svg/1200px-Flag_of_Macau.svg.png",
+    flag_emoji: "🇲🇴",
+    food: "Oh, I love a good Portguese Egg Tart! 吃飯囉！",
+    language:
+      "Though some people here speak Portuguese, my family and I speak in Chinese!",
+    religion:
+      "Many people here are Buddhists, and there are a few Catholics, but I don't practice any religion.",
   });
+
+  useEffect(() => {
+    fetch(`${api}/city_info/${user.id}`)
+      .then((r) => r.json())
+      .then((city) => {
+        setAddress(city);
+        setImgKey(city.image_key);
+      });
+  }, []);
 
   const [messages, setMessages] = useState([]);
   const history = useHistory();
-  console.log(travelMode);
 
   return (
     <div id="wrapper">
@@ -39,17 +55,18 @@ function Travelling({ travelMode, api, user }) {
             : "Find your way to a GIVEN-PLACE"}
         </div>
         <br></br>
-        <div
+        {/* <div
           className="content content-button"
           onClick={() => {
-            setTriggerA(!triggerA);
-            setTriggerB(!triggerB);
+            setTriggerA(triggerA + 1);
+            // setTriggerB(!triggerB);
           }}
+          style={{ cursor: "pointer" }}
         >
           {" "}
           ↻
         </div>
-        <br></br>
+        <br></br> */}
         <div
           className="content content-button"
           onClick={() => history.push("/")}
@@ -80,14 +97,8 @@ function Travelling({ travelMode, api, user }) {
         ) : null}
       </div>
       <div className="background">
-        <Map
-          api={api}
-          address={address}
-          setAddress={setAddress}
-          user={user}
-          triggerA={triggerA}
-          triggerB={triggerB}
-        />
+        <Map imgKey={imgKey} />
+        {/* {triggerA > 0 ?  : null} */}
       </div>
 
       {travelMode === "Find Yourself" ? (

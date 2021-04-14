@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 2021_04_07_190055) do
   create_table "cities", force: :cascade do |t|
     t.string "name"
     t.string "flag_url"
+    t.string "flag_emoji"
     t.string "continent"
     t.string "country"
     t.string "state"

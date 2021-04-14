@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   # get "/clientID", to: "application#clientID"
 
-  post "/city_info/:id", to: "cities#info"
+  get "/city_info/:id", to: "cities#info"
 
   delete "/trips/:id", to: "trips#delete"
 

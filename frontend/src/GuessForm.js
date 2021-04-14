@@ -20,15 +20,15 @@ function GuessForm({ address, modalShowing, setModalShowing }) {
   // }
 
   function countryEqual(guess, correct) {
-    if (correct === "People's Republic of China") {
-      return guess === "China" || guess === correct;
-    } else if (correct === "United States") {
+    if (correct === "people's republic of china") {
+      return guess === "china" || guess === correct;
+    } else if (correct === "united states") {
       return (
-        guess === "United States of America" ||
-        guess === "US" ||
-        guess === "USA" ||
-        guess === "U.S." ||
-        guess === "U.S.A." ||
+        guess === "united states of america" ||
+        guess === "us" ||
+        guess === "usa" ||
+        guess === "u.s." ||
+        guess === "u.s.a." ||
         guess === correct
       );
     } else {
@@ -37,8 +37,37 @@ function GuessForm({ address, modalShowing, setModalShowing }) {
   }
 
   function cityEqual(guess, correct) {
-    if (correct === "Macao") {
-      return guess === "Macau" || guess === "Macow" || guess === correct;
+    if (correct === "macao") {
+      return guess === "macau" || guess === "macow" || guess === correct;
+    } else if (correct === "bengaluru") {
+      return guess === "bangalore" || guess === correct;
+    } else if (correct === "zürich") {
+      return guess === "zurich" || guess === correct;
+    } else if (correct === "são paulo") {
+      return (
+        guess === "sao paulo" || guess === "sao paolo" || guess === correct
+      );
+    } else {
+      return guess === correct;
+    }
+  }
+
+  function stateEqual(guess, correct) {
+    if (correct === "macao") {
+      return guess === "macau" || guess === "macow" || guess === correct;
+    } else if (correct === "île-de-france") {
+      return (
+        guess === "ile-de-france" ||
+        guess === "ile de france" ||
+        guess === "île de france" ||
+        guess === correct
+      );
+    } else if (correct === "zürich") {
+      return guess === "zurich" || guess === correct;
+    } else if (correct === "são paulo") {
+      return (
+        guess === "sao paulo" || guess === "sao paolo" || guess === correct
+      );
     } else {
       return guess === correct;
     }
@@ -47,7 +76,12 @@ function GuessForm({ address, modalShowing, setModalShowing }) {
   function handleLocationGuess(e) {
     e.preventDefault();
 
-    if (cityEqual(guessAddress.city.name, address.name)) {
+    if (
+      cityEqual(
+        guessAddress.city.name.toLocaleLowerCase(),
+        address.name.toLocaleLowerCase()
+      )
+    ) {
       setGuessAddress((guessAddress) => ({
         ...guessAddress,
         city: { name: guessAddress.city.name, status: "You guessed it!" },
@@ -58,7 +92,12 @@ function GuessForm({ address, modalShowing, setModalShowing }) {
         city: { name: guessAddress.city.name, status: "Not quite, try again!" },
       }));
     }
-    if (guessAddress.state.name === address.state) {
+    if (
+      stateEqual(
+        guessAddress.state.name.toLocaleLowerCase(),
+        address.state.toLocaleLowerCase()
+      )
+    ) {
       setGuessAddress((guessAddress) => ({
         ...guessAddress,
         state: { name: guessAddress.state.name, status: "You guessed it!" },
@@ -72,7 +111,12 @@ function GuessForm({ address, modalShowing, setModalShowing }) {
         },
       }));
     }
-    if (countryEqual(guessAddress.country.name, address.country)) {
+    if (
+      countryEqual(
+        guessAddress.country.name.toLocaleLowerCase(),
+        address.country.toLocaleLowerCase()
+      )
+    ) {
       setGuessAddress((guessAddress) => ({
         ...guessAddress,
         country: { name: guessAddress.country.name, status: "You guessed it!" },
@@ -86,7 +130,10 @@ function GuessForm({ address, modalShowing, setModalShowing }) {
         },
       }));
     }
-    if (guessAddress.continent.name === address.continent) {
+    if (
+      guessAddress.continent.name.toLocaleLowerCase() ===
+      address.continent.toLocaleLowerCase()
+    ) {
       setGuessAddress((guessAddress) => ({
         ...guessAddress,
         continent: {

@@ -3,6 +3,7 @@ class CreateCities < ActiveRecord::Migration[6.1]
     create_table :cities do |t|
       t.string :name
       t.string :flag_url
+      t.string :flag_emoji
       t.string :continent
       t.string :country
       t.string :state

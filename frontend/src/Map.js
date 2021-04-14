@@ -276,49 +276,11 @@ import { MapillaryViewer } from "react-mapillary";
 //   "Wallis and Futuna",
 // ];
 
-function Map({ api, address, setAddress, user, triggerA, triggerB }) {
-  // 085Gpl_xNxW1Lw2eeEG28w   fully works on my site (Berlin)
-  //okay so actually most of these kind of work by pressing space bar but only the one above seems to bring up arrows. And no way to go back.
-  // g8fuAu61idtDdrwdn_k      scroll (on mapillary but not on CT) but no arrows
-  // oregG3_m2QYvKMd4xpTayw   scroll AND arrows on mapillary but not showing arrows on CT
-  // bNtU6RIz3n6C9Hkvmr8EJL   type="feature" - no scrolling at all. comes from /images
-  // ypJtyhRJ5goXQpRlxc2uiQ   same as 276
-  // FmP3BHhYKJVcoKYSIUkUFA   should work but no arrows....
-  // // //
-  // IlFyfyTOvBxFrskJKyOZ6Q   tokyo
-  // KGHbNmfZQ8z9BcWb1a_3lg   macau
-  // rwyMGYLiJIeHA1vQVdbzIg   india
-  // XPJZd38HsQTpdHPIFD0CHg   zurich
-  // S42Qzdt2b6Zw0iSs6imTXw   rome
-  // pVbOKwcGeh0hc3mYR7cQvg   paris
-  // yoqbCIEHbWB16feLHU0saA   bleecker street / manhattan
-  // Ml86dTM9LPynllM9pDl7ty   pueblo mexico
-  // rY7guF8KWnRuQ-GDKxuPTw   toronto
-  // 9VTHnaNzib-1zgdzaoLO7Q   lima peru
-  // vVtXCecu0MWJV5tC7qyJYQ   buenos aires argentina
-  // 5xpLICrGF5E0T9628G5xul   são paulo, brazil
-  const [imgKey, setImgKey] = useState("IlFyfyTOvBxFrskJKyOZ6Q");
+function Map({ imgKey }) {
   const [latlong, setLatlong] = useState({ lat: 0, long: 0 });
-  // const [trigger, setTrigger] = useState(false);
-  // const [stamp, setStamp] = useState(false);
-  // const [clientID, setClientID] = useState("")
+  console.log(latlong);
 
-  useEffect(() => {
-    fetch(`${api}/city_info/${user.id}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        accept: "application/json",
-      },
-      body: JSON.stringify(latlong),
-    })
-      .then((r) => r.json())
-      .then((city) => {
-        setAddress(city);
-        setImgKey(city.image_key);
-        //client id
-      });
-  }, []);
+  //the following comments are mostly from when i was fetching random mapillary images - and they depended on state being located here.
 
   // function randCoord() {
   //   // LATITUDE -90 to +90
@@ -489,27 +451,25 @@ function Map({ api, address, setAddress, user, triggerA, triggerB }) {
   return (
     <div
       id="map-container"
-      //   role="button"
-      //   tabIndex="-1"
+      // role="button"
+      // tabIndex="-1"
       style={{
         width: "100vw",
         height: "100vh",
       }}
     >
-      {triggerA || triggerB ? (
-        <MapillaryViewer
-          clientId="MHZvSFJXZjRWR0p0YWZpODRTMDhDbjoxOTUzYjNlMjVlMWM0NTcw"
-          imageKey={imgKey}
-          filter={["==", "userKey", "2PiRXqdqbY47WzG6CRzEIA"]}
-          // onTiltChanged={(tilt) => console.log(`Tilt: ${tilt}`)} //vertical angle
-          // onFovChanged={(fov) => console.log(`FoV: ${fov}`)}  //zoom
-          onNodeChanged={(node) => {
-            console.log("Lat:", node.latLon.lat, "Long:", node.latLon.lon);
-            setLatlong({ lat: node.latLon.lat, long: node.latLon.lon });
-          }}
-          // onBearingChanged={(bearing) => console.log(`Bearing: ${bearing}`)} //horiz angle
-        />
-      ) : null}
+      <MapillaryViewer
+        clientId="MHZvSFJXZjRWR0p0YWZpODRTMDhDbjoxOTUzYjNlMjVlMWM0NTcw"
+        imageKey={imgKey}
+        // filter={["==", "userKey", "2PiRXqdqbY47WzG6CRzEIA"]}
+        // onTiltChanged={(tilt) => console.log(`Tilt: ${tilt}`)} //vertical angle
+        // onFovChanged={(fov) => console.log(`FoV: ${fov}`)}  //zoom
+        onNodeChanged={(node) => {
+          console.log("Lat:", node.latLon.lat, "Long:", node.latLon.lon);
+          setLatlong({ lat: node.latLon.lat, long: node.latLon.lon });
+        }}
+        // onBearingChanged={(bearing) => console.log(`Bearing: ${bearing}`)} //horiz angle
+      />
     </div>
   );
 }

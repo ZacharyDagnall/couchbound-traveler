@@ -1,32 +1,74 @@
 import React, { useState, useRef, useEffect } from "react";
-import { FixedSizeList, VariableSizeList } from "react-window";
+// import { FixedSizeList, VariableSizeList } from "react-window";
 
 function Chat({ setChatShowing, messages, setMessages, address }) {
   const [newMessage, setNewMessage] = useState("");
+  const [secretFlag, setSecretFlag] = useState(false);
 
   function handleSend(e) {
     e.preventDefault();
-    setMessages((messages) => [...messages, { who: "user", text: newMessage }]);
-    setNewMessage("");
-    setTimeout(botReply, 800);
+    if (newMessage) {
+      setMessages((messages) => [
+        ...messages,
+        { who: "user", text: newMessage },
+      ]);
+      setNewMessage("");
+      setTimeout(botReply, 800);
+    }
   }
 
   function botReply() {
+    let facts = [address.food, address.language, address.religion];
+    let initialGreetings = [
+      "Hello! Nice to meet you. If there's something specific you're looking for, I might be able to help.",
+      "Hey, what's up? If you ask something specific, maybe I can help!",
+    ];
+    let noComprendo = [
+      "I'm sorry.. I don't quite understand. Try asking another question, or being more specific.",
+      "Hmm.. I don't get what you mean.. Can you say or ask that in a different way?",
+    ];
+    let greetings = [
+      "Hey! :)",
+      "Wonderful day!",
+      "Life is great honestly.",
+      "Howdy!!",
+    ];
+    let ok = ["okay", "ok", "alright", "fine", "very well"];
+
     let msg = newMessage.toLocaleLowerCase(); //newMessage shouldn't be "" because of the way state works; should be last message (yo creo)
-    if (
-      msg.includes("hey") ||
-      // msg.includes("yo") ||    //this doesn't work because it catches too many words like you and yogurt
-      msg.includes("whatsup") ||
-      msg.includes("whatsgood") ||
-      msg.includes("what's up") ||
-      msg.includes("what's good") ||
-      msg.includes("hello") ||
-      msg.includes("howdy") ||
-      msg.includes("hola") ||
-      msg.includes("how are you") ||
-      msg.includes("what's the sitch")
+
+    if (address.name && msg.includes(address.name.toLocaleLowerCase())) {
+      setMessages((messages) => [
+        ...messages,
+        { who: "bot", text: `Yes! We are in ${address.name}! Great guess.` },
+      ]);
+    } else if (
+      address.state &&
+      msg.includes(address.state.toLocaleLowerCase())
     ) {
-      setMessages((messages) => [...messages, { who: "bot", text: "Hey! :)" }]);
+      setMessages((messages) => [
+        ...messages,
+        { who: "bot", text: `Yes! We are in ${address.state}! Great guess.` },
+      ]);
+    } else if (
+      address.country &&
+      msg.includes(address.country.toLocaleLowerCase())
+    ) {
+      setMessages((messages) => [
+        ...messages,
+        { who: "bot", text: `Yes! We are in ${address.country}! Great guess.` },
+      ]);
+    } else if (
+      address.continent &&
+      msg.includes(address.continent.toLocaleLowerCase())
+    ) {
+      setMessages((messages) => [
+        ...messages,
+        {
+          who: "bot",
+          text: `Yes! We are in ${address.continent}! Great guess.`,
+        },
+      ]);
     } else if (
       msg.includes("food") ||
       msg.includes("dinner") ||
@@ -56,6 +98,9 @@ function Chat({ setChatShowing, messages, setMessages, address }) {
       ]);
     } else if (
       (msg.includes("religion") ||
+        msg.includes("religious") ||
+        msg.includes("holy") ||
+        msg.includes("godly") ||
         msg.includes("prayer") ||
         msg.includes("God") ||
         msg.includes("worship") ||
@@ -68,13 +113,61 @@ function Chat({ setChatShowing, messages, setMessages, address }) {
         ...messages,
         { who: "bot", text: address.religion },
       ]);
+    } else if (
+      msg.includes("information") ||
+      msg.includes("facts") ||
+      msg.includes("tell me") ||
+      msg.includes("this place")
+    ) {
+      setMessages((messages) => [
+        ...messages,
+        { who: "bot", text: facts[Math.floor(Math.random() * facts.length)] },
+      ]);
     } else if (messages.length <= 1) {
       setMessages((messages) => [
         ...messages,
         {
           who: "bot",
           text:
-            "Hello! Nice to meet you. If there's something specific you're looking for, I might be able to help.",
+            initialGreetings[
+              Math.floor(Math.random() * initialGreetings.length)
+            ],
+        },
+      ]);
+    } else if (
+      msg.includes("okay") ||
+      msg.includes("ok") ||
+      msg.includes("alright") ||
+      msg === "kay" ||
+      msg === "k" ||
+      msg.includes("fine") ||
+      msg.includes("very well")
+    ) {
+      setMessages((messages) => [
+        ...messages,
+        {
+          who: "bot",
+          text: ok[Math.floor(Math.random() * ok.length)],
+        },
+      ]);
+    } else if (
+      msg.includes("hey") ||
+      // msg.includes("yo") ||    //this doesn't work because it catches too many words like you and yogurt
+      msg.includes("whatsup") ||
+      msg.includes("whatsgood") ||
+      msg.includes("what's up") ||
+      msg.includes("what's good") ||
+      msg.includes("hello") ||
+      msg.includes("howdy") ||
+      msg.includes("hola") ||
+      msg.includes("how are you") ||
+      msg.includes("what's the sitch")
+    ) {
+      setMessages((messages) => [
+        ...messages,
+        {
+          who: "bot",
+          text: greetings[Math.floor(Math.random() * greetings.length)],
         },
       ]);
     } else {
@@ -82,8 +175,7 @@ function Chat({ setChatShowing, messages, setMessages, address }) {
         ...messages,
         {
           who: "bot",
-          text:
-            "I'm sorry.. I don't quite understand. Try asking another question, or being more specific.",
+          text: noComprendo[Math.floor(Math.random() * noComprendo.length)],
         },
       ]);
     }
@@ -105,10 +197,10 @@ function Chat({ setChatShowing, messages, setMessages, address }) {
         Chat
         <span
           className="close-mode-box"
-          style={{ color: "pink", backgroundColor: "#2d3436" }}
+          style={{ color: "yellow", backgroundColor: "#2d3436" }}
           onClick={(e) => setChatShowing(false)}
         >
-          x
+          ―
         </span>
       </div>
       <div className="messages" ref={messageEl}>
@@ -122,7 +214,19 @@ function Chat({ setChatShowing, messages, setMessages, address }) {
                 : { backgroundColor: "white", textAlign: "right" }
             }
           >
-            {m.who === "bot" ? "🤖  " + m.text : m.text + "  🙂"}
+            {m.who === "bot" ? (
+              <>
+                <span
+                  style={{ cursor: "pointer" }}
+                  onClick={() => setSecretFlag(!secretFlag)}
+                >
+                  {secretFlag ? address.flag_emoji : "🤖"}
+                </span>{" "}
+                <span>{m.text}</span>{" "}
+              </>
+            ) : (
+              m.text + "  🧳"
+            )}
           </div>
         ))}
       </div>
@@ -131,7 +235,9 @@ function Chat({ setChatShowing, messages, setMessages, address }) {
           <span>
             <input
               type="text"
-              placeholder="reply..."
+              placeholder={
+                messages.length ? "reply..." : "Start conversation..."
+              }
               value={newMessage}
               onChange={(e) => setNewMessage(e.target.value)}
             ></input>
