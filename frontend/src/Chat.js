@@ -4,6 +4,7 @@ import React, { useState, useRef, useEffect } from "react";
 function Chat({ setChatShowing, messages, setMessages, address }) {
   const [newMessage, setNewMessage] = useState("");
   const [secretFlag, setSecretFlag] = useState(false);
+  const [showEnglishWord, setShowEnglishWord] = useState(false);
 
   function handleSend(e) {
     e.preventDefault();
@@ -83,7 +84,7 @@ function Chat({ setChatShowing, messages, setMessages, address }) {
     ) {
       setMessages((messages) => [
         ...messages,
-        { who: "bot", text: address.food },
+        { who: "bot", text: address.food.in_language },
       ]);
     } else if (
       msg.includes("language") ||
@@ -222,7 +223,20 @@ function Chat({ setChatShowing, messages, setMessages, address }) {
                 >
                   {secretFlag ? address.flag_emoji : "🤖"}
                 </span>{" "}
-                <span>{m.text}</span>{" "}
+                <span>
+                  {typeof m.text === "string"
+                    ? m.text
+                    : m.text.map((word, i) => (
+                        <>
+                          <span className="tooltip">
+                            {word}
+                            <span class="tooltiptext">
+                              {address.food.translation_arr[i]}
+                            </span>
+                          </span>{" "}
+                        </>
+                      ))}
+                </span>{" "}
               </>
             ) : (
               m.text + "  🧳"

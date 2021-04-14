@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2021_04_07_190055) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "cities", force: :cascade do |t|
     t.string "name"
     t.string "flag_url"
@@ -19,7 +22,7 @@ ActiveRecord::Schema.define(version: 2021_04_07_190055) do
     t.string "continent"
     t.string "country"
     t.string "state"
-    t.string "food"
+    t.jsonb "food"
     t.string "language"
     t.string "religion"
     t.string "image_key"
@@ -28,7 +31,7 @@ ActiveRecord::Schema.define(version: 2021_04_07_190055) do
   end
 
   create_table "passports", force: :cascade do |t|
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.string "photo_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -37,8 +40,8 @@ ActiveRecord::Schema.define(version: 2021_04_07_190055) do
 
   create_table "trips", force: :cascade do |t|
     t.string "date_travelled"
-    t.integer "passport_id", null: false
-    t.integer "city_id", null: false
+    t.bigint "passport_id", null: false
+    t.bigint "city_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["city_id"], name: "index_trips_on_city_id"

@@ -7,7 +7,7 @@ class CreateCities < ActiveRecord::Migration[6.1]
       t.string :continent
       t.string :country
       t.string :state
-      t.string :food
+      t.jsonb :food
       t.string :language
       t.string :religion
       t.string :image_key
