@@ -9,26 +9,38 @@ function GuessForm({ address, modalShowing, setModalShowing }) {
   });
   const [revealed, setRevealed] = useState(false);
 
-  // function continentEqual(guess, correct) {
-  //   if (correct === "asia" || correct === "europe") {
-  //     return guess === correct || guess === "eurasia";
-  //   } else if (correct === "australia" || correct === "oceania") {
-  //     return guess === "australia" || guess === "oceania";
-  //   } else {
-  //     return guess === correct;
-  //   }
-  // }
+  function continentEqual(guess, correct) {
+    if (correct === "australia" || correct === "oceania") {
+      return guess === "australia" || guess === "oceania";
+    } else {
+      return guess === correct;
+    }
+  }
 
   function countryEqual(guess, correct) {
     if (correct === "people's republic of china") {
       return guess === "china" || guess === correct;
-    } else if (correct === "united states") {
+    } else if (correct === "united states of america") {
       return (
-        guess === "united states of america" ||
+        guess === "united states" ||
         guess === "us" ||
         guess === "usa" ||
         guess === "u.s." ||
         guess === "u.s.a." ||
+        guess === correct
+      );
+    } else if (correct === "republic of uganda") {
+      return guess === "uganda" || guess === correct;
+    } else if (correct === "republic of côte d'ivoire") {
+      return (
+        guess === "côte d'ivoire" ||
+        guess === "cote d'ivoire" ||
+        guess === "cote d ivoire" ||
+        guess === "côte ivoire" ||
+        guess === "cote ivoire" ||
+        guess === "cote divoire" ||
+        guess === "ivory coast" ||
+        guess === "republic of the ivory coast" ||
         guess === correct
       );
     } else {
@@ -131,8 +143,10 @@ function GuessForm({ address, modalShowing, setModalShowing }) {
       }));
     }
     if (
-      guessAddress.continent.name.toLocaleLowerCase() ===
-      address.continent.toLocaleLowerCase()
+      continentEqual(
+        guessAddress.continent.name.toLocaleLowerCase(),
+        address.continent.toLocaleLowerCase()
+      )
     ) {
       setGuessAddress((guessAddress) => ({
         ...guessAddress,

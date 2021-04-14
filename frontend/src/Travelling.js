@@ -6,13 +6,8 @@ import Map from "./Map";
 
 function Travelling({ travelMode, api, user }) {
   const [modalShowing, setModalShowing] = useState(false);
-
-  // 085Gpl_xNxW1Lw2eeEG28w   fully works on my site (Berlin)
-  const [imgKey, setImgKey] = useState("KGHbNmfZQ8z9BcWb1a_3lg"); //defaults to Macao in case any problem with fetch
-  // const [triggerA, setTriggerA] = useState(1);
-  // // const [triggerB, setTriggerB] = useState(false);
-
   const [chatShowing, setChatShowing] = useState(false);
+  const [imgKey, setImgKey] = useState("KGHbNmfZQ8z9BcWb1a_3lg"); //defaults to Macao, arbitrarily in case any problem with fetch
   const [address, setAddress] = useState({
     name: "Macao",
     state: "Macao",
@@ -98,7 +93,6 @@ function Travelling({ travelMode, api, user }) {
       </div>
       <div className="background">
         <Map imgKey={imgKey} />
-        {/* {triggerA > 0 ?  : null} */}
       </div>
 
       {travelMode === "Find Yourself" ? (

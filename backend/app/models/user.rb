@@ -12,4 +12,10 @@ class User < ApplicationRecord
         self.passport.trips.map{|trip| {id: trip.id, city: trip.city.name, flag: trip.city.flag_url, continent: trip.city.continent, country: trip.city.country, state: trip.city.state, date: trip.date_travelled}}
     end
 
+    def next_city
+        been_there = self.passport.trips.map{|trip| trip.city}              # cities you've already traveled to
+        less_wandered = City.all.filter{|city| !been_there.include?(city)}  # cities you haven't traveled to yet
+        less_wandered.empty? ? City.all.sample : less_wandered.sample
+    end
+
 end

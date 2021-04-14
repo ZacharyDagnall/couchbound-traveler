@@ -9,7 +9,7 @@ class CitiesController < ApplicationController
         # puts "*****"
         # render json: response.body["results"][0]["address_components"]
         @user = User.find(params[:id])
-        @city = City.all.sample
+        @city = @user.next_city
         @user.passport.trips.create(city: @city, date_travelled: Time.now.strftime("%A %B %d, %Y") )
         render json: @city
     end
