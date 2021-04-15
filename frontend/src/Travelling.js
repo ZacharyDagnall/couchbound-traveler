@@ -7,6 +7,7 @@ import Map from "./Map";
 function Travelling({ travelMode, api, user }) {
   const [modalShowing, setModalShowing] = useState(false);
   const [chatShowing, setChatShowing] = useState(false);
+  const [englishOnly, setEnglishOnly] = useState(false);
   const [imgKey, setImgKey] = useState("KGHbNmfZQ8z9BcWb1a_3lg"); //defaults to Macao, arbitrarily in case any problem with fetch
   const [address, setAddress] = useState({
     name: "Macao",
@@ -50,18 +51,6 @@ function Travelling({ travelMode, api, user }) {
             : "Find your way to a GIVEN-PLACE"}
         </div>
         <br></br>
-        {/* <div
-          className="content content-button"
-          onClick={() => {
-            setTriggerA(triggerA + 1);
-            // setTriggerB(!triggerB);
-          }}
-          style={{ cursor: "pointer" }}
-        >
-          {" "}
-          ↻
-        </div>
-        <br></br> */}
         <div
           className="content content-button"
           onClick={() => history.push("/")}
@@ -88,6 +77,8 @@ function Travelling({ travelMode, api, user }) {
             address={address}
             messages={messages}
             setMessages={setMessages}
+            englishOnly={englishOnly}
+            setEnglishOnly={setEnglishOnly}
           />
         ) : null}
       </div>

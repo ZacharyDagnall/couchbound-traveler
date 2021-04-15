@@ -1,7 +1,14 @@
 import React, { useState, useRef, useEffect } from "react";
 // import { FixedSizeList, VariableSizeList } from "react-window";
 
-function Chat({ setChatShowing, messages, setMessages, address }) {
+function Chat({
+  setChatShowing,
+  messages,
+  setMessages,
+  address,
+  englishOnly,
+  setEnglishOnly,
+}) {
   const [newMessage, setNewMessage] = useState("");
   const [secretFlag, setSecretFlag] = useState(false);
   const [showEnglishWord, setShowEnglishWord] = useState(false);
@@ -20,54 +27,33 @@ function Chat({ setChatShowing, messages, setMessages, address }) {
 
   function botReply() {
     let facts = [address.food, address.language, address.religion];
-    let initialGreetings = [
-      "Hello! Nice to meet you. If there's something specific you're looking for, I might be able to help.",
-      "Hey, what's up? If you ask something specific, maybe I can help!",
-    ];
-    let noComprendo = [
-      "I'm sorry.. I don't quite understand. Try asking another question, or being more specific.",
-      "Hmm.. I don't get what you mean.. Can you say or ask that in a different way?",
-    ];
-    let greetings = [
-      "Hey! :)",
-      "Wonderful day!",
-      "Life is great honestly.",
-      "Howdy!!",
-    ];
-    let ok = ["okay", "ok", "alright", "fine", "very well"];
+    let initialGreetings = address.initial_greetings;
+    let dontUnderstand = address.dont_understand;
+    let greetings = address.greetings;
+    let ok = address.ok;
+    let correct = address.correct;
 
-    let msg = newMessage.toLocaleLowerCase(); //newMessage shouldn't be "" because of the way state works; should be last message (yo creo)
+    let msg = newMessage.toLocaleLowerCase();
 
-    if (address.name && msg.includes(address.name.toLocaleLowerCase())) {
-      setMessages((messages) => [
-        ...messages,
-        { who: "bot", text: `Yes! We are in ${address.name}! Great guess.` },
-      ]);
-    } else if (
-      address.state &&
-      msg.includes(address.state.toLocaleLowerCase())
-    ) {
-      setMessages((messages) => [
-        ...messages,
-        { who: "bot", text: `Yes! We are in ${address.state}! Great guess.` },
-      ]);
-    } else if (
-      address.country &&
-      msg.includes(address.country.toLocaleLowerCase())
-    ) {
-      setMessages((messages) => [
-        ...messages,
-        { who: "bot", text: `Yes! We are in ${address.country}! Great guess.` },
-      ]);
-    } else if (
-      address.continent &&
-      msg.includes(address.continent.toLocaleLowerCase())
+    if (
+      (address.name && msg.includes(address.name.toLocaleLowerCase())) ||
+      (address.state && msg.includes(address.state.toLocaleLowerCase())) ||
+      (address.country && msg.includes(address.country.toLocaleLowerCase())) ||
+      (address.continent && msg.includes(address.continent.toLocaleLowerCase()))
     ) {
       setMessages((messages) => [
         ...messages,
         {
           who: "bot",
-          text: `Yes! We are in ${address.continent}! Great guess.`,
+          text:
+            typeof correct === "string"
+              ? correct
+              : englishOnly
+              ? correct.english_sentence
+              : {
+                  l: correct.in_language,
+                  t: correct.translation_arr,
+                },
         },
       ]);
     } else if (
@@ -84,7 +70,18 @@ function Chat({ setChatShowing, messages, setMessages, address }) {
     ) {
       setMessages((messages) => [
         ...messages,
-        { who: "bot", text: address.food.in_language },
+        {
+          who: "bot",
+          text:
+            typeof address.food === "string"
+              ? address.food
+              : englishOnly
+              ? address.food.english_sentence
+              : {
+                  l: address.food.in_language,
+                  t: address.food.translation_arr,
+                },
+        },
       ]);
     } else if (
       msg.includes("language") ||
@@ -95,15 +92,26 @@ function Chat({ setChatShowing, messages, setMessages, address }) {
     ) {
       setMessages((messages) => [
         ...messages,
-        { who: "bot", text: address.language },
+        {
+          who: "bot",
+          text:
+            typeof address.language === "string"
+              ? address.language
+              : englishOnly
+              ? address.language.english_sentence
+              : {
+                  l: address.language.in_language,
+                  t: address.language.translation_arr,
+                },
+        },
       ]);
     } else if (
       (msg.includes("religion") ||
         msg.includes("religious") ||
         msg.includes("holy") ||
         msg.includes("godly") ||
-        msg.includes("prayer") ||
-        msg.includes("God") ||
+        msg.includes("pray") ||
+        msg.includes("god") ||
         msg.includes("worship") ||
         msg.includes("temple") ||
         msg.includes("synagogue") ||
@@ -112,7 +120,18 @@ function Chat({ setChatShowing, messages, setMessages, address }) {
     ) {
       setMessages((messages) => [
         ...messages,
-        { who: "bot", text: address.religion },
+        {
+          who: "bot",
+          text:
+            typeof address.religion === "string"
+              ? address.religion
+              : englishOnly
+              ? address.religion.english_sentence
+              : {
+                  l: address.religion.in_language,
+                  t: address.religion.translation_arr,
+                },
+        },
       ]);
     } else if (
       msg.includes("information") ||
@@ -120,19 +139,38 @@ function Chat({ setChatShowing, messages, setMessages, address }) {
       msg.includes("tell me") ||
       msg.includes("this place")
     ) {
-      setMessages((messages) => [
-        ...messages,
-        { who: "bot", text: facts[Math.floor(Math.random() * facts.length)] },
-      ]);
-    } else if (messages.length <= 1) {
+      let fact = facts[Math.floor(Math.random() * facts.length)];
       setMessages((messages) => [
         ...messages,
         {
           who: "bot",
           text:
-            initialGreetings[
-              Math.floor(Math.random() * initialGreetings.length)
-            ],
+            typeof fact === "string"
+              ? fact
+              : englishOnly
+              ? fact.english_sentence
+              : {
+                  l: fact.in_language,
+                  t: fact.translation_arr,
+                },
+        },
+      ]);
+    } else if (messages.length <= 1) {
+      let greeting =
+        initialGreetings[Math.floor(Math.random() * initialGreetings.length)];
+      setMessages((messages) => [
+        ...messages,
+        {
+          who: "bot",
+          text:
+            typeof greeting === "string"
+              ? greeting
+              : englishOnly
+              ? greeting.english_sentence
+              : {
+                  l: greeting.in_language,
+                  t: greeting.translation_arr,
+                },
         },
       ]);
     } else if (
@@ -141,14 +179,24 @@ function Chat({ setChatShowing, messages, setMessages, address }) {
       msg.includes("alright") ||
       msg === "kay" ||
       msg === "k" ||
+      msg.includes("no") ||
       msg.includes("fine") ||
       msg.includes("very well")
     ) {
+      let okay = ok[Math.floor(Math.random() * ok.length)];
       setMessages((messages) => [
         ...messages,
         {
           who: "bot",
-          text: ok[Math.floor(Math.random() * ok.length)],
+          text:
+            typeof okay === "string"
+              ? okay
+              : englishOnly
+              ? okay.english_sentence
+              : {
+                  l: okay.in_language,
+                  t: okay.translation_arr,
+                },
         },
       ]);
     } else if (
@@ -161,22 +209,44 @@ function Chat({ setChatShowing, messages, setMessages, address }) {
       msg.includes("hello") ||
       msg.includes("howdy") ||
       msg.includes("hola") ||
+      msg === "hi" ||
+      msg.includes("good morning") ||
+      msg.includes("good day") ||
       msg.includes("how are you") ||
       msg.includes("what's the sitch")
     ) {
+      let greeting = greetings[Math.floor(Math.random() * greetings.length)];
       setMessages((messages) => [
         ...messages,
         {
           who: "bot",
-          text: greetings[Math.floor(Math.random() * greetings.length)],
+          text:
+            typeof greeting === "string"
+              ? greeting
+              : englishOnly
+              ? greeting.english_sentence
+              : {
+                  l: greeting.in_language,
+                  t: greeting.translation_arr,
+                },
         },
       ]);
     } else {
+      let du = // *d*on't *u*nderstand
+        dontUnderstand[Math.floor(Math.random() * dontUnderstand.length)];
       setMessages((messages) => [
         ...messages,
         {
           who: "bot",
-          text: noComprendo[Math.floor(Math.random() * noComprendo.length)],
+          text:
+            typeof du === "string"
+              ? du
+              : englishOnly
+              ? du.english_sentence
+              : {
+                  l: du.in_language,
+                  t: du.translation_arr,
+                },
         },
       ]);
     }
@@ -226,13 +296,11 @@ function Chat({ setChatShowing, messages, setMessages, address }) {
                 <span>
                   {typeof m.text === "string"
                     ? m.text
-                    : m.text.map((word, i) => (
+                    : m.text.l.map((word, i) => (
                         <>
                           <span className="tooltip">
                             {word}
-                            <span class="tooltiptext">
-                              {address.food.translation_arr[i]}
-                            </span>
+                            <span class="tooltiptext">{m.text.t[i]}</span>
                           </span>{" "}
                         </>
                       ))}
@@ -245,6 +313,9 @@ function Chat({ setChatShowing, messages, setMessages, address }) {
         ))}
       </div>
       <div className="footer">
+        <span onClick={() => setEnglishOnly(!englishOnly)}>
+          {englishOnly ? address.globe_emoji : "🇬🇧"}
+        </span>
         <form onSubmit={handleSend}>
           <span>
             <input
