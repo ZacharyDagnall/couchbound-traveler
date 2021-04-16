@@ -31,7 +31,8 @@ function Chat({
     let dontUnderstand = address.dont_understand;
     let greetings = address.greetings;
     let ok = address.ok;
-    let correct = address.correct;
+    let correct = address.correct.yes;
+    let incorrect = address.correct.no;
 
     let msg = newMessage.toLocaleLowerCase();
 
@@ -56,18 +57,24 @@ function Chat({
                 },
         },
       ]);
-    } else if (
-      msg.includes("food") ||
-      msg.includes("dinner") ||
-      msg.includes("lunch") ||
-      msg.includes("breakfast") ||
-      msg.includes("hungry") ||
-      msg.includes("snack") ||
-      msg.includes("eat") ||
-      msg.includes("grub") ||
-      msg.includes("meal") ||
-      msg.includes("bite")
-    ) {
+    } else if (msg.includes("are we in")) {
+      // they can only land here if they typed "are we in" but *didn't* guess the name of the location
+      setMessages((messages) => [
+        ...messages,
+        {
+          who: "bot",
+          text:
+            typeof incorrect === "string"
+              ? incorrect
+              : englishOnly
+              ? incorrect.english_sentence
+              : {
+                  l: incorrect.in_language,
+                  t: incorrect.translation_arr,
+                },
+        },
+      ]);
+    } else if (includesFood(msg)) {
       setMessages((messages) => [
         ...messages,
         {
@@ -83,13 +90,7 @@ function Chat({
                 },
         },
       ]);
-    } else if (
-      msg.includes("language") ||
-      msg.includes("tongue") ||
-      msg.includes("speak") ||
-      msg.includes("english") ||
-      msg.includes("idioma")
-    ) {
+    } else if (includesLanguage(msg)) {
       setMessages((messages) => [
         ...messages,
         {
@@ -105,19 +106,7 @@ function Chat({
                 },
         },
       ]);
-    } else if (
-      (msg.includes("religion") ||
-        msg.includes("religious") ||
-        msg.includes("holy") ||
-        msg.includes("godly") ||
-        msg.includes("pray") ||
-        msg.includes("god") ||
-        msg.includes("worship") ||
-        msg.includes("temple") ||
-        msg.includes("synagogue") ||
-        msg.includes("church")) &&
-      address.religion
-    ) {
+    } else if (includesReligion(msg)) {
       setMessages((messages) => [
         ...messages,
         {
@@ -179,7 +168,7 @@ function Chat({
       msg.includes("alright") ||
       msg === "kay" ||
       msg === "k" ||
-      msg.includes("no") ||
+      msg === "no" ||
       msg.includes("fine") ||
       msg.includes("very well")
     ) {
@@ -252,6 +241,224 @@ function Chat({
     }
   }
 
+  function includesFood(msg) {
+    let english = [
+      "food",
+      "dinner",
+      "lunch",
+      "breakfast",
+      "hungry",
+      "snack",
+      "eat",
+      "grub",
+      "meal",
+      "bite",
+      "hunger",
+    ];
+    let spanish = [
+      "comida",
+      "cena",
+      "almuerzo",
+      "desayuno",
+      "hambriento",
+      "bocadillo",
+      "comer",
+      "comida",
+      "comida",
+      "morder",
+      "hambre",
+    ];
+    let french = [
+      "aliments",
+      "dîner",
+      "déjeuner",
+      "petit-déjeuner",
+      "dejeuner",
+      "diner",
+      "manger",
+      "petit-dejeuner",
+      "repas",
+      "mordre",
+      "faim",
+    ];
+    let german = [
+      "lebensmittel",
+      "abendessen",
+      "mittagessen",
+      "frühstück",
+      "hungrig",
+      "snack",
+      "essen",
+      "fruhstuck",
+      "mahlzeit",
+      "beißen",
+      "hunger",
+    ];
+    let portuguese = [
+      "cafe de manha",
+      "jantar",
+      "almoço",
+      "café da manhã",
+      "refeicao",
+      "lanche",
+      "comer",
+      "almoco",
+      "refeição",
+      "comida",
+      "fome",
+    ];
+    let italian = [
+      "cibo",
+      "cena",
+      "pranzo",
+      "prima colazione",
+      "Affamato",
+      "merenda",
+      "mangiare",
+      "mangia",
+      "pasto",
+      "mordere",
+      "fame",
+    ];
+
+    if (address.language_name === "spanish") {
+      return checkTwoArrForString(english, spanish, msg);
+    } else if (address.language_name === "german") {
+      return checkTwoArrForString(english, german, msg);
+    } else if (address.language_name === "italian") {
+      return checkTwoArrForString(english, italian, msg);
+    } else if (address.language_name === "french") {
+      return checkTwoArrForString(english, french, msg);
+    } else if (address.language_name === "portuguese") {
+      return checkTwoArrForString(english, portuguese, msg);
+    } else {
+      return checkTwoArrForString(english, english, msg);
+    }
+  }
+
+  function includesLanguage(msg) {
+    let english = ["language", "tongue", "speak", "english", "idioma"];
+    let spanish = ["idioma", "lengua", "habla", "inglés", "idioma"];
+    let french = ["langue", "langue", "parle", "anglais", "idioma"];
+    let german = ["sprache", "zunge", "sprech", "englisch", "idiom"];
+    let portuguese = ["idioma", "língua", "falar", "inglês", "idioma"];
+    let italian = ["lingua", "lingua", "parla", "inglese", "idioma"];
+
+    if (address.language_name === "spanish") {
+      return checkTwoArrForString(english, spanish, msg);
+    } else if (address.language_name === "german") {
+      return checkTwoArrForString(english, german, msg);
+    } else if (address.language_name === "italian") {
+      return checkTwoArrForString(english, italian, msg);
+    } else if (address.language_name === "french") {
+      return checkTwoArrForString(english, french, msg);
+    } else if (address.language_name === "portuguese") {
+      return checkTwoArrForString(english, portuguese, msg);
+    } else {
+      return checkTwoArrForString(english, english, msg);
+    }
+  }
+
+  function includesReligion(msg) {
+    let english = [
+      "religion",
+      "religious",
+      "holy",
+      "godly",
+      "pray",
+      "god",
+      "worship",
+      "temple",
+      "synagogue",
+      "church",
+    ];
+    let spanish = [
+      "religión",
+      "religioso",
+      "santo",
+      "piadoso",
+      "rezar",
+      "Dios",
+      "Adoración",
+      "templo",
+      "sinagoga",
+      "Iglesia",
+    ];
+    let french = [
+      "religion",
+      "religieux",
+      "Saint",
+      "pieux",
+      "prier",
+      "dieu",
+      "culte",
+      "temple",
+      "synagogue",
+      "église",
+    ];
+    let german = [
+      "religion",
+      "religiös",
+      "heilig",
+      "göttlich",
+      "beten",
+      "gott",
+      "anbetung",
+      "tempel",
+      "synagoge",
+      "kirche",
+    ];
+    let portuguese = [
+      "religião",
+      "religioso",
+      "sagrado",
+      "piedoso",
+      "rezar",
+      "deus",
+      "adoração",
+      "têmpora",
+      "sinagoga",
+      "Igreja",
+    ];
+    let italian = [
+      "religione",
+      "religioso",
+      "santo",
+      "pio",
+      "pregare",
+      "Dio",
+      "culto",
+      "tempio",
+      "sinagoga",
+      "Chiesa",
+    ];
+
+    if (address.language_name === "spanish") {
+      return checkTwoArrForString(english, spanish, msg);
+    } else if (address.language_name === "german") {
+      return checkTwoArrForString(english, german, msg);
+    } else if (address.language_name === "italian") {
+      return checkTwoArrForString(english, italian, msg);
+    } else if (address.language_name === "french") {
+      return checkTwoArrForString(english, french, msg);
+    } else if (address.language_name === "portuguese") {
+      return checkTwoArrForString(english, portuguese, msg);
+    } else {
+      return checkTwoArrForString(english, english, msg);
+    }
+  }
+
+  function checkTwoArrForString(arr1, arr2, str) {
+    // two arr expected to have same length
+    for (let i = 0; i < arr1.length; i++) {
+      if (str.includes(arr1[i]) || str.includes(arr2[i])) {
+        return true;
+      } else {
+      }
+    }
+    return false;
+  }
+
   const messageEl = useRef(null);
   useEffect(() => {
     if (messageEl) {
@@ -291,7 +498,7 @@ function Chat({
                   style={{ cursor: "pointer" }}
                   onClick={() => setSecretFlag(!secretFlag)}
                 >
-                  {secretFlag ? address.flag_emoji : "🤖"}
+                  {secretFlag ? address.flag_emoji : "🙂"}
                 </span>{" "}
                 <span>
                   {typeof m.text === "string"

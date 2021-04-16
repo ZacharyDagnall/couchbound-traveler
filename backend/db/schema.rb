@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2021_04_07_190055) do
     t.jsonb "dont_understand"
     t.jsonb "ok"
     t.jsonb "correct"
+    t.string "language_name"
     t.string "image_key"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

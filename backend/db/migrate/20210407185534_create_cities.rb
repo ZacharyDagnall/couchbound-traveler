@@ -16,6 +16,7 @@ class CreateCities < ActiveRecord::Migration[6.1]
       t.jsonb :dont_understand
       t.jsonb :ok
       t.jsonb :correct
+      t.string :language_name
       t.string :image_key
 
       t.timestamps

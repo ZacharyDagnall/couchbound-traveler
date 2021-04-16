@@ -7,6 +7,7 @@ import Profile from "./Profile";
 import Travelling from "./Travelling";
 import Login from "./Login";
 import Signup from "./Signup";
+import Info from "./Info";
 
 function App() {
   const API = "http://localhost:3000";
@@ -50,6 +51,9 @@ function App() {
           </Route>
           <Route exact path="/travelling">
             <Travelling travelMode={"Find Yourself"} api={API} user={user} />
+          </Route>
+          <Route exact path="/info">
+            <Info />
           </Route>
           <Route exact path="/*">
             <Redirect
