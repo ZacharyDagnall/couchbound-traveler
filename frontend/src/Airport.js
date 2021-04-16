@@ -50,6 +50,13 @@ function Airport({ setTravelMode, setUser, user }) {
         Edit Profile
       </div>
       <br></br>
+      <div
+        className="content content-button"
+        onClick={() => history.push("/info")}
+      >
+        Information
+      </div>
+      <br></br>
       <div className="content content-button" onClick={logout}>
         Logout
       </div>

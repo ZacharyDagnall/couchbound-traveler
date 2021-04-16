@@ -27,8 +27,8 @@ function App() {
         .then((user) => {
           setUser(user);
         });
-    } else {
-      history.push("/login");
+      // } else {
+      //   history.push("/login");
     }
   }, []);
 
@@ -36,13 +36,6 @@ function App() {
     <>
       {user ? (
         <Switch>
-          <Route exact path="/">
-            <Airport
-              setTravelMode={setTravelMode}
-              setUser={setUser}
-              user={user}
-            />
-          </Route>
           <Route exact path="/passport">
             <Passport user={user} api={API} />
           </Route>
@@ -55,6 +48,13 @@ function App() {
           <Route exact path="/info">
             <Info />
           </Route>
+          <Route exact path="/">
+            <Airport
+              setTravelMode={setTravelMode}
+              setUser={setUser}
+              user={user}
+            />
+          </Route>
           <Route exact path="/*">
             <Redirect
               to={{
@@ -64,20 +64,37 @@ function App() {
           </Route>
         </Switch>
       ) : (
-        <div id="welcome-holder">
-          <span id="welcome-frame">
-            <br></br>
-            <Switch>
-              <Route exact path="/login">
+        <Switch>
+          <Route exact path="/login">
+            <div id="welcome-holder">
+              <span id="welcome-frame">
+                <br></br>
                 <Login api={API} setUser={setUser} />
-              </Route>
+              </span>
+            </div>
+          </Route>
 
-              <Route path="/signup">
+          <Route path="/signup">
+            <div id="welcome-holder">
+              <span id="welcome-frame">
+                <br></br>
                 <Signup api={API} setUser={setUser} />
-              </Route>
-            </Switch>
-          </span>
-        </div>
+              </span>
+            </div>
+          </Route>
+
+          <Route exact path="/info">
+            <Info />
+          </Route>
+
+          <Route exact path="/*">
+            <Redirect
+              to={{
+                pathname: "/login",
+              }}
+            />
+          </Route>
+        </Switch>
       )}
     </>
   );

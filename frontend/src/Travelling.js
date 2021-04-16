@@ -40,36 +40,39 @@ function Travelling({ travelMode, api, user }) {
   return (
     <div id="wrapper">
       <div>
-        {/* the line below gives an issue when you refresh the page, because you got
-        here without props, because state reset... */}
-        <h3 className="content">{travelMode}!</h3>
+        <div className="content">
+          Travelling can be a great way to find yourself!
+          <br />
+          Can you guess your location?
+        </div>
+        {/* <h3 className="content">{travelMode}!</h3>
         <div className="content">
           {travelMode === "Tourism"
             ? "Roam around freely!"
             : travelMode === "Find Yourself"
             ? "Guess your location!"
             : "Find your way to a GIVEN-PLACE"}
-        </div>
+        </div> */}
         <br></br>
         <div
           className="content content-button"
           onClick={() => history.push("/")}
         >
-          Warp Back to Airport
+          Warp Back to the Airport
         </div>
         {travelMode === "Find Yourself" ? (
           <div
             className="content content-button"
             onClick={() => setModalShowing(true)}
           >
-            Make a guess!
+            Make a Guess!
           </div>
         ) : null}
         <div
           className="content content-button"
           onClick={() => setChatShowing(true)}
         >
-          Chat with a local
+          Chat with a Local
         </div>
         {chatShowing ? (
           <Chat
