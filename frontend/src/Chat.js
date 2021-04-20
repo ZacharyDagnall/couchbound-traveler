@@ -473,11 +473,7 @@ function Chat({
     <div className="chat">
       <div className="head">
         Chat
-        <span
-          className="close-mode-box"
-          style={{ color: "yellow", backgroundColor: "#2d3436" }}
-          onClick={(e) => setChatShowing(false)}
-        >
+        <span className="close-mode-box" onClick={(e) => setChatShowing(false)}>
           ―
         </span>
       </div>
@@ -507,8 +503,10 @@ function Chat({
                         <>
                           <span className="tooltip">
                             {word}
-                            <span class="tooltiptext">{m.text.t[i]}</span>
-                          </span>{" "}
+                            {m.text.t[i] ? (
+                              <span class="tooltiptext">{m.text.t[i]}</span>
+                            ) : null}
+                          </span>
                         </>
                       ))}
                 </span>{" "}
@@ -533,9 +531,7 @@ function Chat({
               value={newMessage}
               onChange={(e) => setNewMessage(e.target.value)}
             ></input>
-            <button style={{ backgroundColor: "green", color: "white" }}>
-              Send
-            </button>
+            <button id="send-button">Send</button>
           </span>
         </form>
       </div>

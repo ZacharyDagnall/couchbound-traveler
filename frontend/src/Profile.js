@@ -87,9 +87,11 @@ function Profile({ user, api, setUser }) {
       <div className="content content-button" onClick={UNclicked}>
         Change Username
       </div>
+      <br />
       <div className="content content-button" onClick={PWclicked}>
         Change Password
       </div>
+      <br />
       <div className="content content-button" onClick={() => history.push("/")}>
         Back to Terminal
       </div>
@@ -97,11 +99,15 @@ function Profile({ user, api, setUser }) {
       <div className={usernameModalShowing ? "modal-bg bg-active" : "modal-bg"}>
         <div className="modal">
           <form onSubmit={handleUsernameChange}>
+            <h5>Update your username</h5>
             <input
               value={newsername}
+              className="modal-piece"
               onChange={(e) => setNewsername(e.target.value)}
             ></input>
-            <button type="submit">u p d a t e</button>
+            <button type="submit" className="modal-piece">
+              Update
+            </button>
           </form>
           {UNsuccess ? <div style={{ color: "green" }}>success!</div> : null}
           <span className="close-mode-box" onClick={closeUNbox}>
@@ -113,11 +119,12 @@ function Profile({ user, api, setUser }) {
       <div className={passwordModalShowing ? "modal-bg bg-active" : "modal-bg"}>
         <div className="modal">
           <form onSubmit={handlePasswordChange}>
-            Password Change Form
+            <h5>Change your password</h5>
             <br />
             <input
               type="password"
               name="oldPassword"
+              className="modal-piece"
               placeholder="Enter current password"
               value={oldPassword}
               onChange={(e) => {
@@ -128,6 +135,7 @@ function Profile({ user, api, setUser }) {
             <input
               type="password"
               name="password"
+              className="modal-piece"
               placeholder="Enter a new password"
               value={newPassword}
               onChange={(e) => {
@@ -135,7 +143,9 @@ function Profile({ user, api, setUser }) {
               }}
             ></input>
             <br />
-            <button type="submit">Change your Credentials!</button>
+            <button type="submit" className="modal-piece">
+              Change!
+            </button>
           </form>
           {PWsuccess ? <div style={{ color: "green" }}>success!</div> : null}
           {errors.length !== 0 ? (

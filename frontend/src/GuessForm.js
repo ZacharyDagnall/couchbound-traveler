@@ -49,8 +49,8 @@ function GuessForm({ address, modalShowing, setModalShowing }) {
   }
 
   function cityEqual(guess, correct) {
-    if (correct === "macao") {
-      return guess === "macau" || guess === "macow" || guess === correct;
+    if (correct === "macau") {
+      return guess === "macao" || guess === "macow" || guess === correct;
     } else if (correct === "bengaluru") {
       return guess === "bangalore" || guess === correct;
     } else if (correct === "zürich") {
@@ -65,8 +65,8 @@ function GuessForm({ address, modalShowing, setModalShowing }) {
   }
 
   function stateEqual(guess, correct) {
-    if (correct === "macao") {
-      return guess === "macau" || guess === "macow" || guess === correct;
+    if (correct === "macau") {
+      return guess === "macao" || guess === "macow" || guess === correct;
     } else if (correct === "île-de-france") {
       return (
         guess === "ile-de-france" ||
@@ -180,7 +180,7 @@ function GuessForm({ address, modalShowing, setModalShowing }) {
     <div className={modalShowing ? "modal-bg bg-active" : "modal-bg"}>
       <form className="modal" onSubmit={handleLocationGuess}>
         {address.continent ? (
-          <>
+          <div className="field">
             <input
               id="continent"
               type="text"
@@ -189,21 +189,25 @@ function GuessForm({ address, modalShowing, setModalShowing }) {
               onChange={handleFormChange}
             ></input>
             {guessAddress.continent.status && guessAddress.continent.name ? (
-              <small
-                style={
-                  guessAddress.continent.status === "You guessed it!"
-                    ? { color: "green", backgroundColor: "white" }
-                    : { color: "red", backgroundColor: "white" }
-                }
-              >
-                {guessAddress.continent.status}
-              </small>
+              <div>
+                <small
+                  className="guess-status"
+                  style={
+                    guessAddress.continent.status === "You guessed it!"
+                      ? { color: "green" }
+                      : { color: "red" }
+                  }
+                >
+                  {guessAddress.continent.status}
+                </small>
+              </div>
             ) : null}
             {revealed ? <div>{address.continent}</div> : null}
-          </>
+          </div>
         ) : (
           <input
             id="continent"
+            className="field"
             type="text"
             placeholder="No Continent information available"
             readOnly
@@ -213,7 +217,7 @@ function GuessForm({ address, modalShowing, setModalShowing }) {
         )}
 
         {address.country ? (
-          <>
+          <div className="field">
             <input
               id="country"
               type="text"
@@ -222,21 +226,25 @@ function GuessForm({ address, modalShowing, setModalShowing }) {
               onChange={handleFormChange}
             ></input>
             {guessAddress.country.status && guessAddress.country.name ? (
-              <small
-                style={
-                  guessAddress.country.status === "You guessed it!"
-                    ? { color: "green", backgroundColor: "white" }
-                    : { color: "red", backgroundColor: "white" }
-                }
-              >
-                {guessAddress.country.status}
-              </small>
+              <div>
+                <small
+                  className="guess-status"
+                  style={
+                    guessAddress.country.status === "You guessed it!"
+                      ? { color: "green" }
+                      : { color: "red" }
+                  }
+                >
+                  {guessAddress.country.status}
+                </small>
+              </div>
             ) : null}
             {revealed ? <div>{address.country}</div> : null}
-          </>
+          </div>
         ) : (
           <input
             id="country"
+            className="field"
             type="text"
             placeholder="No Country information available"
             readOnly
@@ -246,7 +254,7 @@ function GuessForm({ address, modalShowing, setModalShowing }) {
         )}
 
         {address.state ? (
-          <>
+          <div className="field">
             <input
               id="state"
               type="text"
@@ -255,20 +263,24 @@ function GuessForm({ address, modalShowing, setModalShowing }) {
               onChange={handleFormChange}
             ></input>
             {guessAddress.state.status && guessAddress.state.name ? (
-              <small
-                style={
-                  guessAddress.state.status === "You guessed it!"
-                    ? { color: "green", backgroundColor: "white" }
-                    : { color: "red", backgroundColor: "white" }
-                }
-              >
-                {guessAddress.state.status}
-              </small>
+              <div>
+                <small
+                  className="guess-status"
+                  style={
+                    guessAddress.state.status === "You guessed it!"
+                      ? { color: "green" }
+                      : { color: "red" }
+                  }
+                >
+                  {guessAddress.state.status}
+                </small>
+              </div>
             ) : null}
             {revealed ? <div>{address.state}</div> : null}
-          </>
+          </div>
         ) : (
           <input
+            className="field"
             id="state"
             type="text"
             placeholder="No State/Region information available"
@@ -279,7 +291,7 @@ function GuessForm({ address, modalShowing, setModalShowing }) {
         )}
 
         {address.name ? (
-          <>
+          <div className="field">
             <input
               id="city"
               type="text"
@@ -288,21 +300,25 @@ function GuessForm({ address, modalShowing, setModalShowing }) {
               onChange={handleFormChange}
             ></input>
             {guessAddress.city.status && guessAddress.city.name ? (
-              <small
-                style={
-                  guessAddress.city.status === "You guessed it!"
-                    ? { color: "green", backgroundColor: "white" }
-                    : { color: "red", backgroundColor: "white" }
-                }
-              >
-                {guessAddress.city.status}
-              </small>
+              <div>
+                <small
+                  className="guess-status"
+                  style={
+                    guessAddress.city.status === "You guessed it!"
+                      ? { color: "green" }
+                      : { color: "red" }
+                  }
+                >
+                  {guessAddress.city.status}
+                </small>
+              </div>
             ) : null}
             {revealed ? <div>{address.name}</div> : null}
-          </>
+          </div>
         ) : (
           <input
             id="city"
+            className="field"
             type="text"
             placeholder="No City information available"
             readOnly
@@ -311,9 +327,11 @@ function GuessForm({ address, modalShowing, setModalShowing }) {
           ></input>
         )}
         <span>
-          <button type="submit">Check!</button>
+          <button type="submit" className="field">
+            Check!
+          </button>
 
-          <button onClick={(e) => setRevealed(!revealed)}>
+          <button onClick={(e) => setRevealed(!revealed)} className="field">
             <small>
               <em>{revealed ? "Hide" : "Reveal"}</em>
             </small>
@@ -325,7 +343,6 @@ function GuessForm({ address, modalShowing, setModalShowing }) {
             setRevealed(false);
             setModalShowing(false);
           }}
-          style={{ color: "yellow", backgroundColor: "black" }}
         >
           ―
         </span>

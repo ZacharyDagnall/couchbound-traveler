@@ -19,7 +19,6 @@ function Map({ imgKey }) {
       <MapillaryViewer
         clientId="MHZvSFJXZjRWR0p0YWZpODRTMDhDbjoxOTUzYjNlMjVlMWM0NTcw"
         imageKey={imgKey}
-        // filter={["==", "userKey", "2PiRXqdqbY47WzG6CRzEIA"]}
         // onTiltChanged={(tilt) => console.log(`Tilt: ${tilt}`)} //vertical angle
         // onFovChanged={(fov) => console.log(`FoV: ${fov}`)}  //zoom
         onNodeChanged={(node) => {

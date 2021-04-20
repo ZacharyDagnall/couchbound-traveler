@@ -1,4 +1,4 @@
-bb = User.create(username: "BingoBongo", password: "abc123")
+bb = User.create(username: "Zak", password: "abc123")
 
 initialGreetings = [
       "Hello! Nice to meet you. If there's something specific you're looking for, I might be able to help.",
@@ -303,6 +303,127 @@ italianCorrect = {yes: {in_language: ["Sì, ", "è ", "corretto!"],
 #                         translation_arr: ,
 #                         english_sentence: "No, that's incorrect."}}
 
+japaneseInitialGreetings = [
+    {in_language: ["こんにちは！","はじめまして。","お探し","の具体的な","もの","があれば、","お手伝い","できる","かもしれません。"],
+    translation_arr: ["hello","how do you do","looking for","specific","thing","if you have","help","able to","maybe"],
+    english_sentence: "Hello! Nice to meet you. If there's something specific you're looking for, I might be able to help."},
+    {in_language: ["やぁ、","何","やってんの？ ","あなた","が","特定の","何か","を","尋ねるならば、","多分","私","は","助ける","ことができます！"],
+    translation_arr: ["hey","what","are you doing","you","","special","something","","if searching for","maybe","I","","to help","able to"],
+    english_sentence: "Hey, what's up? If you ask something specific, maybe I can help!"}
+    ]
+japaneseDontUnderstand = [
+    {in_language: ["ごめんなさい..","よくわかりません。 ","別の","質問","を","するか、","より","具体的","にしてみて","ください。"],
+    translation_arr: ["I'm sorry","don't quite understand","another","question","","to be","more","specific","try to","please"],
+    english_sentence: "I'm sorry.. I don't quite understand. Try asking another question, or being more specific."},
+    {in_language: ["うーん..","私","は","あなた","が","何を","意味","するのかわかりません..","あなた","は","それ","を","別の方法","で","言う","か","尋ねる","ことができますか？"],
+    translation_arr: ["hmm","I","","you","","what","meaning","don't understand","you","","that","","another way","using","to say","or","to find","able to"],
+    english_sentence: "Hmm.. I don't get what you mean.. Can you say or ask that in a different way?"}
+    ]
+japaneseGreetings = [
+    {in_language: ["人生","は","素晴らしい。 😎"],      
+    translation_arr: ["life","","wonderful"],
+    english_sentence: "Life is great honestly."},
+    {in_language: ["こんにちは！"],
+    translation_arr: ["hello"],
+    english_sentence: "Hello!"},
+    {in_language: ["ねえ！ :)"],
+    translation_arr: ["hey"],
+    english_sentence: "Hey! :)"},
+    {in_language: ["素晴らしい","日","です！"],
+    translation_arr: ["wonderful","day","to be"],
+    english_sentence: "It's a wonderful day!"},
+]
+japaneseOK = [
+    {in_language: ["はい"],
+    translation_arr: ["okay"],
+    english_sentence: "OK"},
+    {in_language: ["わかります"],
+    translation_arr: ["I understand"],
+    english_sentence: "Alright"},
+    {in_language: ["結構"],
+    translation_arr: ["alright"],
+    english_sentence: "Very well"},
+]
+japaneseCorrect = {yes: {in_language: ["それ","は","正解","です！"],
+                        translation_arr: ["that","","correct","to be"],
+                        english_sentence: "Yes, that's correct!"},
+                    no: {in_language: ["いいえ、","それ","は","正しくありません。"],
+                        translation_arr: ["no","that","","incorrect"],
+                        english_sentence: "No, that's incorrect."}}
+
+tokyo_food = {in_language: ["世界一の","寿司","が","ここ","に","あります！"], 
+            translation_arr: ["number one in the world","sushi","","right here","","there is"],
+            english_sentence: "Here we have the best sushi in the world!"}
+tokyo_language = {in_language: ["ここ","では","日本語","を","話します。","おはようい！"],
+                translation_arr: ["right here","","Japanese","","to speak","good morning"],
+                english_sentence: "We speak Japanese here. おはようい！"}
+tokyo_religion = {in_language: ["ここの","ほとんどの","人","は","神道、","仏教、","または","その","両方","に従います！"],
+                translation_arr: ["right here","most","people","","Shinto","Buddhism","or","that","both","to follow"],
+                english_sentence: "Most people here follow Shinto, Buddhism, or both!"}
+tokyo_fact = {in_language: ["ここ","に","エッフェル","塔","が","見える","と","思う","かもしれませんが、","私たちの","塔","は","実際","には","赤い","です！"],
+                translation_arr: ["right here","","Eiffel","tower","","to be able to see","","to think","maybe","our","tower","","actual","","red","to be"],
+                english_sentence: "You may think you see the Eiffel tower here, but ours is actually red!"}
+
+chineseInitialGreetings = [
+    {in_language: ["你好！","很高兴","见到你。","如果","您","正在","寻找","特定的","东西，","我","可能","会","提供","帮助。"],
+    translation_arr: ["hello","very happy","to see you","if","you","now","looking for","specific","thing","I","maybe","could","provide","assistance"],
+    english_sentence: "Hello! Nice to meet you. If there's something specific you're looking for, I might be able to help."},
+    {in_language: ["嘿，","这是怎么回事？","如果","您","要","提出","具体","问题，","也许","我","可以","帮忙！"],
+    translation_arr: ["hey","what is happening","if","you","want to","ask","specific","questions","maybe","I","could","help"],
+    english_sentence: "Hey, what's up? If you ask something specific, maybe I can help!"}
+    ]
+chineseDontUnderstand = [
+    {in_language: ["对不起。","我","不","太","明白。","尝试","问","另一个","问题，","或","更","具体些。"],
+    translation_arr: ["sorry","I","not","quite","understand","try","asking","another","question","or","more","be specific"],
+    english_sentence: "I'm sorry.. I don't quite understand. Try asking another question, or being more specific."},
+    {in_language: ["嗯。。","我","不","明白","你的","意思。。","你","能以","不同的","方式","说","或","问","吗？"],
+    translation_arr: ["hm","I","not","understand","your","meaning","you","able to","different","way","say","or","ask",""],
+    english_sentence: "Hmm.. I don't get what you mean.. Can you say or ask that in a different way?"}
+    ]
+chineseGreetings = [
+    {in_language: ["生活","是","美好的。😎"],      
+    translation_arr: ["life","is","wonderful"],
+    english_sentence: "Life is great honestly."},
+    {in_language: ["你好！"],
+    translation_arr: ["hello"],
+    english_sentence: "Hello!"},
+    {in_language: ["嘿！:)"],
+    translation_arr: ["hey"],
+    english_sentence: "Hey! :)"},
+    {in_language: ["这","是","美好的","一天！"],
+    translation_arr: ["this","is","wonderful","day"],
+    english_sentence: "It's a wonderful day!"},
+]
+chineseOK = [
+    {in_language: ["好的"],
+    translation_arr: ["okay"],
+    english_sentence: "OK"},
+    {in_language: ["好的"],
+    translation_arr: ["alright"],
+    english_sentence: "Alright"},
+    {in_language: ["很好"],
+    translation_arr: ["very well"],
+    english_sentence: "Very well"},
+]
+chineseCorrect = {yes: {in_language: ["对，","那","是","正确的！"],
+                        translation_arr: ["yes","that","is","correct"],
+                        english_sentence: "Yes, that's correct!"},
+                    no: {in_language: ["不，","那","是","不对的。"],
+                        translation_arr: ["no","that","is","incorrect"],
+                        english_sentence: "No, that's incorrect."}}
+
+macau_food = {in_language: ["哦，","我","爱","一个","很好的","葡式","蛋挞！","吃饭吧！"], 
+            translation_arr: ["oh","I","love","a","good","Portuguese","egg tart","let's eat"],
+            english_sentence: "Oh man, I love a good Portuguese Egg Tart! 吃饭吧！"}
+macau_language = {in_language: ["尽管","这里","有些人","说","葡萄牙语，","但","我","和","我的","家人","都","用","中文！"],
+                translation_arr: ["though","here","some people","speak","Portuguese","but","I","and","my","family","all","use","Chinese"],
+                english_sentence: "Though some people here speak Portuguese, my family and I speak in Chinese!"}
+macau_religion = {in_language: ["这里","有","很多人","是","佛教徒，","有","一些","天主教徒，","但","我","没有","任何","宗教","信仰。"],
+                translation_arr: ["here","there are","many people","are","buddhists","there are","some","catholics","but","I","don't have","any","relgiious","beliefs"],
+                english_sentence: "Many people here are Buddhists, and there are a few Catholics, but I don't practice any religion."}
+macau_fact = {in_language: ["我们","目前","位于","中国","仅有的","两个","特别","行政区","之一。"], 
+            translation_arr: ["we","currently","located","China","only","two","special","administrative region","one of"],
+            english_sentence: "We are currently in one of only two Special Administrative Regions of the PRC."}
 
 lima_food = {in_language: ["Mi ", "comida ", "favorita ", "es ", "el ceviche. ","¡Va ","muy ","bien ","con ","una copa ","de ","Chicha Morada!"], 
             translation_arr: ["My ", "meal ","favorite ","is ","Ceviche. ", "Goes ","very ","well ","with ","a glass ","of ","Chicha Morada!"],
@@ -396,12 +517,12 @@ zurich_religion = {in_language: ["Einige ","Leute ","hier ","sind ","nicht ","be
 #                 english_sentence: }
 
 ### untranslated ones below
-macao = City.create(name: "Macao", state: "Macao", country: "People's Republic of China", continent: "Asia", language_name: "chinese", globe_emoji: "🌏", image_key: "KGHbNmfZQ8z9BcWb1a_3lg", flag_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Flag_of_Macau.svg/1200px-Flag_of_Macau.svg.png", flag_emoji: "🇲🇴", food: "Oh man, I love a good Portguese Egg Tart! 吃飯囉！", language: "Though some people here speak Portuguese, my family and I speak in Chinese!", religion: "Many people here are Buddhists, and there are a few Catholics, but I don't practice any religion.", initial_greetings: initialGreetings, dont_understand: dontUnderstand, greetings: greetings, ok: ok, correct: correct)
-tokyo = City.create(name: "Tokyo", state: "Tokyo", country: "Japan", continent: "Asia", language_name: "japanese",globe_emoji: "🌏", image_key: "IlFyfyTOvBxFrskJKyOZ6Q", flag_url: "https://cdn11.bigcommerce.com/s-ey7tq/images/stencil/1280x1280/products/3342/18816/japan-flag__36690.1575327806.jpg?c=2", flag_emoji: "🇯🇵", food: "You've never had sushi like we have here!", language: "We speak Japanese here. おはようございます！", religion: "Most people here follow Shintoism, Buddhism, or both!", initial_greetings: initialGreetings, dont_understand: dontUnderstand, greetings: greetings, ok: ok, correct: correct)
 bengaluru = City.create(name: "Bengaluru", state: "Karnataka", country: "India", continent: "Asia", language_name: "kannada",globe_emoji: "🌏", image_key: "rwyMGYLiJIeHA1vQVdbzIg", flag_url: "https://cdn.britannica.com/97/1597-004-05816F4E/Flag-India.jpg", flag_emoji: "🇮🇳", food: "Oh Ji, you have got to try some idli & dosa, na? Made from rice flour and urad dal, so yummy!", language: "People in this country speak so many languages depending on where they are from. Here in this region, we speak Kannada. (Nope, not like the Maple Leaf Country, though the name looks similar.)", religion: "There are some Muslims here and a few Christians, but almost everybody I know is Hindu!", initial_greetings: initialGreetings, dont_understand: dontUnderstand, greetings: greetings, ok: ok, correct: correct)
 kampala = City.create(name: "Kampala", state: "", country: "Republic of Uganda", continent: "Africa", language_name: "swahili", globe_emoji: "🌍", image_key: "WLmw8njZBsfBEgAOkaJF-w", flag_url: "https://www.countryflags.com/wp-content/uploads/uganda-flag-png-large.png", flag_emoji: "🇺🇬", food: "Please make time to try some Posho or Kwon while you are here! So yummy.", language: "There are over forty-three living languages throughout this country, and we are in the capital city right now! Though there are so many languages spoken here, Swahili and English are our two official languages.", religion: "The majority of people here are Christians, but you will encounter many Muslims as well.", initial_greetings: initialGreetings, dont_understand: dontUnderstand, greetings: greetings, ok: ok, correct: correct)
 ### translated & english ones below
 nyc= City.create(name: "New York City", state: "New York", country: "United States of America", continent: "North America",language_name: "english", globe_emoji: "🌎", image_key: "yoqbCIEHbWB16feLHU0saA", flag_url: "https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1200px-Flag_of_the_United_States.svg.png", flag_emoji: "🇺🇸", food: "You thought you knew what good pizza was until you had some from around here! Grab a bagel while you're at it.", language: "People in this city speak all kinds of languages! But the most common, in the city and the country, is definitely English.", religion: "This city is super religiously diverse, with lots people practicing all kinds of faiths. In this part of the city though, you'll also find lots of people who aren't particularly religious.", initial_greetings: initialGreetings, dont_understand: dontUnderstand, greetings: greetings, ok: ok, correct: correct)
+macau = City.create(name: "Macau", state: "Macau", country: "People's Republic of China", continent: "Asia", language_name: "chinese", globe_emoji: "🌏", image_key: "KGHbNmfZQ8z9BcWb1a_3lg", flag_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Flag_of_Macau.svg/1200px-Flag_of_Macau.svg.png", flag_emoji: "🇲🇴", food: macau_food, language: macau_language, religion: macau_religion, fact: macau_fact, initial_greetings: chineseInitialGreetings, dont_understand: chineseDontUnderstand, greetings: chineseGreetings, ok: chineseOK, correct: chineseCorrect)
+tokyo = City.create(name: "Tokyo", state: "Tokyo", country: "Japan", continent: "Asia", language_name: "japanese",globe_emoji: "🌏", image_key: "IlFyfyTOvBxFrskJKyOZ6Q", flag_url: "https://cdn11.bigcommerce.com/s-ey7tq/images/stencil/1280x1280/products/3342/18816/japan-flag__36690.1575327806.jpg?c=2", flag_emoji: "🇯🇵", food: tokyo_food, language: tokyo_language, religion: tokyo_religion, fact: tokyo_fact, initial_greetings: japaneseInitialGreetings, dont_understand: japaneseDontUnderstand, greetings: japaneseGreetings, ok: japaneseOK, correct: japaneseCorrect)
 lima = City.create(name: "Lima", state: "Lima", country: "Peru", continent: "South America", language_name: "spanish", globe_emoji: "🌎", image_key: "9VTHnaNzib-1zgdzaoLO7Q", flag_url: "https://upload.wikimedia.org/wikipedia/commons/d/df/Flag_of_Peru_%28state%29.svg", flag_emoji: "🇵🇪", food: lima_food, language: lima_language, religion: lima_religion, initial_greetings: spanishInitialGreetings, dont_understand: spanishDontUnderstand, greetings: spanishGreetings, ok: spanishOK, correct: spanishCorrect)
 toronto = City.create(name: "Toronto", state: "Ontario", country: "Canada", continent: "North America",language_name: "english", globe_emoji: "🌎", image_key: "rY7guF8KWnRuQ-GDKxuPTw", flag_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Flag_of_Canada_%28Pantone%29.svg/1200px-Flag_of_Canada_%28Pantone%29.svg.png", flag_emoji: "🇨🇦", food: "You should try a peameal bacon sandwich. I think you can get one down at the St. Lawrence Market, eh?", language: "Many people in other parts of the country speak French, and a few here do as well. But we primarily speak English here.", religion: "People here practice all kinds of religions, but most seem to be Catholics, Protestants, or not very religious.", initial_greetings: initialGreetings, dont_understand: dontUnderstand, greetings: greetings, ok: ok,  correct: correct)
 rome = City.create(name: "Rome", state: "Lazio", country: "Italy", continent: "Europe", language_name: "italian", globe_emoji: "🌍", image_key: "S42Qzdt2b6Zw0iSs6imTXw", flag_url: "https://upload.wikimedia.org/wikipedia/en/thumb/0/03/Flag_of_Italy.svg/1200px-Flag_of_Italy.svg.png", flag_emoji: "🇮🇹", food: rome_food, language: rome_language, religion: rome_religion, initial_greetings: italianInitialGreetings, dont_understand: italianDontUnderstand, greetings: italianGreetings, ok: italianOK, correct: italianCorrect)
@@ -413,7 +534,7 @@ sp = City.create(name: "São Paulo", state: "São Paulo", country: "Brazil", con
 zurich = City.create(name: "Zürich", state: "Zürich", country: "Switzerland", continent: "Europe",language_name: "german", globe_emoji: "🌍", image_key: "XPJZd38HsQTpdHPIFD0CHg", flag_url: "https://cdn11.bigcommerce.com/s-ey7tq/images/stencil/1280x1280/products/3631/18725/switzerland-flag__08778.1575332706.jpg?c=2", flag_emoji: "🇨🇭", food: zurich_food, language: zurich_language, religion: zurich_religion, initial_greetings: germanInitialGreetings, dont_understand: germanDontUnderstand, greetings: germanGreetings, ok: germanOK, correct: germanCorrect)
 auckland = City.create(name: "Auckland", state: "", country: "New Zealand", continent: "Oceania", language_name: "english", globe_emoji: "🌏", image_key: "ak-8QKbZlxIxgrfiHbrTbg", flag_url: "https://cdn.britannica.com/17/3017-004-F42D7C4D/Flag-New-Zealand.jpg", flag_emoji: "🇳🇿", food: "One traditional Maori dish that many love around here is called Hangi. A lot of locals eat it on special occasions, but as a tourist, you should make sure to try some!", language: "There are two official languages around here - English and Māori.", religion: "Many people, like me, are not religious at all. But you will find some Christians throughout the country.", initial_greetings: initialGreetings, dont_understand: dontUnderstand, greetings: greetings, ok: ok,  correct: correct)
 
-bb.passport.trips.create(city: macao, date_travelled: "Saturday August 8th 2020")
+bb.passport.trips.create(city: zurich, date_travelled: "Saturday August 8th 2020")
 bb.passport.trips.create(city: nyc, date_travelled: "Saturday October 10th 2020")
 
 

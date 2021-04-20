@@ -21,9 +21,11 @@ function Passport({ user, api }) {
         width: "100%",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
+        alignItems: "center",
       }}
     >
-      <h1>Here is your passport!</h1>
+      <div className="header">Here is your passport!</div>
+      <br />
       {trips.map((trip, i) => {
         return <Trip key={i} trip={trip} api={api} setTrips={setTrips} />;
       })}

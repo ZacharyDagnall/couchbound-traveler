@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   get "/usertrips/:id", to: "users#trips"
 
-  # get "/clientID", to: "application#clientID"
+  get "/clientID", to: "application#clientID"
 
   get "/city_info/:id", to: "cities#info"
 

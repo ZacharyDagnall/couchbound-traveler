@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import security from "./security.jpeg";
 
 function Signup({ api, setUser }) {
   const [errors, setErrors] = useState([]);
@@ -45,35 +46,54 @@ function Signup({ api, setUser }) {
   }
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="username"
-          placeholder="Pick a Username!"
-          value={userInfo.username}
-          onChange={handleChange}
-        ></input>
-        <br />
-        <input
-          type="password"
-          name="password"
-          placeholder="Choose a Password!"
-          value={userInfo.password}
-          onChange={handleChange}
-        ></input>
-        <br />
-        <button type="submit">Signup!</button>
-      </form>
-      {errors.length !== 0 ? (
-        <>
-          {errors.map((er, i) => (
-            <div key={i}>{er}</div>
-          ))}
-        </>
-      ) : null}
-      <button onClick={() => history.push("/login")}>Back to login...</button>
-    </>
+    <div
+      className="checkin"
+      style={{
+        background: `url(${security})`,
+        height: "100vh",
+        width: "100%",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+      }}
+    >
+      <div id="welcome-holder">
+        <span id="welcome-frame">
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              name="username"
+              className="field"
+              placeholder="Pick a Username!"
+              value={userInfo.username}
+              onChange={handleChange}
+            ></input>
+            <br />
+            <input
+              type="password"
+              name="password"
+              className="field"
+              placeholder="Choose a Password!"
+              value={userInfo.password}
+              onChange={handleChange}
+            ></input>
+            <br />
+            <button type="submit" className="field">
+              Signup!
+            </button>
+          </form>
+          {errors.length !== 0 ? (
+            <>
+              {errors.map((er, i) => (
+                <div key={i}>{er}</div>
+              ))}
+            </>
+          ) : null}
+          <button onClick={() => history.push("/login")} className="field">
+            Back to Check In...
+          </button>
+        </span>
+      </div>
+    </div>
   );
 }
 

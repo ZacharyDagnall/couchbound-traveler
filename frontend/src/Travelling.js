@@ -41,9 +41,11 @@ function Travelling({ travelMode, api, user }) {
     <div id="wrapper">
       <div>
         <div className="content">
-          Travelling can be a great way to find yourself!
-          <br />
-          Can you guess your location?
+          <div id="travelling-header">
+            Travelling can be a great way to <em>find yourself</em>!
+            <br />
+            Can you guess your location?
+          </div>
         </div>
         {/* <h3 className="content">{travelMode}!</h3>
         <div className="content">
@@ -86,7 +88,7 @@ function Travelling({ travelMode, api, user }) {
         ) : null}
       </div>
       <div className="background">
-        <Map imgKey={imgKey} />
+        <Map imgKey={imgKey} api={api} />
       </div>
 
       {travelMode === "Find Yourself" ? (

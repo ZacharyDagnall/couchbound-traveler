@@ -2,6 +2,9 @@ class User < ApplicationRecord
     has_secure_password
     has_one :passport
 
+    validates :username, presence: true, uniqueness: true 
+    validates :password, presence: true, length: {minimum: 5}
+
     after_create :create_passport
 
     def create_passport

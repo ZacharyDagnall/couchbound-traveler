@@ -66,21 +66,11 @@ function App() {
       ) : (
         <Switch>
           <Route exact path="/login">
-            <div id="welcome-holder">
-              <span id="welcome-frame">
-                <br></br>
-                <Login api={API} setUser={setUser} />
-              </span>
-            </div>
+            <Login api={API} setUser={setUser} />
           </Route>
 
           <Route path="/signup">
-            <div id="welcome-holder">
-              <span id="welcome-frame">
-                <br></br>
-                <Signup api={API} setUser={setUser} />
-              </span>
-            </div>
+            <Signup api={API} setUser={setUser} />
           </Route>
 
           <Route exact path="/info">

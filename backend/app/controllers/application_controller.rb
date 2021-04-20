@@ -9,9 +9,9 @@ class ApplicationController < ActionController::API
         render json: { errors: ["Unauthorized"] }, status: :unauthorized
     end
 
-    # def clientID
-    #   # yeah i guess it makes sense that this wouldn't work, otherwise i'd be breaking the secrecy that the ENV provides....
-    #   render json: ENV["MAPILLARY_CLIENT_ID"]
-    # end
+    def clientID
+      # yeah i guess it makes sense that this wouldn't work, otherwise i'd be breaking the secrecy that the ENV provides....
+      render json: {client_id: ENV["MAPILLARY_CLIENT_ID"]}
+    end
     
 end
