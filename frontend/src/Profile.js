@@ -120,7 +120,6 @@ function Profile({ user, api, setUser }) {
         <div className="modal">
           <form onSubmit={handlePasswordChange}>
             <h4>Change your password</h4>
-            <br />
             <input
               type="password"
               name="oldPassword"

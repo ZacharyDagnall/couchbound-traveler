@@ -1,4 +1,4 @@
-bb = User.create(username: "Zak", password: "abc123")
+zak = User.create(username: "Zak", password: "abc123")
 
 initialGreetings = [
       "Hello! Nice to meet you. If there's something specific you're looking for, I might be able to help.",
@@ -653,8 +653,8 @@ sp = City.create(name: "São Paulo", state: "São Paulo", country: "Brazil", con
 zurich = City.create(name: "Zürich", state: "Zürich", country: "Switzerland", continent: "Europe",language_name: "german", globe_emoji: "🌍", image_key: "XPJZd38HsQTpdHPIFD0CHg", flag_url: "https://cdn11.bigcommerce.com/s-ey7tq/images/stencil/1280x1280/products/3631/18725/switzerland-flag__08778.1575332706.jpg?c=2", flag_emoji: "🇨🇭", food: zurich_food, language: zurich_language, religion: zurich_religion, initial_greetings: germanInitialGreetings, dont_understand: germanDontUnderstand, greetings: germanGreetings, ok: germanOK, correct: germanCorrect)
 auckland = City.create(name: "Auckland", state: "", country: "New Zealand", continent: "Oceania", language_name: "english", globe_emoji: "🌏", image_key: "ak-8QKbZlxIxgrfiHbrTbg", flag_url: "https://cdn.britannica.com/17/3017-004-F42D7C4D/Flag-New-Zealand.jpg", flag_emoji: "🇳🇿", food: "One traditional Maori dish that many love around here is called Hangi. A lot of locals eat it on special occasions, but as a tourist, you should make sure to try some!", language: "There are two official languages around here - English and Māori.", religion: "Many people, like me, are not religious at all. But you will find some Christians throughout the country.", initial_greetings: initialGreetings, dont_understand: dontUnderstand, greetings: greetings, ok: ok,  correct: correct)
 
-bb.passport.trips.create(city: macau, date_travelled: "Saturday August 8th 2020")
-bb.passport.trips.create(city: nyc, date_travelled: "Saturday October 10th 2020")
+zak.passport.trips.create(city: macau, date_travelled: "Saturday August 8th 2020")
+zak.passport.trips.create(city: nyc, date_travelled: "Saturday October 10th 2020")
 
 
 

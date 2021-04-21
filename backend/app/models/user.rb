@@ -16,10 +16,11 @@ class User < ApplicationRecord
     end
 
     def next_city
-        # been_there = self.passport.trips.map{|trip| trip.city}              # cities you've already traveled to
-        # less_wandered = City.all.filter{|city| !been_there.include?(city)}  # cities you haven't traveled to yet
-        # less_wandered.empty? ? City.all.sample : less_wandered.sample
-        City.all.sample
+        been_there = self.passport.trips.map{|trip| trip.city}              # cities you've already traveled to
+        less_wandered = City.all.filter{|city| !been_there.include?(city)}  # cities you haven't traveled to yet
+        # less_wandered.push(City.find_by(name: "Macau"))             # for prez only, since Macau is pre-seeded into passport, but still want to possibly go there
+        # less_wandered.push(City.find_by(name: "New York City"))     # for prez only, since NYC is pre-seeded into passport, but still want to possibly go there
+        less_wandered.empty? ? City.all.sample : less_wandered.sample
     end
 
 end

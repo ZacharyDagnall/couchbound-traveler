@@ -10,7 +10,7 @@ function Chat({
 }) {
   const [newMessage, setNewMessage] = useState("");
   const [secretFlag, setSecretFlag] = useState(false);
-  const [showEnglishWord, setShowEnglishWord] = useState(false);
+  // const [showEnglishWord, setShowEnglishWord] = useState(false);
 
   function handleSend(e) {
     e.preventDefault();
@@ -27,7 +27,7 @@ function Chat({
   function botReply() {
     let facts;
     if (address.fact) {
-      facts = [address.food, address.language, address.religion, address.fact];
+      facts = [address.food, address.language, address.religion]; // , address.fact
     } else {
       facts = [address.food, address.language, address.religion];
     }
@@ -51,15 +51,7 @@ function Chat({
         ...messages,
         {
           who: "bot",
-          text:
-            typeof correct === "string"
-              ? correct
-              : englishOnly
-              ? correct.english_sentence
-              : {
-                  l: correct.in_language,
-                  t: correct.translation_arr,
-                },
+          text: correct,
         },
       ]);
     } else if (msg.includes("are we in")) {
@@ -68,15 +60,7 @@ function Chat({
         ...messages,
         {
           who: "bot",
-          text:
-            typeof incorrect === "string"
-              ? incorrect
-              : englishOnly
-              ? incorrect.english_sentence
-              : {
-                  l: incorrect.in_language,
-                  t: incorrect.translation_arr,
-                },
+          text: incorrect,
         },
       ]);
     } else if (includesFood(msg)) {
@@ -84,15 +68,7 @@ function Chat({
         ...messages,
         {
           who: "bot",
-          text:
-            typeof address.food === "string"
-              ? address.food
-              : englishOnly
-              ? address.food.english_sentence
-              : {
-                  l: address.food.in_language,
-                  t: address.food.translation_arr,
-                },
+          text: address.food,
         },
       ]);
     } else if (includesLanguage(msg)) {
@@ -100,15 +76,7 @@ function Chat({
         ...messages,
         {
           who: "bot",
-          text:
-            typeof address.language === "string"
-              ? address.language
-              : englishOnly
-              ? address.language.english_sentence
-              : {
-                  l: address.language.in_language,
-                  t: address.language.translation_arr,
-                },
+          text: address.language,
         },
       ]);
     } else if (includesReligion(msg)) {
@@ -116,15 +84,21 @@ function Chat({
         ...messages,
         {
           who: "bot",
-          text:
-            typeof address.religion === "string"
-              ? address.religion
-              : englishOnly
-              ? address.religion.english_sentence
-              : {
-                  l: address.religion.in_language,
-                  t: address.religion.translation_arr,
-                },
+          text: address.religion,
+        },
+      ]);
+    } else if (
+      (msg.includes("information") ||
+        msg.includes("facts") ||
+        msg.includes("interesting") ||
+        msg.includes("this place")) &&
+      aFact
+    ) {
+      setMessages((messages) => [
+        ...messages,
+        {
+          who: "bot",
+          text: aFact,
         },
       ]);
     } else if (
@@ -138,15 +112,7 @@ function Chat({
         ...messages,
         {
           who: "bot",
-          text:
-            typeof fact === "string"
-              ? fact
-              : englishOnly
-              ? fact.english_sentence
-              : {
-                  l: fact.in_language,
-                  t: fact.translation_arr,
-                },
+          text: fact,
         },
       ]);
     } else if (messages.length <= 1) {
@@ -156,15 +122,15 @@ function Chat({
         ...messages,
         {
           who: "bot",
-          text:
-            typeof greeting === "string"
-              ? greeting
-              : englishOnly
-              ? greeting.english_sentence
-              : {
-                  l: greeting.in_language,
-                  t: greeting.translation_arr,
-                },
+          text: greeting,
+        },
+      ]);
+    } else if (includesRepeat(msg)) {
+      setMessages((messages) => [
+        ...messages,
+        {
+          who: "bot",
+          text: messages[messages.length - 2].text,
         },
       ]);
     } else if (
@@ -182,20 +148,12 @@ function Chat({
         ...messages,
         {
           who: "bot",
-          text:
-            typeof okay === "string"
-              ? okay
-              : englishOnly
-              ? okay.english_sentence
-              : {
-                  l: okay.in_language,
-                  t: okay.translation_arr,
-                },
+          text: okay,
         },
       ]);
     } else if (
       msg.includes("hey") ||
-      // msg.includes("yo") ||    //this doesn't work because it catches too many words like you and yogurt
+      msg === "yo" ||
       msg.includes("whatsup") ||
       msg.includes("whatsgood") ||
       msg.includes("what's up") ||
@@ -214,15 +172,7 @@ function Chat({
         ...messages,
         {
           who: "bot",
-          text:
-            typeof greeting === "string"
-              ? greeting
-              : englishOnly
-              ? greeting.english_sentence
-              : {
-                  l: greeting.in_language,
-                  t: greeting.translation_arr,
-                },
+          text: greeting,
         },
       ]);
     } else {
@@ -232,15 +182,7 @@ function Chat({
         ...messages,
         {
           who: "bot",
-          text:
-            typeof du === "string"
-              ? du
-              : englishOnly
-              ? du.english_sentence
-              : {
-                  l: du.in_language,
-                  t: du.translation_arr,
-                },
+          text: du,
         },
       ]);
     }
@@ -254,7 +196,7 @@ function Chat({
       "breakfast",
       "hungry",
       "snack",
-      "eat",
+      " eat",
       "grub",
       "meal",
       "bite",
@@ -453,6 +395,84 @@ function Chat({
     }
   }
 
+  function includesRepeat(msg) {
+    let english = ["repeat", "one more time", "again"];
+    // let spanish = [
+    //   "religión",
+    //   "religioso",
+    //   "santo",
+    //   "piadoso",
+    //   "rezar",
+    //   "Dios",
+    //   "Adoración",
+    //   "templo",
+    //   "sinagoga",
+    //   "Iglesia",
+    // ];
+    // let french = [
+    //   "religion",
+    //   "religieux",
+    //   "Saint",
+    //   "pieux",
+    //   "prier",
+    //   "dieu",
+    //   "culte",
+    //   "temple",
+    //   "synagogue",
+    //   "église",
+    // ];
+    // let german = [
+    //   "religion",
+    //   "religiös",
+    //   "heilig",
+    //   "göttlich",
+    //   "beten",
+    //   "gott",
+    //   "anbetung",
+    //   "tempel",
+    //   "synagoge",
+    //   "kirche",
+    // ];
+    // let portuguese = [
+    //   "religião",
+    //   "religioso",
+    //   "sagrado",
+    //   "piedoso",
+    //   "rezar",
+    //   "deus",
+    //   "adoração",
+    //   "têmpora",
+    //   "sinagoga",
+    //   "Igreja",
+    // ];
+    // let italian = [
+    //   "religione",
+    //   "religioso",
+    //   "santo",
+    //   "pio",
+    //   "pregare",
+    //   "Dio",
+    //   "culto",
+    //   "tempio",
+    //   "sinagoga",
+    //   "Chiesa",
+    // ];
+
+    // if (address.language_name === "spanish") {
+    //   return checkTwoArrForString(english, spanish, msg);
+    // } else if (address.language_name === "german") {
+    //   return checkTwoArrForString(english, german, msg);
+    // } else if (address.language_name === "italian") {
+    //   return checkTwoArrForString(english, italian, msg);
+    // } else if (address.language_name === "french") {
+    //   return checkTwoArrForString(english, french, msg);
+    // } else if (address.language_name === "portuguese") {
+    //   return checkTwoArrForString(english, portuguese, msg);
+    // } else {
+    return checkTwoArrForString(english, english, msg);
+    // }
+  }
+
   function checkTwoArrForString(arr1, arr2, str) {
     // two arr expected to have same length
     for (let i = 0; i < arr1.length; i++) {
@@ -478,7 +498,11 @@ function Chat({
     <div className="chat">
       <div className="head">
         Chat
-        <span className="close-mode-box" onClick={(e) => setChatShowing(false)}>
+        <span
+          className="close-mode-box"
+          style={{ backgroundColor: "#2d3436" }}
+          onClick={(e) => setChatShowing(false)}
+        >
           ―
         </span>
       </div>
@@ -504,6 +528,22 @@ function Chat({
                 <span>
                   {typeof m.text === "string"
                     ? m.text
+                    : englishOnly
+                    ? m.text.english_sentence
+                    : m.text.in_language.map((word, i) => (
+                        <>
+                          <span className="tooltip">
+                            {word}
+                            {m.text.translation_arr[i] ? (
+                              <span class="tooltiptext">
+                                {m.text.translation_arr[i]}
+                              </span>
+                            ) : null}
+                          </span>{" "}
+                        </>
+                      ))}
+                  {/* {typeof m.text === "string"
+                    ? m.text
                     : m.text.l.map((word, i) => (
                         <>
                           <span className="tooltip">
@@ -513,7 +553,7 @@ function Chat({
                             ) : null}
                           </span>{" "}
                         </>
-                      ))}
+                      ))} */}
                 </span>{" "}
               </>
             ) : (
