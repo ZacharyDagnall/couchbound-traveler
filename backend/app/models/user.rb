@@ -16,9 +16,10 @@ class User < ApplicationRecord
     end
 
     def next_city
-        been_there = self.passport.trips.map{|trip| trip.city}              # cities you've already traveled to
-        less_wandered = City.all.filter{|city| !been_there.include?(city)}  # cities you haven't traveled to yet
-        less_wandered.empty? ? City.all.sample : less_wandered.sample
+        # been_there = self.passport.trips.map{|trip| trip.city}              # cities you've already traveled to
+        # less_wandered = City.all.filter{|city| !been_there.include?(city)}  # cities you haven't traveled to yet
+        # less_wandered.empty? ? City.all.sample : less_wandered.sample
+        City.all.sample
     end
 
 end

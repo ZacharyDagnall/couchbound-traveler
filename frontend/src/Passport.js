@@ -24,11 +24,7 @@ function Passport({ user, api }) {
         alignItems: "center",
       }}
     >
-      <div className="header">Here is your passport!</div>
-      <br />
-      {trips.map((trip, i) => {
-        return <Trip key={i} trip={trip} api={api} setTrips={setTrips} />;
-      })}
+      <div className="content">Here is your passport!</div>
       <br></br>
       <div
         className="content content-button"
@@ -37,6 +33,10 @@ function Passport({ user, api }) {
       >
         Back to Terminal
       </div>
+      <br />
+      {trips.map((trip, i) => {
+        return <Trip key={i} trip={trip} api={api} setTrips={setTrips} />;
+      })}
     </div>
   );
 }

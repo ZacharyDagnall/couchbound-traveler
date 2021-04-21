@@ -41,7 +41,7 @@ function Info() {
         </p>
         <small>
           Warning! If you are motion-sensitive, be careful with using the
-          space-bar, as some image sequences may cause dizziness to some users.
+          space-bar, as some image sequences can be a tad jarring.
         </small>
         <p>
           If you want to ask questions about the city or country that you are
@@ -54,7 +54,7 @@ function Info() {
           English.) If you wish to disable this feature, you can kindly request
           that the local speak to you in English only, by clicking on the little
           British flag inside of the chat box. To turn it back on again, just
-          click on the little globe.
+          click on the little globe that replaced the flag.
         </p>
         <p>
           If you feel you have a pretty good guess of where you are, click on

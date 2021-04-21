@@ -99,7 +99,7 @@ function Profile({ user, api, setUser }) {
       <div className={usernameModalShowing ? "modal-bg bg-active" : "modal-bg"}>
         <div className="modal">
           <form onSubmit={handleUsernameChange}>
-            <h5>Update your username</h5>
+            <h4>Update your username</h4>
             <input
               value={newsername}
               className="modal-piece"
@@ -119,7 +119,7 @@ function Profile({ user, api, setUser }) {
       <div className={passwordModalShowing ? "modal-bg bg-active" : "modal-bg"}>
         <div className="modal">
           <form onSubmit={handlePasswordChange}>
-            <h5>Change your password</h5>
+            <h4>Change your password</h4>
             <br />
             <input
               type="password"

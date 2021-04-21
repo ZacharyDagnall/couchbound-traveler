@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from "react";
-// import { FixedSizeList, VariableSizeList } from "react-window";
 
 function Chat({
   setChatShowing,
@@ -26,13 +25,19 @@ function Chat({
   }
 
   function botReply() {
-    let facts = [address.food, address.language, address.religion];
+    let facts;
+    if (address.fact) {
+      facts = [address.food, address.language, address.religion, address.fact];
+    } else {
+      facts = [address.food, address.language, address.religion];
+    }
     let initialGreetings = address.initial_greetings;
     let dontUnderstand = address.dont_understand;
     let greetings = address.greetings;
     let ok = address.ok;
     let correct = address.correct.yes;
     let incorrect = address.correct.no;
+    let aFact = address.fact;
 
     let msg = newMessage.toLocaleLowerCase();
 
@@ -506,7 +511,7 @@ function Chat({
                             {m.text.t[i] ? (
                               <span class="tooltiptext">{m.text.t[i]}</span>
                             ) : null}
-                          </span>
+                          </span>{" "}
                         </>
                       ))}
                 </span>{" "}

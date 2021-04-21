@@ -31,9 +31,10 @@ code {
   /* z-index: 100; */
   padding: 3px;
   border-radius: 10px;
-  background-color: red;
+  background-color: navy;
   display: inline-block;
   margin: 5px 5px 5px 5px;
+  box-shadow: -3px 5px black;
 }
 
 Draggable {
@@ -90,6 +91,10 @@ button {
   font-weight: bold;
 }
 
+.revealed-info {
+  color: white;
+}
+
 .background {
   /* color: #999999; */
   position: absolute;
@@ -112,8 +117,7 @@ button {
   background-color: rgba(230, 255, 255, 0.75);
   color: black;
   border: 4px solid #002d62;
-  /* box-shadow: 2px 2px black; */
-  box-shadow: 3px 3px 5px black;
+  box-shadow: -3px 5px black;
   line-height: 2.5;
   position: relative;
 }
@@ -150,7 +154,6 @@ button {
 
 .modal {
   position: relative;
-  background-color: aqua;
   min-width: 30%;
   min-height: 30%;
   display: flex;
@@ -158,8 +161,26 @@ button {
   align-items: center;
   flex-direction: column;
   border-radius: 30px;
-  box-shadow: -9px 12px grey;
-  background-color: beige;
+  box-shadow: -3px 5px black;
+  background-color: #0014a8;
+}
+
+input {
+  border: 2px solid black;
+}
+
+h4 {
+  color: #87cefa;
+}
+
+#please-remove-shoes {
+  border: 2px solid black;
+  margin: 6px 4px 4px 4px;
+  background-color: #0014a8;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  padding: 4px;
 }
 
 .close-mode-box {
@@ -227,15 +248,15 @@ button {
 .header {
   position: relative;
   left: 40vw;
-  color: black;
+  color: white;
   display: inline-block;
   border-radius: 4px;
   padding: 4px;
   margin: 10px 3px 3px 3px;
   font-size: 25px;
-  background-color: beige;
+  background-color: navy;
   box-shadow: 3px 3px 5px black;
-  text-shadow: -1px -1px 1px white, 1px 1px 1px white;
+  /* text-shadow: -1px -1px 1px white, 1px 1px 1px white; */
 }
 
 /* copied */
@@ -299,6 +320,9 @@ button {
   /* height: 80vh; */
   margin: 10px 30px 10px 30px;
   padding: 10px;
+  border: 3px solid black;
+  box-shadow: -3px 5px black;
+  border-radius: 10px;
 }
 
 /* below is for translating words into english on hover, mostly taken from W3Schools*/

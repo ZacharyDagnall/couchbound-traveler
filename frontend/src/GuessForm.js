@@ -185,6 +185,7 @@ function GuessForm({ address, modalShowing, setModalShowing }) {
               id="continent"
               type="text"
               placeholder="Continent"
+              className="modal-piece"
               value={guessAddress.continent.name}
               onChange={handleFormChange}
             ></input>
@@ -194,20 +195,22 @@ function GuessForm({ address, modalShowing, setModalShowing }) {
                   className="guess-status"
                   style={
                     guessAddress.continent.status === "You guessed it!"
-                      ? { color: "green" }
-                      : { color: "red" }
+                      ? { color: "#87CEFA" }
+                      : { color: "yellow" }
                   }
                 >
                   {guessAddress.continent.status}
                 </small>
               </div>
             ) : null}
-            {revealed ? <div>{address.continent}</div> : null}
+            {revealed ? (
+              <div className="revealed-info">{address.continent}</div>
+            ) : null}
           </div>
         ) : (
           <input
             id="continent"
-            className="field"
+            className="modal-piece"
             type="text"
             placeholder="No Continent information available"
             readOnly
@@ -222,6 +225,7 @@ function GuessForm({ address, modalShowing, setModalShowing }) {
               id="country"
               type="text"
               placeholder="Country"
+              className="modal-piece"
               value={guessAddress.country.name}
               onChange={handleFormChange}
             ></input>
@@ -231,20 +235,22 @@ function GuessForm({ address, modalShowing, setModalShowing }) {
                   className="guess-status"
                   style={
                     guessAddress.country.status === "You guessed it!"
-                      ? { color: "green" }
-                      : { color: "red" }
+                      ? { color: "#87CEFA" }
+                      : { color: "yellow" }
                   }
                 >
                   {guessAddress.country.status}
                 </small>
               </div>
             ) : null}
-            {revealed ? <div>{address.country}</div> : null}
+            {revealed ? (
+              <div className="revealed-info">{address.country}</div>
+            ) : null}
           </div>
         ) : (
           <input
             id="country"
-            className="field"
+            className="modal-piece"
             type="text"
             placeholder="No Country information available"
             readOnly
@@ -259,6 +265,7 @@ function GuessForm({ address, modalShowing, setModalShowing }) {
               id="state"
               type="text"
               placeholder="State/Region"
+              className="modal-piece"
               value={guessAddress.state.name}
               onChange={handleFormChange}
             ></input>
@@ -268,19 +275,21 @@ function GuessForm({ address, modalShowing, setModalShowing }) {
                   className="guess-status"
                   style={
                     guessAddress.state.status === "You guessed it!"
-                      ? { color: "green" }
-                      : { color: "red" }
+                      ? { color: "#87CEFA" }
+                      : { color: "yellow" }
                   }
                 >
                   {guessAddress.state.status}
                 </small>
               </div>
             ) : null}
-            {revealed ? <div>{address.state}</div> : null}
+            {revealed ? (
+              <div className="revealed-info">{address.state}</div>
+            ) : null}
           </div>
         ) : (
           <input
-            className="field"
+            className="modal-piece"
             id="state"
             type="text"
             placeholder="No State/Region information available"
@@ -296,6 +305,7 @@ function GuessForm({ address, modalShowing, setModalShowing }) {
               id="city"
               type="text"
               placeholder="City"
+              className="modal-piece"
               value={guessAddress.city.name}
               onChange={handleFormChange}
             ></input>
@@ -305,20 +315,22 @@ function GuessForm({ address, modalShowing, setModalShowing }) {
                   className="guess-status"
                   style={
                     guessAddress.city.status === "You guessed it!"
-                      ? { color: "green" }
-                      : { color: "red" }
+                      ? { color: "#87CEFA" }
+                      : { color: "yellow" }
                   }
                 >
                   {guessAddress.city.status}
                 </small>
               </div>
             ) : null}
-            {revealed ? <div>{address.name}</div> : null}
+            {revealed ? (
+              <div className="revealed-info">{address.name}</div>
+            ) : null}
           </div>
         ) : (
           <input
             id="city"
-            className="field"
+            className="modal-piece"
             type="text"
             placeholder="No City information available"
             readOnly

@@ -101,7 +101,9 @@ function Login({ api, setUser }) {
               onChange={handleChange}
             ></input>
             <br />
-            <div>Please remove your shoes and place them in the bin</div>
+            <div id="please-remove-shoes">
+              Please remove your shoes and place them in the bin
+            </div>
             {positionNearEnough(sockPosition, shoePosition) ? null : (
               <Draggable
                 defaultPosition={sockPosition}
