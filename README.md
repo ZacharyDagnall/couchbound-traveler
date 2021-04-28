@@ -24,7 +24,7 @@ Couchbound Traveler's React frontend has primarily all custom CSS, with the exce
 
 ## Future Developments
 
-Some future developments could be:
+Some future developments should be:
 
 - More cities in database
 - More robust language support (utilizing a translation API)
