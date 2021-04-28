@@ -574,7 +574,6 @@ zurich_religion = {in_language: ["Einige ","Leute ","hier ","sind ","nicht ","be
                 translation_arr: ["some", "people", "here", "are", "not", "especially", "religious", "but", "the", "most", "people", "here", "like", "I", "follow", "one", "denomination", "of","Christianity"],
                 english_sentence: "Several people here aren't particularly religious, but most people around here, like myself, follow some denomination of Christianity."}
 
-
 ### template    
 # frenchInitialGreetings = [
 #     {in_language: [],

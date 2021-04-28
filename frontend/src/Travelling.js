@@ -8,7 +8,7 @@ function Travelling({ travelMode, api, user }) {
   const [modalShowing, setModalShowing] = useState(false);
   const [chatShowing, setChatShowing] = useState(false);
   const [englishOnly, setEnglishOnly] = useState(false);
-  const [imgKey, setImgKey] = useState("KGHbNmfZQ8z9BcWb1a_3lg"); //defaults to Macao, arbitrarily in case any problem with fetch
+  const [imgKey, setImgKey] = useState("KGHbNmfZQ8z9BcWb1a_3lg"); //defaults to Macao (arbitrarily) in case of any problem with fetch
   const [address, setAddress] = useState({
     name: "Macao",
     state: "Macao",
