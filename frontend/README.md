@@ -8,7 +8,7 @@ This app is designed to emulate a world traveling experience. A User can log in 
 
 ## Technical
 
-This app was built using a Rails backend and a React frontend, and it's main functionality comes from utilizing MapillaryViewer from the [react-mapillary](https://www.npmjs.com/package/react-mapillary) library, which utilizes [Mapillary](https://www.mapillary.com/)'s API.
+This app was built using a Rails backend and a React frontend, and it's main functionality comes from utilizing MapillaryViewer from the <a href="https://www.npmjs.com/package/react-mapillary" target="_blank">react-mapillary</a> library, which utilizes [Mapillary](https://www.mapillary.com/)'s API.
 
 Couchbound Traveler's Rails [backend](https://github.com/ZacharyDagnall/couchbound-traveler/tree/master/backend) uses PostgreSQL for its structure of four models:
 
